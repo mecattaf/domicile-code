@@ -31,6 +31,7 @@ C1.2 Moving, hiding and revealing the Explorer → the original Part, editor mod
 C1.3 A native toplevel appears and remains selected during workbench layout changes → its live pixels remain visible and its application, process and surface identities remain associated. [prove: P1.3]
 C1.4 A selected native window closes or the native list becomes empty → the shell selects an existing window or shows an explicit empty state without retaining a dead selection. [prove: P1.4]
 C1.5 Workbench initialization fails → the shell exposes the error and does not substitute a mock editor or a success receipt. [prove: P1.5]
+C1.6 The Explorer floats outside the workbench grid and is dragged over a native application → its actual Part, model and selection remain associated, and docking returns the original Part to the grid. [prove: P1.6]
 
 ### Stage B: shared desktop and interaction
 

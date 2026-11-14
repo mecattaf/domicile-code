@@ -1,0 +1,17 @@
+{
+  "result": "pass",
+  "at": "2026-11-14T22:48:22.066Z",
+  "playback": {
+    "currentTime": 0.514249,
+    "duration": 18,
+    "width": 1436,
+    "height": 872,
+    "readyState": 4,
+    "paused": false,
+    "error": null,
+    "quality": {
+      "totalVideoFrames": 17,
+      "droppedVideoFrames": 0
+    }
+  }
+}

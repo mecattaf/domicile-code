@@ -220,3 +220,57 @@ select {
   color: #fff;
   z-index: 99999;
 }
+
+.dc-float {
+  position: fixed;
+  width: 300px;
+  height: 420px;
+  z-index: 50;
+  border: 1px solid var(--vscode-panel-border, #444);
+  background: var(--vscode-sideBar-background, #181818);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.dc-float-header {
+  height: 28px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  cursor: move;
+  user-select: none;
+  touch-action: none;
+  border-bottom: 1px solid var(--vscode-panel-border, #444);
+}
+
+.dc-float-header button {
+  font-size: 12px;
+  font-weight: normal;
+  background: transparent;
+  color: var(--vscode-foreground, #ccc);
+  border: none;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.dc-float-header button:hover {
+  background: var(--vscode-toolbar-hoverBackground, rgba(255, 255, 255, 0.1));
+}
+
+.dc-float-body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.dc-sidebar.dc-sidebar-floating {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}

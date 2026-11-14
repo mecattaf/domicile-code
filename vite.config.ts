@@ -1,4 +1,5 @@
 import { defineConfig, type Plugin } from 'vite';
+import { posix } from 'node:path';
 
 const shellPlugin = (): Plugin => ({
   name: 'shell-css-inject',
@@ -8,7 +9,14 @@ const shellPlugin = (): Plugin => ({
     for (const key of Object.keys(bundle)) {
       const asset = bundle[key];
       if (asset.type === 'asset' && asset.fileName.endsWith('.css')) {
-        css += typeof asset.source === 'string' ? asset.source : Buffer.from(asset.source).toString('utf-8');
+        const text = typeof asset.source === 'string' ? asset.source : Buffer.from(asset.source).toString('utf-8');
+        // A stylesheet under assets/ resolves relative URLs there. Inlining
+        // must preserve that location when the shell document owns the style.
+        css += text.replace(/url\(\s*(?:(["'])(.*?)\1|([^"')\s]+))\s*\)/g, (original, _quote, quoted, bare) => {
+          const value = quoted ?? bare;
+          if (!value || /^(?:[a-z][a-z0-9+.-]*:|\/|#)/i.test(value)) return original;
+          return `url(${JSON.stringify(`./${posix.join(posix.dirname(asset.fileName), value)}`)})`;
+        });
         cssKeys.push(key);
       }
     }

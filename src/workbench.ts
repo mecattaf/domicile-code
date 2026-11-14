@@ -20,12 +20,13 @@ import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import TextmateWorker from '@codingame/monaco-vscode-textmate-service-override/worker?worker';
 import '@codingame/monaco-vscode-theme-defaults-default-extension';
 import '@codingame/monaco-vscode-typescript-basics-default-extension';
+import { createFloatingSidebar } from './floating-sidebar';
 
 export type SidebarSide = 'left' | 'right';
 let mounted = false;
 
 /** One workbench service graph owns all the Parts in this document. */
-export async function mountWorkbench(root: HTMLElement) {
+export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () => void } = {}) {
   if (mounted) throw new Error('A workbench is already mounted in this document');
   mounted = true;
   (globalThis as typeof globalThis & { MonacoEnvironment: unknown }).MonacoEnvironment = {
@@ -71,6 +72,7 @@ export async function mountWorkbench(root: HTMLElement) {
     <span class="dc-title">Domicile Code</span>
     <button type="button" data-action="move-sidebar">Move Explorer right</button>
     <button type="button" data-action="toggle-sidebar">Hide Explorer</button>
+    <button type="button" data-action="float-sidebar">Float Explorer</button>
   </header>
   <section class="dc-grid" data-side="left">
     <nav class="dc-activity" aria-label="VS Code activity bar"></nav>
@@ -82,6 +84,14 @@ export async function mountWorkbench(root: HTMLElement) {
   const sidebar = host.querySelector<HTMLElement>('.dc-sidebar')!;
   const move = host.querySelector<HTMLButtonElement>('[data-action="move-sidebar"]')!;
   const toggle = host.querySelector<HTMLButtonElement>('[data-action="toggle-sidebar"]')!;
+  const float = host.querySelector<HTMLButtonElement>('[data-action="float-sidebar"]')!;
+  const floating = createFloatingSidebar(sidebar, grid, {
+    onFocus: options.onFocus,
+    onChange: value => {
+      float.textContent = value ? 'Dock Explorer' : 'Float Explorer';
+      float.setAttribute('aria-pressed', String(value));
+    },
+  });
 
   await initialize({
     ...getFilesServiceOverride(),
@@ -113,13 +123,20 @@ export async function mountWorkbench(root: HTMLElement) {
     const region = host.querySelector<HTMLElement>(selector)!;
     attachPart(part, region);
     region.hidden = !isPartVisibile(part);
-    onPartVisibilityChange(part, visible => { region.hidden = !visible; });
+    onPartVisibilityChange(part, visible => {
+      region.hidden = !visible;
+      if (part === Parts.SIDEBAR_PART) {
+        floating.setVisible(visible);
+        toggle.textContent = visible ? 'Hide Explorer' : 'Show Explorer';
+      }
+    });
   }
   const layout = await getService(IWorkbenchLayoutService);
   const editors = await getService(IEditorService);
   await editors.openEditor({ resource: fixture, options: { pinned: true } });
   layout.setPartHidden(false, Parts.SIDEBAR_PART);
   layout.setPartHidden(true, Parts.PANEL_PART);
+  floating.setVisible(!sidebar.hidden);
 
   const sidebarPart = sidebar.firstElementChild;
   const setSidebarSide = (side: SidebarSide) => {
@@ -133,15 +150,20 @@ export async function mountWorkbench(root: HTMLElement) {
   };
   move.addEventListener('click', () => setSidebarSide(grid.dataset.side === 'left' ? 'right' : 'left'));
   toggle.addEventListener('click', () => setSidebarVisible(!!sidebar.hidden));
+  float.addEventListener('click', () => floating.setFloating(!floating.isFloating()));
 
   return {
     setSidebarSide,
     setSidebarVisible,
+    setSidebarFloating: floating.setFloating,
     snapshot() {
-      const model = editor.getModels().find(candidate => candidate.uri.toString() === fixture.toString());
+      const resource = editors.activeEditor?.resource?.toString();
+      const model = editor.getModels().find(candidate => candidate.uri.toString() === resource);
       const control = editors.activeTextEditorControl;
       return {
         sidebarSide: grid.dataset.side,
+        sidebarMode: floating.isFloating() ? 'floating' : 'docked',
+        floatingRect: floating.rect()?.toJSON() ?? null,
         sidebarVisible: !sidebar.hidden,
         sidebarPartRetained: sidebar.firstElementChild === sidebarPart,
         sidebarRect: sidebar.getBoundingClientRect().toJSON(),

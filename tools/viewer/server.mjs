@@ -29,8 +29,10 @@ function send(ws, message) { if (ws.readyState === WebSocket.OPEN) ws.send(JSON.
 async function updateSource() {
   const state = await snapshot(session.page);
   const viewport = await session.page.evaluate(() => ({ width: innerWidth, height: innerHeight, devicePixelRatio }));
-  if (source && state.sceneId !== source.sceneId) observations.clear();
+  const changed = source && (state.sceneId !== source.sceneId || JSON.stringify(viewport) !== JSON.stringify(source.viewport));
+  if (changed) observations.clear();
   source = { sceneId: state.sceneId, viewport, targetId: values.target, output: values.output, serverId };
+  if (changed) broadcastState();
   return state;
 }
 function broadcastState() {
@@ -84,7 +86,11 @@ async function act(client, message) {
     assert(['none', 'left', 'middle', 'right'].includes(action.button), 'Unknown pointer button');
     assert(Number.isInteger(action.buttons) && action.buttons >= 0 && action.buttons <= 7, 'Invalid pointer buttons');
     pointer = point(action);
-    await cdp.send('Input.dispatchMouseEvent', { type: { move: 'mouseMoved', down: 'mousePressed', up: 'mouseReleased' }[action.event], ...pointer, button: action.button, buttons: action.buttons, modifiers, clickCount: action.event === 'move' ? 0 : 1 });
+    const heldButton = action.buttons & 1 ? 'left' : action.buttons & 2 ? 'right' : action.buttons & 4 ? 'middle' : 'none';
+    // CDP requires the held button during a drag, even though a DOM move's
+    // changed-button field is "none". Without it pointer capture is lost.
+    const button = action.event === 'move' ? heldButton : action.button;
+    await cdp.send('Input.dispatchMouseEvent', { type: { move: 'mouseMoved', down: 'mousePressed', up: 'mouseReleased' }[action.event], ...pointer, button, buttons: action.buttons, modifiers, clickCount: action.event === 'move' ? 0 : 1 });
     heldButtons = action.buttons;
   } else if (action.kind === 'wheel') {
     assert(Number.isFinite(action.deltaX) && Number.isFinite(action.deltaY) && Math.abs(action.deltaX) <= 10000 && Math.abs(action.deltaY) <= 10000, 'Invalid wheel delta');
@@ -104,7 +110,7 @@ async function act(client, message) {
 await updateSource();
 await log({ event: 'start', source });
 const assets = new Map([
-  ['/', ['index.html', 'text/html']], ['/client.js', ['client.js', 'text/javascript']], ['/style.css', ['style.css', 'text/css']],
+  ['/', ['index.html', 'text/html']], ['/client.js', ['client.js', 'text/javascript']], ['/coordinates.js', ['coordinates.js', 'text/javascript']], ['/style.css', ['style.css', 'text/css']],
 ]);
 const server = http.createServer(async (request, response) => {
   try {

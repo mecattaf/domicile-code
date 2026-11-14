@@ -1,3 +1,5 @@
+import { mapViewerPoint } from './coordinates.js';
+
 (() => {
   const scene = document.getElementById('scene');
   const status = document.getElementById('status');
@@ -58,6 +60,7 @@
   function coordinates(event, clamp = false) {
     if (!viewport || !scene.naturalWidth || !scene.naturalHeight) return null;
     const rect = scene.getBoundingClientRect();
+    if (!clamp) return mapViewerPoint(scene.naturalWidth, scene.naturalHeight, rect, viewport, event.clientX, event.clientY);
     const scale = Math.min(rect.width / scene.naturalWidth, rect.height / scene.naturalHeight);
     const width = scene.naturalWidth * scale, height = scene.naturalHeight * scale;
     let x = event.clientX - rect.left - (rect.width - width) / 2;

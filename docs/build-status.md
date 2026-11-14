@@ -11,6 +11,8 @@ The first supervised implementation run began 14 November 2026 at 20:30 UTC, wit
 - Free API workers have contributed reviewed styling, shell scaffolding and a bundling plugin. Several other drafts were rejected for stubs, incorrect APIs, missing checks or output truncation. A free image worker correctly read the native fixture and identified the earlier stretched layout.
 - The requested architecture, evidence and documentation review fleet completed with read-only source tools. Its findings are reviewed by the supervising agent; source inspection is not runtime proof.
 - State-retention and undo checks pass. Native input is independently verified through the fixture's stdout, using explicit physical modifiers where required.
+- The actual Explorer detaches, floats and accepts file clicks over the native surface, then docks with its Part identity intact. The shared input adapter now preserves the held mouse button during CDP drags. [Floating demonstration](../evidence/2026-11-14-floating/README.md).
+- The ordinary browser reference passes edit, float, drag and dock checks while explicitly reporting native composition unavailable.
 - The actual Zenbook Duo client renders and controls the same source through an SSH tunnel. Human takeover revokes the agent's prior input epoch; reconnect preserves the desktop, model and native process and returns in view-only mode.
 - An 18-second MP4 excerpt is finalized, fully decoded and played in a browser. [Evidence and retained failures](../evidence/2026-11-14-core/README.md) identify its limits and source boundaries.
 

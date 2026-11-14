@@ -123,7 +123,7 @@ function setupFocusHandlers(domicile: Domicile): void {
   const nativePane = document.querySelector(".shell-native-pane") as HTMLElement;
 
   workbenchPane?.addEventListener("pointerdown", () => {
-    domicile.windows.focusShell();
+    if (domicile.windows.focused !== undefined) domicile.windows.focusShell();
   });
 
   nativePane?.addEventListener("pointerdown", () => {
@@ -162,7 +162,9 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
   root.appendChild(container);
 
   const workbenchRegion = container.querySelector(".shell-workbench-pane") as HTMLElement;
-  workbenchController = await mountWorkbench(workbenchRegion);
+  workbenchController = await mountWorkbench(workbenchRegion, {
+    onFocus: () => { if (domicile.windows.focused !== undefined) domicile.windows.focusShell(); }
+  });
 
   setupResizeObserver(domicile);
   setupFocusHandlers(domicile);
@@ -185,6 +187,7 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
       workbench: workbenchController?.snapshot() ?? null,
       native: currentAppId ? {
         appId: currentAppId,
+        focused: domicile.windows.focused === currentAppId,
         isConnected: currentAppElement?.isConnected ?? false,
         boundingRect: currentAppElement ? currentAppElement.getBoundingClientRect() : null,
         pid: (domicile.windows.list as readonly ClientWindow[]).find(w => w.appId === currentAppId)?.pid ?? null,
@@ -192,7 +195,8 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
       } : null
     }),
     setSidebarSide: workbenchController.setSidebarSide,
-    setSidebarVisible: workbenchController.setSidebarVisible
+    setSidebarVisible: workbenchController.setSidebarVisible,
+    setSidebarFloating: workbenchController.setSidebarFloating
   };
 }
 

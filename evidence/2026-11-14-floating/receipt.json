@@ -1,0 +1,763 @@
+{
+  "at": "2026-11-14T22:43:57.800Z",
+  "revision": "a0668da+floating-bridge",
+  "result": "pass",
+  "assertions": [
+    "detach, hide/reveal and drag retain the original Part, model, selection and native identity",
+    "the real floating Explorer opens a file through the area over a native client",
+    "docking returns the same Part and active model to the grid"
+  ],
+  "snapshots": {
+    "before": {
+      "type": "observation",
+      "id": 3,
+      "observationId": "3c45806f-ba40-4448-a21b-24c881b0b057",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 816,
+            "top": 34,
+            "right": 308,
+            "bottom": 850,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 808,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 2,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 2
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:43:58.084Z",
+      "sha256": "9a340f006044630db0a9af32d4592fe1c277bdbbe115b9bfd72f8ddb6316118c"
+    },
+    "selected-baseline": {
+      "type": "observation",
+      "id": 14,
+      "observationId": "d7cab941-fe49-4b02-9724-57444051a67d",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 816,
+            "top": 34,
+            "right": 308,
+            "bottom": 850,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 808,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 2,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 2
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:43:58.473Z",
+      "sha256": "ffa4ffa0b7e501333aeb4b6e28be50bde1aeb56a6d2affe8629b4a1a66ff8070"
+    },
+    "floating": {
+      "type": "observation",
+      "id": 17,
+      "observationId": "98a02bc6-6148-4657-83ca-1c9f888c7896",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "floating",
+          "floatingRect": {
+            "x": 80,
+            "y": 100,
+            "width": 300,
+            "height": 420,
+            "top": 100,
+            "right": 380,
+            "bottom": 520,
+            "left": 80
+          },
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 81,
+            "y": 129,
+            "width": 298,
+            "height": 390,
+            "top": 129,
+            "right": 379,
+            "bottom": 519,
+            "left": 81
+          },
+          "editorRect": {
+            "x": 48,
+            "y": 34,
+            "width": 1068,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 48
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 2,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 2
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:43:58.747Z",
+      "sha256": "6a6ed3a1f31d4aa8273189627194d1539fbe16dde7fbeb8d0219a855ecb40585"
+    },
+    "hidden": {
+      "type": "observation",
+      "id": 20,
+      "observationId": "e5b88f08-7ff1-478b-8ea2-ce74b26ca59a",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "floating",
+          "floatingRect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "sidebarVisible": false,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "editorRect": {
+            "x": 48,
+            "y": 34,
+            "width": 1068,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 48
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 2,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 2
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:44:00.185Z",
+      "sha256": "f006d9db6a4e8df0637677dfaf15fa2bdc2af26e71acd6acff75c790a43837f9"
+    },
+    "shown": {
+      "type": "observation",
+      "id": 23,
+      "observationId": "a03e5fbc-6547-4160-8b90-345eaaf4d76d",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "floating",
+          "floatingRect": {
+            "x": 80,
+            "y": 100,
+            "width": 300,
+            "height": 420,
+            "top": 100,
+            "right": 380,
+            "bottom": 520,
+            "left": 80
+          },
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 81,
+            "y": 129,
+            "width": 298,
+            "height": 390,
+            "top": 129,
+            "right": 379,
+            "bottom": 519,
+            "left": 81
+          },
+          "editorRect": {
+            "x": 48,
+            "y": 34,
+            "width": 1068,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 48
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 2,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 2
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:44:00.343Z",
+      "sha256": "082ce67b3ed1e697443c01665bb378ab2a933ccde4787b9080ab2f9d77b7db52"
+    },
+    "dragged-over-native": {
+      "type": "observation",
+      "id": 38,
+      "observationId": "4417d6c3-2aa3-4f7d-82e1-8ce00823bbcb",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "floating",
+          "floatingRect": {
+            "x": 1051.5,
+            "y": 297.5,
+            "width": 300,
+            "height": 420,
+            "top": 297.5,
+            "right": 1351.5,
+            "bottom": 717.5,
+            "left": 1051.5
+          },
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 1052.5,
+            "y": 326.5,
+            "width": 298,
+            "height": 390,
+            "top": 326.5,
+            "right": 1350.5,
+            "bottom": 716.5,
+            "left": 1052.5
+          },
+          "editorRect": {
+            "x": 48,
+            "y": 34,
+            "width": 1068,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 48
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 2,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 2
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:44:01.427Z",
+      "sha256": "4cc8a69d49f24b359d6ed4ba903f3f21510c5411e987eac42a0ba92397caa72c"
+    },
+    "opened-from-floating-explorer": {
+      "type": "observation",
+      "id": 41,
+      "observationId": "0cd988d4-4139-4959-8cf6-fcf082c8c577",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "floating",
+          "floatingRect": {
+            "x": 1051.5,
+            "y": 297.5,
+            "width": 300,
+            "height": 420,
+            "top": 297.5,
+            "right": 1351.5,
+            "bottom": 717.5,
+            "left": 1051.5
+          },
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 1052.5,
+            "y": 326.5,
+            "width": 298,
+            "height": 390,
+            "top": 326.5,
+            "right": 1350.5,
+            "bottom": 716.5,
+            "left": 1052.5
+          },
+          "editorRect": {
+            "x": 48,
+            "y": 34,
+            "width": 1068,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 48
+          },
+          "activeResource": "file:///workspace/README.md",
+          "model": {
+            "uri": "file:///workspace/README.md",
+            "version": 1,
+            "value": "# Domicile Code\n\nA public fixture workspace. Native apps are available only in the shell.\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 1,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 1
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:44:02.867Z",
+      "sha256": "2ef44ce4a59c6b5aecbbb8543b557e7e1d5e4e1f20905027bced87912fdd3f98"
+    },
+    "docked": {
+      "type": "observation",
+      "id": 44,
+      "observationId": "10edecca-60a5-4259-9d26-764602ae2bd1",
+      "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "fda6ff38-4ee2-4d59-8522-e6bacfeec4b4",
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 816,
+            "top": 34,
+            "right": 308,
+            "bottom": 850,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 808,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/README.md",
+          "model": {
+            "uri": "file:///workspace/README.md",
+            "version": 1,
+            "value": "# Domicile Code\n\nA public fixture workspace. Native apps are available only in the shell.\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 1,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 1
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T22:44:04.290Z",
+      "sha256": "55fc273b618b27e2a9f8d803dcf2b3d5211e7b49eb44cbe403e0fe3c1f67815e"
+    },
+    "restored": {
+      "state": {
+        "sceneId": "6945b1f1-6abf-4f84-b9ea-9044938efb9a",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 816,
+            "top": 34,
+            "right": 308,
+            "bottom": 850,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 808,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 2,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 2
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "focused": false,
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      }
+    }
+  }
+}

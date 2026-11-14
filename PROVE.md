@@ -9,6 +9,7 @@ Receipts for SPEC.md. Append reruns; preserve failed receipts. A pending row sta
 | P1.3 | C1.3 | integration | live | pending native capture check | — | pending | — | — | — |
 | P1.4 | C1.4 | integration | live | pending native lifecycle check | — | pending | — | — | — |
 | P1.5 | C1.5 | integration | local | pending failure check | — | pending | — | — | — |
+| P1.6 | C1.6 | floating Part | live | pending detach, drag and dock check | — | pending | — | — | — |
 | P2.1 | C2.1 | transport | live | pending shared scene check | — | pending | — | — | — |
 | P2.2 | C2.2 | interaction | live | pending independently observed action | — | pending | — | — | — |
 | P2.3 | C2.3 | interaction | local | pending missing/stale target check | — | pending | — | — | — |
@@ -49,3 +50,8 @@ Receipts for SPEC.md. Append reruns; preserve failed receipts. A pending row sta
 - Results: pass, fail, pending, blocked(H1).
 - Missing proof remains pending. A failed run is retained when a later run passes.
 - Public receipts exclude raw worker/account inventories. Sanitized summaries can reference the reviewed result.
+| P1.6 | C1.6 | floating Part | live | scripts/check-floating.mjs; initial bridge | 1 | fail | floating-01/02 retained privately; pointer capture was lost on move; shell focus change did not fix it | a0668da + floating | 2026-11-14T22:30Z |
+| P1.6 | C1.6 | floating Part | live | scripts/check-floating.mjs; held-button adapter | 0 | pass | evidence/2026-11-14-floating/receipt.json; detach, hide/reveal, drag over native, file open and dock | a0668da + floating bridge | 2026-11-14T22:43Z |
+| P3.2 | C3.2 | floating demo | live | record-viewer; ffmpeg full decode; check-video | 0 | pass | evidence/2026-11-14-floating/floating-demo.mp4 and playback.json; 18 seconds, 1436×872, 25 fps | a0668da + floating bridge | 2026-11-14T22:51Z |
+| P3.3 | C3.3 | floating demo | live | check-floating: floating-04 then floating-demo-01 | 0 | pass | repeated detach/drag/open/dock with retained Part and native identity; exported second receipt | a0668da + floating bridge | 2026-11-14T22:43Z |
+| P5.3 | C5.3 | browser reference | live | scripts/check-browser.mjs | 0 | pass | browser-01: real model edit, same Part float/drag/dock, no desktop API and native:null; favicon request was the sole HTTP 404 and is corrected | a0668da + floating | 2026-11-14T22:39Z |
