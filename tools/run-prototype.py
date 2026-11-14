@@ -30,6 +30,7 @@ def arguments():
     p.add_argument('--height', type=int, default=900)
     p.add_argument('--seconds', type=int, default=0, help='Stop after this many ready seconds; 0 waits for Ctrl-C')
     p.add_argument('--capture-repro', action='store_true', help='Measure both capture paths on the minimal repro shell')
+    p.add_argument('--no-fixture', action='store_true', help='Start without the optional native entry fixture')
     p.add_argument('--inside', action='store_true', help=argparse.SUPPRESS)
     return p.parse_args()
 
@@ -49,6 +50,8 @@ def main():
         raise RuntimeError('Invalid ports or prototype geometry')
     if not 0 <= args.seconds <= 21600:
         raise RuntimeError('Duration must be between zero and six hours')
+    if args.no_fixture and args.capture_repro:
+        raise RuntimeError('The native capture comparison requires its fixture')
     shell_dir = Path(args.shell_dir).resolve()
     shell = shell_dir / 'shell/shell.js'
     if not shell.is_file():
@@ -72,6 +75,9 @@ def main():
     # still required because a port check alone cannot establish ownership.
     for port in (args.debug_port, args.viewer_port):
         with socket.socket() as probe:
+            # A recently closed test connection may leave TIME_WAIT behind.
+            # Match the servers' reuse policy while still refusing a listener.
+            probe.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             probe.bind(('127.0.0.1', port))
     run.mkdir(mode=0o700, parents=False, exist_ok=False)
     env = os.environ.copy()
@@ -194,8 +200,9 @@ def main():
         view = inspection['viewport']
         if len(outputs) != 1 or not outputs[0]['lit'] or outputs[0]['position'] != [0, 0] or outputs[0]['size'] != [view['width'], view['height']]:
             raise RuntimeError('The single desktop output does not match the observed viewport')
-        spawn('native-fixture', [args.zenity, '--entry', '--title=Domicile Code native fixture', '--text=A real Wayland text field', '--entry-text=Native pixels'],
-              app_env, critical=False, stdout_name='native-result.txt')
+        if not args.no_fixture:
+            spawn('native-fixture', [args.zenity, '--entry', '--title=Domicile Code native fixture', '--text=A real Wayland text field', '--entry-text=Native pixels'],
+                  app_env, critical=False, stdout_name='native-result.txt')
         spawn('viewer', [args.node, 'tools/viewer/server.mjs', '--endpoint', endpoint, '--target', target, '--output', outputs[0]['name'],
                           '--port', str(args.viewer_port), '--log', str(run / 'viewer-events.jsonl')], env)
         viewer_url = f'http://127.0.0.1:{args.viewer_port}'

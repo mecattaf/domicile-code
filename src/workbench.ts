@@ -1,4 +1,4 @@
-import { initialize, getService, IEditorService, IWorkbenchLayoutService } from '@codingame/monaco-vscode-api';
+import { initialize, getService, IEditorService, IWorkbenchLayoutService, IExtensionService } from '@codingame/monaco-vscode-api';
 import getViewsServiceOverride, { attachPart, Parts, onPartVisibilityChange, isPartVisibile } from '@codingame/monaco-vscode-views-service-override';
 import getConfigurationServiceOverride from '@codingame/monaco-vscode-configuration-service-override';
 import { initUserConfiguration } from '@codingame/monaco-vscode-configuration-service-override/common';
@@ -23,13 +23,20 @@ import '@codingame/monaco-vscode-typescript-basics-default-extension';
 import { createFloatingSidebar } from './floating-sidebar';
 
 export type SidebarSide = 'left' | 'right';
+declare const __DC_LANGUAGE_EXTENSION__: boolean;
 let mounted = false;
 
 /** One workbench service graph owns all the Parts in this document. */
 export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () => void } = {}) {
   if (mounted) throw new Error('A workbench is already mounted in this document');
   mounted = true;
+  const language = __DC_LANGUAGE_EXTENSION__ ? (await import('./language-extension')).languageExtension() : undefined;
   (globalThis as typeof globalThis & { MonacoEnvironment: unknown }).MonacoEnvironment = {
+    getWorkerUrl: (_module: string, label: string) => {
+      if (label === 'extensionHostWorkerMain' && language) return language.workerUrl;
+      throw new Error(`Worker URL not qualified for this prototype: ${label}`);
+    },
+    getWorkerOptions: () => ({ type: 'module' }),
     getWorker: (_module: string, label: string) => {
       if (label === 'editorWorkerService') return new EditorWorker();
       if (label === 'TextMateWorker') return new TextmateWorker();
@@ -53,6 +60,8 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
   ].join('\n')));
   files.registerFile(new RegisteredMemoryFile(URI.file('/workspace/README.md'),
     '# Domicile Code\n\nA public fixture workspace. Native apps are available only in the shell.\n'));
+  if (language) files.registerFile(new RegisteredMemoryFile(URI.file('/workspace/typecheck.ts'),
+    '// A deliberate error to qualify the TypeScript web extension.\nexport const message: string = 42;\n'));
   files.registerFile(new RegisteredMemoryFile(workspace, JSON.stringify({ folders: [{ path: '/workspace' }] })));
   registerFileSystemOverlay(1, files);
   await initUserConfiguration(JSON.stringify({
@@ -63,6 +72,8 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
     'editor.minimap.enabled': false,
     'editor.wordWrap': 'on',
     'telemetry.telemetryLevel': 'off',
+    'typescript.disableAutomaticTypeAcquisition': true,
+    'js/ts.tsserver.web.typeAcquisition.enabled': false,
   }));
 
   const host = document.createElement('main');
@@ -108,6 +119,7 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
     ...getLifecycleServiceOverride(),
     ...getLanguagesServiceOverride(),
     ...getTextmateServiceOverride(),
+    ...language?.services,
   }, document.body, {
     workspaceProvider: { trusted: true, workspace: { workspaceUri: workspace }, async open() { return false; } },
     defaultLayout: { editors: [{ uri: fixture }], views: [{ id: 'workbench.explorer.fileView' }] },
@@ -133,6 +145,7 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
   }
   const layout = await getService(IWorkbenchLayoutService);
   const editors = await getService(IEditorService);
+  const extensions = await getService(IExtensionService);
   await editors.openEditor({ resource: fixture, options: { pinned: true } });
   layout.setPartHidden(false, Parts.SIDEBAR_PART);
   layout.setPartHidden(true, Parts.PANEL_PART);
@@ -156,6 +169,15 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
     setSidebarSide,
     setSidebarVisible,
     setSidebarFloating: floating.setFloating,
+    inspectExtensions: () => ({
+      extensions: extensions.extensions.map(extension => ({
+        id: extension.identifier.value, browser: extension.browser, main: extension.main,
+        location: extension.extensionLocation.toString(),
+      })),
+      status: extensions.getExtensionsStatus(),
+      crossOriginIsolated,
+      languageExtensionEnabled: !!language,
+    }),
     snapshot() {
       const resource = editors.activeEditor?.resource?.toString();
       const model = editor.getModels().find(candidate => candidate.uri.toString() === resource);
@@ -170,6 +192,11 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
         editorRect: host.querySelector('.dc-editor')!.getBoundingClientRect().toJSON(),
         activeResource: editors.activeEditor?.resource?.toString() ?? null,
         model: model ? { uri: model.uri.toString(), version: model.getVersionId(), value: model.getValue() } : null,
+        diagnostics: model ? editor.getModelMarkers({ resource: model.uri }).map(marker => ({
+          owner: marker.owner, source: marker.source, code: marker.code, severity: marker.severity,
+          message: marker.message, startLineNumber: marker.startLineNumber, startColumn: marker.startColumn,
+          endLineNumber: marker.endLineNumber, endColumn: marker.endColumn,
+        })) : [],
         selection: control && 'getSelection' in control ? control.getSelection() : null,
       };
     },

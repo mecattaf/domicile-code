@@ -211,7 +211,8 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
     }),
     setSidebarSide: workbenchController.setSidebarSide,
     setSidebarVisible: workbenchController.setSidebarVisible,
-    setSidebarFloating: workbenchController.setSidebarFloating
+    setSidebarFloating: workbenchController.setSidebarFloating,
+    inspectExtensions: workbenchController.inspectExtensions
   };
 }
 

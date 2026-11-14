@@ -61,6 +61,7 @@ C4.4 The completeness fleet reviews the build → separate architecture, evidenc
 C5.1 An upstream capability is requested → its packet distinguishes the shell requirement, reusable platform contract, minimal trigger, expected result and measured result. [prove: P5.1]
 C5.2 A capability needs a development backend → it is described as unavailable until the corresponding filesystem, extension, language, Git, debugger or terminal service is exercised. [prove: P5.2]
 C5.3 (tree) The reference entry runs in an ordinary browser → it labels native application composition unavailable and exposes no privileged desktop API. [prove: P5.3]
+C5.4 The experimental browser language lane starts with its required isolated worker context → the actual TypeScript extension reports the fixture's assignment error, and a keyboard correction clears it without implying native-shell language support. [prove: P5.4]
 
 ## Open questions
 
