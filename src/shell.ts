@@ -19,6 +19,15 @@ function showVisibleError(message: string, error: unknown): void {
 
 }
 
+function fitNativeApp(app: HTMLElement, window: ClientWindow, content: HTMLElement): void {
+  const dimension = (limit: number | undefined, fallback: number | undefined, available: number) =>
+    Math.min(limit && limit > 0 ? limit : fallback && fallback > 0 ? fallback : available, available);
+  // Fixed dialogs can refuse configure sizes. Preserve their aspect instead
+  // of stretching the last client buffer to fill an arbitrarily tall pane.
+  app.style.width = window.dialog ? `${dimension(window.maxWidth, window.width, content.clientWidth)}px` : '100%';
+  app.style.height = window.dialog ? `${dimension(window.maxHeight, window.height, content.clientHeight)}px` : '100%';
+}
+
 function updateNativePane(appId: string | undefined, domicile: Domicile): void {
   const nativeContent = document.querySelector(".shell-native-content") as HTMLElement;
   const nativeHeader = document.querySelector(".shell-native-header") as HTMLElement;
@@ -46,6 +55,7 @@ function updateNativePane(appId: string | undefined, domicile: Domicile): void {
 
   if (appId === currentAppId && currentAppElement && windows.some(w => w.appId === appId)) {
     select.value = appId ?? "";
+    fitNativeApp(currentAppElement, windows.find(w => w.appId === appId)!, nativeContent);
     return;
   }
 
@@ -69,6 +79,7 @@ function updateNativePane(appId: string | undefined, domicile: Domicile): void {
   const appElement = document.createElement("app");
   appElement.setAttribute("app-id", windowData.appId);
   appElement.style.cssText = "display:block;width:100%;height:100%;";
+  fitNativeApp(appElement, windowData, nativeContent);
   
   nativeContent.replaceChildren(appElement);
   currentAppElement = appElement;
@@ -76,7 +87,7 @@ function updateNativePane(appId: string | undefined, domicile: Domicile): void {
   select.value = windowData.appId;
 
   requestAnimationFrame(() => {
-    const rect = nativeContent.getBoundingClientRect();
+    const rect = appElement.getBoundingClientRect();
     domicile.windows.setBounds(windowData.appId, {
       x: rect.x,
       y: rect.y,
@@ -91,8 +102,11 @@ function setupResizeObserver(domicile: Domicile): void {
   if (!nativeContent) return;
 
   resizeObserver = new ResizeObserver(() => {
-    if (currentAppId) {
-      const rect = nativeContent.getBoundingClientRect();
+    if (currentAppId && currentAppElement) {
+      const selected = domicile.windows.list.find(w => w.appId === currentAppId);
+      if (!selected) return;
+      fitNativeApp(currentAppElement, selected, nativeContent);
+      const rect = currentAppElement.getBoundingClientRect();
       domicile.windows.setBounds(currentAppId, {
         x: rect.x,
         y: rect.y,

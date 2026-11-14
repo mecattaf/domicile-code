@@ -12,9 +12,14 @@ import getEnvironmentServiceOverride from '@codingame/monaco-vscode-environment-
 import getNotificationServiceOverride from '@codingame/monaco-vscode-notifications-service-override';
 import getStatusBarServiceOverride from '@codingame/monaco-vscode-view-status-bar-service-override';
 import getLifecycleServiceOverride from '@codingame/monaco-vscode-lifecycle-service-override';
+import getLanguagesServiceOverride from '@codingame/monaco-vscode-languages-service-override';
+import getTextmateServiceOverride from '@codingame/monaco-vscode-textmate-service-override';
 import { URI } from '@codingame/monaco-vscode-api/vscode/vs/base/common/uri';
 import { editor } from 'monaco-editor';
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
+import TextmateWorker from '@codingame/monaco-vscode-textmate-service-override/worker?worker';
+import '@codingame/monaco-vscode-theme-defaults-default-extension';
+import '@codingame/monaco-vscode-typescript-basics-default-extension';
 
 export type SidebarSide = 'left' | 'right';
 let mounted = false;
@@ -24,7 +29,11 @@ export async function mountWorkbench(root: HTMLElement) {
   if (mounted) throw new Error('A workbench is already mounted in this document');
   mounted = true;
   (globalThis as typeof globalThis & { MonacoEnvironment: unknown }).MonacoEnvironment = {
-    getWorker: () => new EditorWorker(),
+    getWorker: (_module: string, label: string) => {
+      if (label === 'editorWorkerService') return new EditorWorker();
+      if (label === 'TextMateWorker') return new TextmateWorker();
+      throw new Error(`Worker not qualified for this prototype: ${label}`);
+    },
   };
 
   const fixture = URI.file('/workspace/hello.ts');
@@ -46,7 +55,7 @@ export async function mountWorkbench(root: HTMLElement) {
   files.registerFile(new RegisteredMemoryFile(workspace, JSON.stringify({ folders: [{ path: '/workspace' }] })));
   registerFileSystemOverlay(1, files);
   await initUserConfiguration(JSON.stringify({
-    'workbench.colorTheme': 'Default Dark Modern',
+    'workbench.colorTheme': 'Dark Modern',
     'workbench.startupEditor': 'none',
     'workbench.statusBar.visible': true,
     'editor.fontSize': 15,
@@ -87,6 +96,8 @@ export async function mountWorkbench(root: HTMLElement) {
     ...getNotificationServiceOverride(),
     ...getStatusBarServiceOverride(),
     ...getLifecycleServiceOverride(),
+    ...getLanguagesServiceOverride(),
+    ...getTextmateServiceOverride(),
   }, document.body, {
     workspaceProvider: { trusted: true, workspace: { workspaceUri: workspace }, async open() { return false; } },
     defaultLayout: { editors: [{ uri: fixture }], views: [{ id: 'workbench.explorer.fileView' }] },

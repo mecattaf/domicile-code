@@ -18,6 +18,7 @@ Domicile Code makes real VS Code workbench Parts available as desktop layout pri
 - "no other codex or claude subscription run whatsoever, this is pure codex-as-brain (you)" (2026-11-14, supervised-run instruction)
 - "add a 3 subagent fleet completeness pass, making sure that we have a solid spec in place that explains the projectas it gets built." (2026-11-14, supervised-run instruction)
 - Implementation is already authorized by the supervised-run instruction; this proposed specification records the contract as it is tested. Ratification and merging remain human decisions. (2026-11-14, interpretation of the run instruction)
+- `(tree)` means a claim whose source code is authoritative; it does not require a tree-shaped or multi-window layout. Pending acceptance requirements remain untested, rather than refuted or passed. This clarification rejects incorrect classifications from the initial free-worker falsity pass. (2026-11-14, supervising-agent review)
 
 ## Claims
 
