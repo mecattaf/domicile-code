@@ -20,6 +20,8 @@ The selected render node must belong to the intended GPU. The launcher invokes `
 
 Read `run.json` after the `ready` message. It records the shell hash, owned browser UUID, exact shell target, viewport, output and viewer instance. The launcher checks the UUID against the browser it started before attaching, requires one output matching the viewport, and verifies GPU composition. It retains separate profiles and logs. Startup failure stops its own children. Shutdown stops the viewer before its source, then the native fixture, Domicile and Sway. An interrupted Domicile launcher currently returns 1; minidumps observed during shutdown are retained and reported as a diagnostic, so clean teardown remains unqualified.
 
+The default output check compares `list-displays --json` with the shell SDK's actual output list. For an explicitly selected older runtime without that CLI, use `--display-source sdk`; the run records that choice without inventing a monitor power state. A run without the optional native fixture can use `--no-fixture`. The current prototype viewer independently checks that its selected output covers the observed viewport.
+
 From the Zenbook, open an SSH tunnel to that host:
 
 ```sh

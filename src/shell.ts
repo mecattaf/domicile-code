@@ -199,6 +199,7 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
     snapshot: () => ({
       sceneId,
       mode: "shell" as const,
+      outputs: domicile.displays.list ?? null,
       workbench: workbenchController?.snapshot() ?? null,
       native: currentAppId ? {
         appId: currentAppId,

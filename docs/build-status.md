@@ -23,6 +23,8 @@ The first supervised implementation run began 14 November 2026 at 20:30 UTC, wit
 - Chromium pin: `77036342787cb7cf0928d759097c0918bd4dc0c8`. The downloaded engine identifies itself as a checked build made at `2026-11-14T19:17:36Z`.
 - Runtime isolation: private user-runtime tree and PID/IPC namespaces; the GPU experiment passes only the selected render node and compute device through the declared test wrapper.
 
+The reduced capture and worker/isolation packets were also checked against official stable checkout `8115d932b41be551ca7769fc2e89e323e5692c8c`, engine commit `c64ead88a21fef981f68ca2faaaf5a779f268de4`, series `ab4a3658ca13fb5a8017be734c643cc69032e0cf0caffc628011a7dc09c645a9`. Both findings reproduce there. Stable lacks the newer `list-displays` command, so this explicit comparison validates the output through the SDK. It does not qualify the whole application or its performance on that build.
+
 The prototype profiles, configuration and native fixture are separate from the host's existing sessions. No login desktop installation, user-manager restart or host display reconfiguration was performed.
 
 Model catalogue availability, a returned answer, code that compiles and behavior observed in the running desktop are separate checkpoints. Runtime and model-capacity findings will be recorded with their actual evidence.

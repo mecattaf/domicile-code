@@ -24,6 +24,7 @@ export const Shell = (root, domicile) => {
   update();
   window.domicileCodeProof = { snapshot: () => ({
     sceneId, mode: 'capture-repro', workbench: null,
+    outputs: domicile.displays.list ?? null,
     native: selected ? { appId: selected.appId, pid: selected.pid, toplevelId: selected.toplevelId,
       isConnected: !!app?.isConnected, boundingRect: app?.getBoundingClientRect() } : null,
   }) };

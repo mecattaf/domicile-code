@@ -16,6 +16,7 @@ const port = Number(values.port);
 assert(Number.isInteger(port) && port > 1024 && port < 65536, 'Invalid unprivileged viewer port');
 const session = await connectSession(values.endpoint, values.target);
 await session.page.waitForFunction(() => !!window.domicileCodeProof?.snapshot().sceneId, null, { timeout: 15000 });
+await session.page.waitForFunction(() => Array.isArray(window.domicileCodeProof.snapshot().outputs), null, { timeout: 15000 });
 const cdp = await session.page.context().newCDPSession(session.page);
 const serverId = randomUUID();
 const clients = new Map();
@@ -30,6 +31,10 @@ function send(ws, message) { if (ws.readyState === WebSocket.OPEN) ws.send(JSON.
 async function updateSource() {
   const state = await snapshot(session.page);
   const viewport = await session.page.evaluate(() => ({ width: innerWidth, height: innerHeight, devicePixelRatio }));
+  assert(Array.isArray(state.outputs) && state.outputs.length === 1, 'The prototype viewer requires one described desktop output');
+  const output = state.outputs[0];
+  assert.equal(output.name, values.output, 'The selected output is not the SDK desktop output');
+  assert(output.x === 0 && output.y === 0 && output.width === viewport.width && output.height === viewport.height, 'The selected output does not cover the observed viewport');
   const changed = source && (state.sceneId !== source.sceneId || JSON.stringify(viewport) !== JSON.stringify(source.viewport));
   if (changed) observations.clear();
   source = { sceneId: state.sceneId, viewport, targetId: values.target, output: values.output, serverId };

@@ -31,6 +31,7 @@ def arguments():
     p.add_argument('--seconds', type=int, default=0, help='Stop after this many ready seconds; 0 waits for Ctrl-C')
     p.add_argument('--capture-repro', action='store_true', help='Measure both capture paths on the minimal repro shell')
     p.add_argument('--no-fixture', action='store_true', help='Start without the optional native entry fixture')
+    p.add_argument('--display-source', choices=['cli', 'sdk'], default='cli', help='Use sdk explicitly for older runtimes without list-displays')
     p.add_argument('--inside', action='store_true', help=argparse.SUPPRESS)
     return p.parse_args()
 
@@ -194,12 +195,28 @@ def main():
         if probe.returncode:
             raise RuntimeError('Runtime inspection failed; retain inspection.log')
         inspection = json.loads((run / 'runtime-inspection.json').read_text())
-        displays = subprocess.run([args.domicile, 'list-displays', '--json'], env=app_env, capture_output=True, text=True, timeout=10, check=True).stdout
-        (run / 'displays.json').write_text(displays)
-        outputs = json.loads(displays)
         view = inspection['viewport']
-        if len(outputs) != 1 or not outputs[0]['lit'] or outputs[0]['position'] != [0, 0] or outputs[0]['size'] != [view['width'], view['height']]:
+        sdk = inspection['state']['outputs']
+        if len(sdk) != 1 or [sdk[0]['x'], sdk[0]['y']] != [0, 0] or [sdk[0]['width'], sdk[0]['height']] != [view['width'], view['height']]:
+            raise RuntimeError('The SDK output list does not match the observed viewport')
+        if args.display_source == 'cli':
+            displays = subprocess.run([args.domicile, 'list-displays', '--json'], env=app_env, capture_output=True, text=True, timeout=10)
+            (run / 'displays.stdout.txt').write_text(displays.stdout)
+            (run / 'displays.stderr.txt').write_text(displays.stderr)
+            if displays.returncode:
+                raise RuntimeError('list-displays failed; retain displays.stderr.txt. Older runtimes require explicit --display-source sdk')
+            outputs = json.loads(displays.stdout)
+            if len(outputs) != 1 or not outputs[0]['lit'] or outputs[0]['position'] != [0, 0] or outputs[0]['size'] != [view['width'], view['height']]:
+                raise RuntimeError('The single CLI output does not match the observed viewport')
+            if outputs[0]['name'] != sdk[0]['name']:
+                raise RuntimeError('The CLI and SDK name different outputs')
+        elif args.display_source == 'sdk':
+            # No invented power state: older SDKs do not expose the CLI's lit field.
+            outputs = [{'name': sdk[0]['name'], 'position': [sdk[0]['x'], sdk[0]['y']], 'size': [sdk[0]['width'], sdk[0]['height']]}]
+        if len(outputs) != 1:
             raise RuntimeError('The single desktop output does not match the observed viewport')
+        status['outputValidationSource'] = args.display_source
+        (run / 'displays.json').write_text(json.dumps(outputs, indent=2) + '\n')
         if not args.no_fixture:
             spawn('native-fixture', [args.zenity, '--entry', '--title=Domicile Code native fixture', '--text=A real Wayland text field', '--entry-text=Native pixels'],
                   app_env, critical=False, stdout_name='native-result.txt')

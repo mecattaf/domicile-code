@@ -10,6 +10,7 @@ assert(values.out, 'Required: --endpoint --target --out');
 const session = await connectSession(values.endpoint, values.target);
 try {
   await session.page.waitForFunction(() => !!window.domicileCodeProof, null, { timeout: 45000 });
+  await session.page.waitForFunction(() => Array.isArray(window.domicileCodeProof.snapshot().outputs), null, { timeout: 15000 });
   const browserCDP = await session.browser.newBrowserCDPSession();
   const { gpu } = await browserCDP.send('SystemInfo.getInfo');
   const renderer = gpu.auxAttributes?.glRenderer ?? '';

@@ -15,6 +15,8 @@ This scene has no VS Code dependencies. The same `shell/probe.js` and `shell/wor
 
 [Native receipt](../../evidence/2026-11-14-language/domicile-platform.json), [browser control](../../evidence/2026-11-14-language/browser-platform.json). Native worker loading and shared-memory isolation are separate findings. A successful script fetch is not proof that its worker executes.
 
+The [official stable measurement](../../evidence/2026-11-14-language/stable-platform.json) reproduces both worker aborts and the unavailable isolated/shared-memory context. Its engine and checkout are pinned in build status.
+
 ## Reproduce
 
 Start the [isolated launcher](../../docs/run-prototype.md) with `--shell-dir "$PWD/repros/isolation" --no-fixture` and a new run directory. Select its exact target from `run.json`. Run `scripts/check-isolation.mjs --endpoint … --target … --expect unavailable --worker-expect error --reload --out new-directory --revision …` through the test wrapper. The reload is limited to this explicitly selected probe shell.
