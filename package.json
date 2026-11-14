@@ -1,0 +1,50 @@
+{
+  "name": "domicile-code",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "domicile": {
+    "shell": "dist/shell/shell.js"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "check": "tsc --noEmit",
+    "build:browser": "vite build",
+    "build:shell": "vite build --mode shell",
+    "build": "npm run build:browser && npm run build:shell",
+    "test:browser": "node scripts/check-browser.mjs"
+  },
+  "dependencies": {
+    "@codingame/monaco-vscode-views-service-override": "39.0.4",
+    "@codingame/monaco-vscode-configuration-service-override": "39.0.4",
+    "@codingame/monaco-vscode-files-service-override": "39.0.4",
+    "@codingame/monaco-vscode-model-service-override": "39.0.4",
+    "@codingame/monaco-vscode-keybindings-service-override": "39.0.4",
+    "@codingame/monaco-vscode-theme-service-override": "39.0.4",
+    "@codingame/monaco-vscode-textmate-service-override": "39.0.4",
+    "@codingame/monaco-vscode-languages-service-override": "39.0.4",
+    "@codingame/monaco-vscode-extensions-service-override": "39.0.4",
+    "@codingame/monaco-vscode-explorer-service-override": "39.0.4",
+    "@codingame/monaco-vscode-storage-service-override": "39.0.4",
+    "@codingame/monaco-vscode-environment-service-override": "39.0.4",
+    "@codingame/monaco-vscode-notifications-service-override": "39.0.4",
+    "@codingame/monaco-vscode-quickaccess-service-override": "39.0.4",
+    "@codingame/monaco-vscode-view-status-bar-service-override": "39.0.4",
+    "@codingame/monaco-vscode-log-service-override": "39.0.4",
+    "@codingame/monaco-vscode-lifecycle-service-override": "39.0.4",
+    "@codingame/monaco-vscode-working-copy-service-override": "39.0.4",
+    "@codingame/monaco-vscode-workspace-trust-service-override": "39.0.4",
+    "@codingame/monaco-vscode-preferences-service-override": "39.0.4",
+    "@codingame/monaco-vscode-api": "39.0.4",
+    "vscode": "npm:@codingame/monaco-vscode-extension-api@39.0.4",
+    "monaco-editor": "npm:@codingame/monaco-vscode-editor-api@39.0.4",
+    "@domicile-desktop/sdk": "2.2.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.8",
+    "typescript": "7.0.2",
+    "playwright": "1.65.1",
+    "@types/node": "24.10.0"
+  }
+}
