@@ -1,6 +1,8 @@
 # Working in Domicile Code
 
-This is currently a documentation-only scope for a bounded experiment. Preserve the complete workbench-as-shell ambition and the first end-to-end acceptance in SCOPE.md. Work is scoped with the human before implementation begins.
+Implementation of the bounded spike is authorized. Preserve the complete workbench-as-shell ambition and the first end-to-end acceptance in SCOPE.md.
+
+For the supervised run beginning 14 November 2026 at 20:30 UTC, the existing Codex session is the sole subscription-backed brain. Worker inference uses free API routes only. Do not start additional Codex or Claude subscription agents, and do not dispatch through a Claude-backed orchestration floor. OpenRouter calls require explicit zero-price free variants and a zero maximum price; no paid fallback. Do not change billing or buy credits. Keep private account capacity outside this repository.
 
 Read README.md, SCOPE.md and docs/upstream.md before proposing changes. Keep source findings, measured runtime behavior, integration questions and proposals distinct. Record exact engine, shell and dependency revisions with runtime claims.
 
