@@ -54,10 +54,12 @@ try {
   await capture('before');
   await page.locator('.dc-editor .monaco-editor').first().click();
   await page.keyboard.press('Control+Home');
-  await page.keyboard.insertText('// verified composition\n');
+  // One physical key avoids language-specific newline and undo-grouping rules.
+  const marker = 'x';
+  await page.keyboard.type(marker);
   receipt.snapshots.edited = await snapshot(page);
   const edited = receipt.snapshots.edited;
-  assert.equal(edited.workbench.model.value, `// verified composition\n${before.workbench.model.value}`);
+  assert.equal(edited.workbench.model.value, `${marker}${before.workbench.model.value}`);
   assert(edited.workbench.model.version > before.workbench.model.version, 'Input did not change the real model version');
   receipt.assertions.push('input changed the real model');
 

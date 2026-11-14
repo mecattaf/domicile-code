@@ -144,6 +144,7 @@ function setupWindowSelect(domicile: Domicile): void {
 }
 
 async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
+  const sceneId = crypto.randomUUID();
   root.replaceChildren();
 
   const container = document.createElement("div");
@@ -179,6 +180,7 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
 
   (window as any).domicileCodeProof = {
     snapshot: () => ({
+      sceneId,
       mode: "shell" as const,
       workbench: workbenchController?.snapshot() ?? null,
       native: currentAppId ? {

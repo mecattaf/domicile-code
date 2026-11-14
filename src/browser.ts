@@ -3,6 +3,7 @@ import { showError } from './errors';
 import './style.css';
 
 async function start() {
+  const sceneId = crypto.randomUUID();
   const root = document.getElementById('app');
   if (!root) throw new Error('Missing #app root');
   root.className = 'browser-root';
@@ -16,7 +17,7 @@ async function start() {
   // Bounded observation/action seam for this prototype, with real state only.
   Object.assign(window, { domicileCodeProof: {
     ...controller,
-    snapshot: () => ({ mode: 'browser-reference', native: null, workbench: controller.snapshot() }),
+    snapshot: () => ({ sceneId, mode: 'browser-reference', native: null, workbench: controller.snapshot() }),
   } });
 }
 void start().catch(showError);
