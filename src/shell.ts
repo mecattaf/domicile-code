@@ -9,6 +9,7 @@ let currentAppElement: HTMLElement | null = null;
 let windowsChangeUnsubscriber: (() => void) | null = null;
 let resizeObserver: ResizeObserver | null = null;
 let workbenchController: Awaited<ReturnType<typeof mountWorkbench>> | null = null;
+const hiddenApps = new Set<string>();
 
 function showVisibleError(message: string, error: unknown): void {
   console.error(message, error);
@@ -53,14 +54,28 @@ function updateNativePane(appId: string | undefined, domicile: Domicile): void {
     }
   }
 
+  const windowData = windows.find(w => w.appId === appId) ?? windows[0];
+
+  // Match Manganese's zero-bounds contract for an unshown native window.
+  // Remember which clients are already hidden so list updates cannot create
+  // an endless stream of identical native configure requests.
+  for (const id of hiddenApps) {
+    if (!windows.some(w => w.appId === id)) hiddenApps.delete(id);
+  }
+  for (const window of windows) {
+    if (window.appId === windowData?.appId) hiddenApps.delete(window.appId);
+    else if (!hiddenApps.has(window.appId)) {
+      domicile.windows.setBounds(window.appId, { x: 0, y: 0, width: 0, height: 0 });
+      hiddenApps.add(window.appId);
+    }
+  }
+  
   if (appId === currentAppId && currentAppElement && windows.some(w => w.appId === appId)) {
     select.value = appId ?? "";
     fitNativeApp(currentAppElement, windows.find(w => w.appId === appId)!, nativeContent);
     return;
   }
 
-  const windowData = windows.find(w => w.appId === appId) ?? windows[0];
-  
   if (!windowData) {
     nativeContent.replaceChildren();
     emptyState.style.display = "block";

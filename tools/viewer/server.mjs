@@ -23,6 +23,7 @@ const observations = new Map();
 const heldKeys = new Map();
 let heldButtons = 0, pointer = { x: 0, y: 0 };
 let owner = null, epoch = 0, queue = Promise.resolve(), latestFrame = null, source;
+let stopping = false;
 
 async function log(event) { await appendFile(values.log, `${JSON.stringify({ at: new Date().toISOString(), serverId, ...event })}\n`); }
 function send(ws, message) { if (ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(message)); }
@@ -181,10 +182,15 @@ sockets.on('connection', ws => {
   });
 });
 cdp.on('Page.screencastFrame', async frame => {
-  await cdp.send('Page.screencastFrameAck', { sessionId: frame.sessionId });
-  source.viewport = { ...source.viewport, width: frame.metadata.deviceWidth, height: frame.metadata.deviceHeight };
-  latestFrame = { type: 'frame', data: frame.data, viewport: source.viewport, capturedAt: new Date().toISOString(), targetId: values.target, serverId };
-  for (const [ws, client] of clients) if (client.role && ws.bufferedAmount < 2000000) send(ws, latestFrame);
+  if (stopping) return;
+  try {
+    await cdp.send('Page.screencastFrameAck', { sessionId: frame.sessionId });
+    source.viewport = { ...source.viewport, width: frame.metadata.deviceWidth, height: frame.metadata.deviceHeight };
+    latestFrame = { type: 'frame', data: frame.data, viewport: source.viewport, capturedAt: new Date().toISOString(), targetId: values.target, serverId };
+    for (const [ws, client] of clients) if (client.role && ws.bufferedAmount < 2000000) send(ws, latestFrame);
+  } catch (error) {
+    if (!stopping) { console.error(error); void stop('capture-source-lost', true); }
+  }
 });
 await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 75, everyNthFrame: 1 });
 const expiry = setInterval(() => {
@@ -192,13 +198,34 @@ const expiry = setInterval(() => {
   for (const [id, observation] of observations) if (Date.now() - observation.at > 60000) observations.delete(id);
 }, 1000);
 server.listen(port, '127.0.0.1', () => console.log(JSON.stringify({ viewer: `http://127.0.0.1:${port}`, ...source })));
-async function stop() {
+async function stop(reason, failed = false) {
+  if (stopping) return;
+  stopping = true;
   clearInterval(expiry);
-  await changeOwner(null, 'server-stop');
-  await cdp.send('Page.stopScreencast');
-  for (const ws of clients.keys()) ws.close();
-  server.close();
-  await session.browser.close();
+  if (failed) process.exitCode = 1;
+  let timer;
+  try {
+    await Promise.race([
+      (async () => { await changeOwner(null, reason); await cdp.send('Page.stopScreencast'); })(),
+      new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('Source cleanup timed out')), 3000); }),
+    ]);
+  } catch (error) {
+    console.error(error);
+    process.exitCode = 1;
+  } finally {
+    clearTimeout(timer);
+    // Close all transports even if the source vanished during cleanup.
+    for (const ws of clients.keys()) ws.terminate();
+    sockets.close();
+    server.close();
+    server.closeAllConnections();
+    await session.browser.close();
+    await log({ event: 'stop', reason, failed: failed || process.exitCode === 1 });
+  }
 }
-process.once('SIGINT', () => void stop().catch(console.error));
-process.once('SIGTERM', () => void stop().catch(console.error));
+const stopAfterFailure = reason => { void stop(reason, true).catch(error => { console.error(error); process.exitCode = 1; }); };
+session.page.on('close', () => { if (!stopping) stopAfterFailure('selected-page-closed'); });
+session.page.on('crash', () => { if (!stopping) stopAfterFailure('selected-page-crashed'); });
+session.browser.on('disconnected', () => { if (!stopping) stopAfterFailure('selected-browser-disconnected'); });
+process.once('SIGINT', () => void stop('SIGINT').catch(console.error));
+process.once('SIGTERM', () => void stop('SIGTERM').catch(console.error));

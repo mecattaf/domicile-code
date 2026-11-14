@@ -1,6 +1,6 @@
 # Domicile integration and upstream questions
 
-This is the maintainer-facing rationale for investigation. No entry below is yet a reproduced defect or a filed feature request from this spike. The source baseline is [pinned here](sources.md).
+This is the maintainer-facing rationale for investigation. The [minimal native-capture packet](../repros/capture/README.md) now reproduces a capture-path difference without VS Code dependencies. The [prebuilt classification packet](../repros/import-classification/README.md) measures a documented scanner limitation and proposes an explicit loading contract. Other entries below remain integration questions. No upstream issue or message has been sent. The source baseline is [pinned here](sources.md).
 
 ## What belongs upstream
 

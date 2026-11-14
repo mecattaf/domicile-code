@@ -40,6 +40,7 @@ C2.2 An automated keyboard or pointer action is delivered → a separately obser
 C2.3 The designated desktop, target or required image is unavailable or stale → the action fails explicitly without choosing another session or manufacturing an observation. [prove: P2.3]
 C2.4 The human takes interaction ownership during an automated sequence → the builder yields input and records the interruption before resuming. [prove: P2.4]
 C2.5 The viewer disconnects and reconnects → the selected server desktop, editor state and native process survive. [prove: P2.5]
+C2.6 The foreground prototype starts or a critical child fails during startup → it checks its own browser identity and GPU/output contract, stops its own children on failure or termination, and retains logs and teardown diagnostics. [prove: P2.6]
 
 ### Stage C: evidence and demonstrations
 
