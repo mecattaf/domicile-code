@@ -1,0 +1,111 @@
+{
+  "at": "2026-11-14T21:43:26.351Z",
+  "result": "fail",
+  "assertions": [
+    "agent input without an observation is refused",
+    "viewer and builder identify the same scene and geometry",
+    "human takeover revokes the agent input epoch"
+  ],
+  "snapshots": {
+    "before": {
+      "type": "observation",
+      "id": 4,
+      "observationId": "a775044a-989d-4669-9c68-e66b27a9d499",
+      "sceneId": "b508d0d4-04a6-4519-84b8-41f961563153",
+      "viewport": {
+        "width": 1436,
+        "height": 872,
+        "devicePixelRatio": 1
+      },
+      "targetId": "4FE23A68145190A85EB1C34127B79A18",
+      "output": "domicile-0",
+      "serverId": "37e272af-3ab7-4a0d-891f-ca80d6f398c1",
+      "state": {
+        "sceneId": "b508d0d4-04a6-4519-84b8-41f961563153",
+        "mode": "shell",
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 816,
+            "top": 34,
+            "right": 308,
+            "bottom": 850,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 808,
+            "height": 816,
+            "top": 34,
+            "right": 1116,
+            "bottom": 850,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 1,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 1
+          }
+        },
+        "native": {
+          "appId": "app-3",
+          "isConnected": true,
+          "boundingRect": {
+            "x": 1121.5,
+            "y": 327.5,
+            "width": 310,
+            "height": 249,
+            "top": 327.5,
+            "right": 1431.5,
+            "bottom": 576.5,
+            "left": 1121.5
+          },
+          "pid": 732,
+          "toplevelId": "cyhnEr0h757bdtnAgMZl0us0U2nPuV7i"
+        }
+      },
+      "capturedAt": "2026-11-14T21:43:26.671Z",
+      "sha256": "cdde7cbcd333a67579582ff50c76ca6af3d802ea52ce26e2202ac1751a66b6a4"
+    }
+  },
+  "client": "selected client host",
+  "viewerBefore": {
+    "connected": true,
+    "clientId": "53c72a5b-7ffe-4af1-8d8e-01f54ce20bed",
+    "owner": {
+      "clientId": "dddc6a4c-5b98-43a3-95e1-e5559ffe856d",
+      "role": "agent",
+      "epoch": 1,
+      "expiresAt": 1794692636684
+    },
+    "viewport": {
+      "width": 1436,
+      "height": 872,
+      "devicePixelRatio": 1
+    },
+    "targetId": "4FE23A68145190A85EB1C34127B79A18",
+    "sceneId": "b508d0d4-04a6-4519-84b8-41f961563153",
+    "serverId": "37e272af-3ab7-4a0d-891f-ca80d6f398c1",
+    "output": "domicile-0",
+    "framesReceived": 1,
+    "lastFrameAt": "2026-11-14T21:43:27.737Z"
+  },
+  "error": "Error: No observation for observe\n    at Timeout._onTimeout (file://<client-checkout>/check-viewer-client.mjs:30:73)\n    at listOnTimeout (node:internal/timers:685:17)\n    at process.processTimers (node:internal/timers:618:7)"
+}

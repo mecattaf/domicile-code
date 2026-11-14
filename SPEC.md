@@ -19,6 +19,8 @@ Domicile Code makes real VS Code workbench Parts available as desktop layout pri
 - "add a 3 subagent fleet completeness pass, making sure that we have a solid spec in place that explains the projectas it gets built." (2026-11-14, supervised-run instruction)
 - Implementation is already authorized by the supervised-run instruction; this proposed specification records the contract as it is tested. Ratification and merging remain human decisions. (2026-11-14, interpretation of the run instruction)
 - `(tree)` means a claim whose source code is authoritative; it does not require a tree-shaped or multi-window layout. Pending acceptance requirements remain untested, rather than refuted or passed. This clarification rejects incorrect classifications from the initial free-worker falsity pass. (2026-11-14, supervising-agent review)
+- The initial GPU route is Domicile nested in an isolated headless Sway session. The actual Zenbook client qualifies the browser viewer over an SSH tunnel, including takeover and reconnection. This does not qualify a direct accelerated headless Domicile output, a login desktop or Sunshine/Moonlight. (2026-11-14, measured integration result)
+- Native screenshot capture and browser debugging capture have different outcomes on the tested GPU route. The demonstration uses the verified shared-viewer frame path and records that choice explicitly. (2026-11-14, measured capture result)
 
 ## Claims
 
@@ -60,10 +62,10 @@ C5.3 (tree) The reference entry runs in an ordinary browser → it labels native
 
 ## Open questions
 
-Q1 [BLOCKING] Which transport provides a verified interactive viewer on the Zenbook for this exact Domicile session? default: qualify Sunshine and Moonlight against the selected output before claiming support (GUESS)
-Q2 [BLOCKING] Which isolated output mode preserves hardware acceleration and native capture on the compute machine? default: qualify a nested GPU session while retaining the software baseline as a separate result (GUESS)
+Q1 Which transport supplies the desired longer-term latency and full keyboard coverage? default: retain the verified browser prototype while Sunshine/Moonlight and physical keyboard behavior are qualified separately (GUESS)
+Q2 Which output topology supports a long-running accelerated Domicile desktop without the nested host? default: keep the isolated nested GPU result as the prototype and develop a reduced upstream requirement for direct accelerated headless output (GUESS)
 Q3 Which matching remote extension host revision supplies the later development backend? default: follow the library's pinned client/server contract and make no backend compatibility claim yet (GUESS)
-Q4 Does the native capture path and the browser debugging capture path include identical native pixels? default: compare captures of a distinct native fixture before choosing the observation transport (GUESS)
+Q4 What causes the native GPU screenshot path's frame-plane allocation failure? default: reduce it with a minimal shell and native fixture before requesting a platform fix (GUESS)
 H1 [HUMAN] Review the actual Zenbook interaction and latency, and decide whether the proposed contract and demonstration merit public promotion.
 
 ## Out of scope

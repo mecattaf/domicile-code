@@ -1,0 +1,135 @@
+{
+  "revision": "5416a2f",
+  "targetId": "4FE23A68145190A85EB1C34127B79A18",
+  "endpoint": "loopback CDP endpoint selected for this run",
+  "at": "2026-11-14T21:16:03.788Z",
+  "assertions": [],
+  "snapshots": {
+    "before": {
+      "mode": "shell",
+      "workbench": {
+        "sidebarSide": "left",
+        "sidebarVisible": true,
+        "sidebarPartRetained": true,
+        "sidebarRect": {
+          "x": 48,
+          "y": 34,
+          "width": 260,
+          "height": 816,
+          "top": 34,
+          "right": 308,
+          "bottom": 850,
+          "left": 48
+        },
+        "editorRect": {
+          "x": 308,
+          "y": 34,
+          "width": 808,
+          "height": 816,
+          "top": 34,
+          "right": 1116,
+          "bottom": 850,
+          "left": 308
+        },
+        "activeResource": "file:///workspace/hello.ts",
+        "model": {
+          "uri": "file:///workspace/hello.ts",
+          "version": 1,
+          "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+        },
+        "selection": {
+          "startLineNumber": 1,
+          "startColumn": 1,
+          "endLineNumber": 1,
+          "endColumn": 1,
+          "selectionStartLineNumber": 1,
+          "selectionStartColumn": 1,
+          "positionLineNumber": 1,
+          "positionColumn": 1
+        }
+      },
+      "native": {
+        "appId": "app-1",
+        "isConnected": true,
+        "boundingRect": {
+          "x": 1121.5,
+          "y": 327.5,
+          "width": 310,
+          "height": 249,
+          "top": 327.5,
+          "right": 1431.5,
+          "bottom": 576.5,
+          "left": 1121.5
+        },
+        "pid": 412,
+        "toplevelId": "Ts50O443Pi50iVAZlUDuEusDAA5S0NOp"
+      }
+    },
+    "edited": {
+      "mode": "shell",
+      "workbench": {
+        "sidebarSide": "left",
+        "sidebarVisible": true,
+        "sidebarPartRetained": true,
+        "sidebarRect": {
+          "x": 48,
+          "y": 34,
+          "width": 260,
+          "height": 816,
+          "top": 34,
+          "right": 308,
+          "bottom": 850,
+          "left": 48
+        },
+        "editorRect": {
+          "x": 308,
+          "y": 34,
+          "width": 808,
+          "height": 816,
+          "top": 34,
+          "right": 1116,
+          "bottom": 850,
+          "left": 308
+        },
+        "activeResource": "file:///workspace/hello.ts",
+        "model": {
+          "uri": "file:///workspace/hello.ts",
+          "version": 25,
+          "value": "// verified composition\n// // This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+        },
+        "selection": {
+          "startLineNumber": 2,
+          "startColumn": 4,
+          "endLineNumber": 2,
+          "endColumn": 4,
+          "selectionStartLineNumber": 2,
+          "selectionStartColumn": 4,
+          "positionLineNumber": 2,
+          "positionColumn": 4
+        }
+      },
+      "native": {
+        "appId": "app-1",
+        "isConnected": true,
+        "boundingRect": {
+          "x": 1121.5,
+          "y": 327.5,
+          "width": 310,
+          "height": 249,
+          "top": 327.5,
+          "right": 1431.5,
+          "bottom": 576.5,
+          "left": 1121.5
+        },
+        "pid": 412,
+        "toplevelId": "Ts50O443Pi50iVAZlUDuEusDAA5S0NOp"
+      }
+    }
+  },
+  "screenshots": [
+    "before.png",
+    "failure.png"
+  ],
+  "result": "fail",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n  '// verified composition\\n' +\n+   '// // This is a real VS Code editor inside a Domicile shell.\\n' +\n-   '// This is a real VS Code editor inside a Domicile shell.\\n' +\n    '// Move the Explorer. The model, cursor and undo history stay here.\\n' +\n    '\\n' +\n    'export function greet(name: string): string {\\n' +\n    '  return `Hello, ${name}`;\\n' +\n    '}\\n' +\n\n    at file://<checkout>/scripts/check-session.mjs:60:10"
+}
