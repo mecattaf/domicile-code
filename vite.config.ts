@@ -36,13 +36,15 @@ const shellPlugin = (): Plugin => ({
 });
 
 export default defineConfig(({ mode }) => {
-  const isShell = mode === 'shell';
+  const isShell = mode === 'shell' || mode === 'shell-language';
+  const language = mode === 'language' || mode === 'shell-language';
   return {
     base: './',
+    define: { __DC_LANGUAGE_EXTENSION__: JSON.stringify(language) },
     build: {
       target: 'esnext',
       minify: false,
-      outDir: isShell ? 'dist/shell' : 'dist/browser',
+      outDir: language ? (isShell ? 'dist/language-shell/shell' : 'dist/language') : (isShell ? 'dist/shell' : 'dist/browser'),
       rollupOptions: {
         ...(isShell ? {
           input: 'src/shell.ts',
