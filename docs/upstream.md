@@ -76,3 +76,15 @@ The newer main binary and published engine were built on the compute host. The n
 CDP is an explicitly acceptable capture implementation for this experiment. The report distinguishes engine debugging screenshots from native screenshot and ScreenCast/PipeWire interfaces. “Use CDP” is a satisfactory maintainer answer; the nested GPU native-capture discrepancy remains useful upstream coverage.
 
 The contribution policy is broad: report reusable defects, edge cases and documentation/contract gaps, with exact pins and working controls. Workbench-specific policy stays here. Worker delivery, isolated/shared-memory opt-in, explicit prebuilt loading, nested GPU capture, checked-engine keyboard hotplug and the direct accelerated remote configuration are tracked independently so that each can be answered or fixed on its own.
+
+## Submitted upstream reports
+
+Filed as `mecattaf` after current-source retests and open/closed issue searches:
+- [Load dedicated workers from the shell origin (classic and module both abort)](https://github.com/cprussin/domicile/issues/2166).
+- [Define a trusted-shell opt-in for cross-origin isolation and shared memory](https://github.com/cprussin/domicile/issues/2167).
+- [Nested GPU screenshot gets no answer while CDP captures native pixels; direct headless works](https://github.com/cprussin/domicile/issues/2168).
+- [Offer an explicit prebuilt-shell loading contract when import-like UI text triggers the builder](https://github.com/cprussin/domicile/issues/2169).
+- [Document the supported Domicile-only accelerated remote desktop and capture/input path](https://github.com/cprussin/domicile/issues/2170).
+- [Checked nested engine aborts when a virtual keyboard appears; official controls pass](https://github.com/cprussin/domicile/issues/2171).
+
+The worker, capture and classification reports include current reduced failures. The isolation and remote-GPU reports are capability/configuration questions. The keyboard report preserves the failing checked pins alongside the newest working official control; it does not claim the latest stable has the checked abort.

@@ -37,4 +37,6 @@ The browser-viewer path used for the checked clips remains separately qualified:
 
 An initial stable assertion expected DOM `code=KeyA`. That test was wrong: wtype synthesizes a keymap, so its logical `a` arrived with physical code `Escape`. The corrected check matches logical keys and modifiers and retains the actual code. Neither the synthetic control nor CDP establishes physical keyboard mapping, IME, all browser-reserved shortcuts on the Zenbook, or the direct DRM/uinput path.
 
-The reusable upstream question is how a checked nested engine should handle keyboard appearance, focus and removal on an initially inputless host. Expected behavior is a delivered or explicitly unavailable event without an invariant abort. No upstream issue has been filed, and the cause remains unproven.
+The reusable upstream question is how a checked nested engine should handle keyboard appearance, focus and removal on an initially inputless host. Expected behavior is a delivered or explicitly unavailable event without an invariant abort. The checked-build finding is now filed with the latest working official control; the cause remains unproven.
+
+Latest coverage and filed reports: [upstream index](../../docs/upstream.md#submitted-upstream-reports). The [direct follow-up](../../evidence/2026-11-15-direct/README.md) identifies the latest official engine and distinguishes working controls.

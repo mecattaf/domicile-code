@@ -1,0 +1,34 @@
+{
+  "issues": [
+    {
+      "topic": "workers",
+      "title": "Load dedicated workers from the shell origin (classic and module both abort)",
+      "url": "https://github.com/cprussin/domicile/issues/2166"
+    },
+    {
+      "topic": "isolation",
+      "title": "Define a trusted-shell opt-in for cross-origin isolation and shared memory",
+      "url": "https://github.com/cprussin/domicile/issues/2167"
+    },
+    {
+      "topic": "capture",
+      "title": "Nested GPU screenshot gets no answer while CDP captures native pixels; direct headless works",
+      "url": "https://github.com/cprussin/domicile/issues/2168"
+    },
+    {
+      "topic": "prebuilt",
+      "title": "Offer an explicit prebuilt-shell loading contract when import-like UI text triggers the builder",
+      "url": "https://github.com/cprussin/domicile/issues/2169"
+    },
+    {
+      "topic": "gpu",
+      "title": "Document the supported Domicile-only accelerated remote desktop and capture/input path",
+      "url": "https://github.com/cprussin/domicile/issues/2170"
+    },
+    {
+      "topic": "keys",
+      "title": "Checked nested engine aborts when a virtual keyboard appears; official controls pass",
+      "url": "https://github.com/cprussin/domicile/issues/2171"
+    }
+  ]
+}

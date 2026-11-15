@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-15T09:39:58.338495+00:00",
+  "at": "2026-11-15T09:43:57.084968+00:00",
   "result": "pass",
-  "sourceRevision": "d3f7bf22e8a88f5b5c41fcf7a21503e9005b469b",
-  "filesReviewed": 181,
+  "sourceRevision": "10354c0997f9603ab9f06c78a2c50621ae5a750d",
+  "filesReviewed": 182,
   "checks": [
     "exact comparison with the four worker credentials actually used; no values emitted",
     "credential-pattern and private-account/strategy marker checks",
@@ -98,8 +98,8 @@
     },
     {
       "file": "docs/upstream.md",
-      "bytes": 8319,
-      "sha256": "2b4bbeabf65d5bdcc80aba8122a2d5b5fdbb3bf09c60b207c2aad8a25501709f"
+      "bytes": 9595,
+      "sha256": "6c912ef7db6ce8480c242ef673d2472658cc65f4c8d1c20d2c5214818d16a1f0"
     },
     {
       "file": "evidence/2026-11-14-core/README.md",
@@ -402,6 +402,11 @@
       "sha256": "2eb7189f670cfddd4e6897674605dd1f8e09b1e9ab8c26906f432cc6b8ca0b33"
     },
     {
+      "file": "evidence/2026-11-15-direct/upstream-issues.json",
+      "bytes": 1256,
+      "sha256": "96a2ab946bc78e9afe7835bb3dd075ba4c20195c481cf4316a11a4d117904a6e"
+    },
+    {
       "file": "evidence/2026-11-15-direct/workbench-run.json",
       "bytes": 987,
       "sha256": "9aad723951b2aefc25e5529ea7b815b89e0530a2bffe96b41fd201a88f3355c4"
@@ -628,8 +633,8 @@
     },
     {
       "file": "repros/capture/README.md",
-      "bytes": 2922,
-      "sha256": "96398acd2b21d84e19cb95f89b4135629802535933da692d44770d0d3567fe49"
+      "bytes": 3051,
+      "sha256": "90d52ed111cab00063cd7281f9044db5acd3564e5c8a4505730917de95fe2543"
     },
     {
       "file": "repros/capture/shell/shell.js",
@@ -638,8 +643,8 @@
     },
     {
       "file": "repros/import-classification/README.md",
-      "bytes": 2001,
-      "sha256": "25ee201aa7bcaed9581f2a3d5b9b2baf967c5fb6b3704a881bed64f181f3298e"
+      "bytes": 2261,
+      "sha256": "266c27de1eac93026123735ed098d04d2ec4154bd0b5c2e2d5ae9f1cc0629c6d"
     },
     {
       "file": "repros/import-classification/control.js",
@@ -653,8 +658,8 @@
     },
     {
       "file": "repros/isolation/README.md",
-      "bytes": 3484,
-      "sha256": "4d95e409e4b60302f3d09aff2bc1f8e620ab87a3c415b855eddcf43b76b0ba26"
+      "bytes": 3806,
+      "sha256": "dd59d2796441b4ca46802175511c13c03817792a1417f388207e65df2d2ac1c6"
     },
     {
       "file": "repros/isolation/index.html",
@@ -678,8 +683,8 @@
     },
     {
       "file": "repros/key-delivery/README.md",
-      "bytes": 4138,
-      "sha256": "3b71fecb5164d27fb8350eaa1e52541805c73e03aea61438b4296f910f97a1b8"
+      "bytes": 4427,
+      "sha256": "f7e638d323a108578717b445f2202629599bc0756104ecdb6da2c3d212fbd773"
     },
     {
       "file": "repros/key-delivery/run.py",
