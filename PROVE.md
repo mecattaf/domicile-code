@@ -92,6 +92,14 @@
 | P3.4 | C3.4 | final sharing-set review | local | rerun credential/marker/type scan and fixture image/video review | 0 | pass | compute/public-artifact-audit.json; final named files and hashes, private capacity excluded | final reports | 2026-11-15T02:18Z |
 
 
+
+| P5.1 | C5.1 | latest direct/native capture and nested control | live | check-capture on official sa6e192f40495, direct headless and nested GPU | measured difference | pass | evidence/2026-11-15-direct/capture.json and nested-capture.json; native direct + CDP pass, native nested gets no reply; CDP acceptable | Code cb023b0; Domicile 1557378 | 2026-11-15T09:37Z |
+| P1.6 | C1.6 | direct Code Parts | live | check-floating on a direct headless virtual monitor | 0 | pass | evidence/2026-11-15-direct/floating.json; same Part/model/selection/native identities across float, drag and dock; software composition | Code cb023b0; Domicile 1557378 | 2026-11-15T09:36Z |
+| P5.5 | C5.5 | direct CLI state | live | check-state-query-live | 0 | pass | evidence/2026-11-15-direct/query.json; read-only CLI agrees with live layout after leased input | Code cb023b0; Domicile 1557378 | 2026-11-15T09:36Z |
+| P5.1 | C5.1 | direct worker platform and loader | live | check-isolation; no-builder load-shell fixture/control | expected failure / 1 / 0 | pass | direct/isolation.json and classification stderr; existing defects/contract limits persist on latest official engine | Code cb023b0; Domicile 1557378 | 2026-11-15T09:36Z |
+| P5.1 | C5.1 | latest logical keyboard control | live | standalone minimal wtype driver on official sa6e192f40495 | 0 | pass | direct/latest-keys.json and latest-key-events.json; all nine logical controls, earlier checked failures retained separately | Domicile 1557378 | 2026-11-15T09:38Z |
+| P3.4 | C3.4 | public landing page | live | GitHub rendered README plus hash-identical checked media | 0 | pass | main 8084c11; two MP4s, screenshots and derived GIF visible through README; topology and limits explicit | public showcase | 2026-11-15T09:44Z |
+
 ## Legend
 
 - Forms: local, wrangler-dev, live, human.

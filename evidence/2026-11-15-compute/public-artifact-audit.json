@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-15T09:43:57.084968+00:00",
+  "at": "2026-11-15T09:45:38.493019+00:00",
   "result": "pass",
-  "sourceRevision": "10354c0997f9603ab9f06c78a2c50621ae5a750d",
-  "filesReviewed": 182,
+  "sourceRevision": "488568e30a9bf53ddb2c028d07137e66d901d664",
+  "filesReviewed": 189,
   "checks": [
     "exact comparison with the four worker credentials actually used; no values emitted",
     "credential-pattern and private-account/strategy marker checks",
@@ -28,13 +28,13 @@
     },
     {
       "file": "PROVE.md",
-      "bytes": 19682,
-      "sha256": "733a8ee8285491e33353b0835344282a9cb524623b4ba31447804b63f22c1b5c"
+      "bytes": 21452,
+      "sha256": "6816a67c32045a38fa145b2c99abd270c9197af8ac788a524318adac080a5f3d"
     },
     {
       "file": "README.md",
-      "bytes": 7028,
-      "sha256": "1917d451cc2a4a739677292dc2d7ae46b13a2804a81cc21b1dfbee8a4b63ca83"
+      "bytes": 5383,
+      "sha256": "9c5cf18399e7ead8220f9b6786d9c040316679ed8cd7fdd204f51f6290986bc5"
     },
     {
       "file": "SCOPE.md",
@@ -620,6 +620,41 @@
       "file": "index.html",
       "bytes": 295,
       "sha256": "456a30fa380e7c4c2c34fd10f7bc2249d5fa1428448cb0d55b220125c8da96d7"
+    },
+    {
+      "file": "media/README.md",
+      "bytes": 273,
+      "sha256": "83ff56081c0d5af42d17d48f555a5be48cf6f9edf21456345c30504dbe32848b"
+    },
+    {
+      "file": "media/direct-domicile.png",
+      "bytes": 53877,
+      "sha256": "e3ec70529e27258d16d016a664a15452c89f72bd57043248f5f866e92e4f703c"
+    },
+    {
+      "file": "media/explorer-floating.mp4",
+      "bytes": 229733,
+      "sha256": "487094376cee012d390289d5f9e5580beb2042acd7916380ee3fdbc35e2d841f"
+    },
+    {
+      "file": "media/explorer-floating.png",
+      "bytes": 53421,
+      "sha256": "4cc8a69d49f24b359d6ed4ba903f3f21510c5411e987eac42a0ba92397caa72c"
+    },
+    {
+      "file": "media/native-editor.gif",
+      "bytes": 391230,
+      "sha256": "0506eb6ca722b1aa46e9817592bbfe8a1086a8d1f1a1e237c260d7a90c1e6a3e"
+    },
+    {
+      "file": "media/native-editor.mp4",
+      "bytes": 211019,
+      "sha256": "40ece458cac4d0e001dcd3d8a03899dd29d73a7237e10952f72519f5e3b82f22"
+    },
+    {
+      "file": "media/native-editor.png",
+      "bytes": 42123,
+      "sha256": "d0d4a49e7bdf4b56c535c158c8283c6f2bc676d3a19b42ea7c7f5af9ea021c52"
     },
     {
       "file": "package-lock.json",
