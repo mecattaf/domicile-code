@@ -20,6 +20,7 @@ The useful result is a small implementation with clear evidence: what worked, wh
 - [Specification](SPEC.md) and [proof receipts](PROVE.md): the proposed behavioral contract, current tests and missing evidence.
 - [Build and demonstration loop](docs/build-loop.md): how a coding agent works against the real desktop and records evidence.
 - [Domicile integration and upstream questions](docs/upstream.md): current capabilities, unqualified seams and the evidence required before requesting changes.
+- [Free-worker results](docs/free-compute.md): tested routes, corrected contributions and retained failures; account capacity stays private.
 - [Sources](docs/sources.md): primary references and revision boundaries.
 
 ## Why this is a shell

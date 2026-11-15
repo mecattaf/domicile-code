@@ -19,6 +19,9 @@ The first supervised implementation run began 14 November 2026 at 20:30 UTC, wit
 - Native applications now open in an actual VS Code editor Pane through the library's public custom-editor helpers. The same `<app>` element, PID and surface survive pane/editor moves. A text tab parks it with zero bounds and releases native focus. Closing the editor returns the running app; closing the app removes its tab and element. [Native editor evidence](../evidence/2026-11-15-native-editor/README.md).
 - A controlled root-allocation fault in the actual native shell produces a visible startup error with no success proof. Reloading the ordinary shell restores the original native client. This qualifies that injected failure case, not all possible initialization failures.
 
+- A fresh public GitHub clone at `e50f241` independently passes installation, checking, default builds and native-editor behavior through the foreground GPU launcher. Its browser reference and experimental language lane also pass, and the actual Zenbook viewer repeats against the fresh artifact. [Reproduction receipts](../evidence/2026-11-15-reproduction/README.md).
+- The [free-worker audit](free-compute.md) distinguishes task admission, returned answers, accepted changes and missing capacity. Account balances, keys and raw receipts remain private.
+
 ## Runtime revision boundary
 
 - Domicile checkout: `d2a68f5d2d789f1f559ee1c76974df3b3f562f5c`.
