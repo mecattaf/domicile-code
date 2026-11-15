@@ -1,0 +1,24 @@
+{
+  "revision": "latest-c029ccf+reserved-receipts",
+  "result": "fail",
+  "method": "fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype",
+  "source": {
+    "sceneId": "11fd6073-cee7-4e47-8f6c-0d14c28e0b86",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "04078E6DA4F7299997249973B9256528",
+    "output": "domicile-0",
+    "serverId": "9c129b32-2fad-4b6f-80f8-5d34b0b788c8",
+    "owner": null
+  },
+  "probeShellSha256": "ce8376dae03c48900413e1680b0a8bfa1f20b5b593616d33258dbd02c166f17b",
+  "senderScriptSha256": "e10a893e7f157f6663d686e228b276049e9753024d28abaf72599826d0c6dfa8",
+  "senderReturnCode": 1,
+  "launcherReturnCode": 0,
+  "fatalLines": [
+    "[33:33:1115/025517.348856:FATAL:ui/ozone/platform/wayland/host/wayland_event_source.cc:236] Check failed: window == window_manager_->GetCurrentKeyboardFocusedWindow() (0x1934006e4b00 vs. (nil)). "
+  ]
+}

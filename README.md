@@ -10,7 +10,7 @@ The architectural ambition is a maximalist workbench shell: the sidebar, editor,
 
 The experiment runs its graphical session on an AMD Strix Halo machine. A person will view and control that session from a Zenbook. The supervising coding agent observes and acts on the same desktop, checks the visible effects of changes, and prepares reproducible video evidence. This supervised run uses one existing Codex session and free API workers.
 
-The first outcome is a real workbench editor and navigational Part arranged separately by the shell beside a native application, with retained state and a recording that another run can reproduce. The implementation uses monaco-vscode-api's Parts-hosting seam. The initial in-memory fixture needs no development server; full filesystem and extension capabilities require a separately qualified matching backend.
+The first outcome is a real workbench editor and navigational Part arranged separately by the shell beside a native application, with retained state and a recording that another run can reproduce. The implementation uses monaco-vscode-api's Parts-hosting seam. The initial in-memory fixture needs no development server; host files need a qualified filesystem provider, and Node extensions need a matching extension host.
 
 The useful result is a small implementation with clear evidence: what worked, what failed, which existing mechanisms were sufficient, and which reusable Domicile improvements the experiment actually justifies.
 

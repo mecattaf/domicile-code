@@ -7,3 +7,5 @@ The documented foreground launcher started an independent isolated GPU session w
 `browser.json` passes the ordinary default reference with native composition explicitly unavailable and no console errors. `language.json` passes actual TypeScript diagnostic 2322 and correction in the separate isolated experimental build. Chromium reports a sandboxed iframe warning; that warning is retained and no clean-console claim is made for that lane.
 
 The primary shared session then loaded the fresh checkout's shell bundle. `zenbook.json` repeats the actual Zenbook client's source matching, pointer/model input, human-control takeover and view-only reconnection. This is automated interaction with the human viewer UI on the real client machine. Physical keyboard use, subjective latency and a login desktop remain unqualified.
+
+`final-build.json` repeats locked installation, checking, both default builds and lifetime checks from the feature-frozen public `cb023b0` checkout. `morning-zenbook.json` repeats source/input/takeover/reconnect against that artifact on the newer engine. The fixture was reset afterward so the review desktop starts with its clean public content.

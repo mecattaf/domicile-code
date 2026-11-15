@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-15T01:57:10.981083+00:00",
+  "at": "2026-11-15T02:15:36.005788+00:00",
   "result": "pass",
-  "sourceRevision": "68508f3fb8555f4526018f07c1d666b8286ab4b2",
-  "filesReviewed": 156,
+  "sourceRevision": "cb023b02243ad34f8702153656dc134fbcec003b",
+  "filesReviewed": 162,
   "checks": [
     "exact comparison with the four worker credentials actually used; no values emitted",
     "credential-pattern and private-account/strategy marker checks",
@@ -28,13 +28,13 @@
     },
     {
       "file": "PROVE.md",
-      "bytes": 18299,
-      "sha256": "a7f0ab666a49e8ffb7e97c91b5285be24de1c0be218f7e70d09b429792c7f7b1"
+      "bytes": 19682,
+      "sha256": "733a8ee8285491e33353b0835344282a9cb524623b4ba31447804b63f22c1b5c"
     },
     {
       "file": "README.md",
-      "bytes": 5071,
-      "sha256": "83608c5f979f8b4300c56a26953dcd8cea9230a319aa6ac09dbe0420b89e11e3"
+      "bytes": 5080,
+      "sha256": "03bd12aa29d380000721d0d4f3a44f7a31955fe4f553ea0c7915cc8e6c004141"
     },
     {
       "file": "SCOPE.md",
@@ -43,8 +43,8 @@
     },
     {
       "file": "SPEC.md",
-      "bytes": 10204,
-      "sha256": "00a05902e6d3a7615c18a94df7853502baac53534c0a69537992b336b8071ae9"
+      "bytes": 10494,
+      "sha256": "80e105d1817d255e41f500910976547e53e2027771bf57684b3dcf28c9633aa2"
     },
     {
       "file": "docs/backend-scope.md",
@@ -53,8 +53,8 @@
     },
     {
       "file": "docs/build-loop.md",
-      "bytes": 4265,
-      "sha256": "129056b3d2147b1367436bdccf9ec25f59e38058d5ff8c4bd5ce050d85d159d3"
+      "bytes": 4615,
+      "sha256": "1f5becfd7d90462e352e16700a02da2a5fadb01860c37c53ed005e0b500def28"
     },
     {
       "file": "docs/build-status.md",
@@ -62,9 +62,14 @@
       "sha256": "b0932d27c94d20660e42506a3b6815ca64d819ca4e2ca1c6ffccd75af3537853"
     },
     {
+      "file": "docs/demo-notes.md",
+      "bytes": 1603,
+      "sha256": "a98a83026fbce858c559e18160aebefe5a90c6432091fbb69092799ef2f3144e"
+    },
+    {
       "file": "docs/free-compute.md",
-      "bytes": 3267,
-      "sha256": "b65abd4c030451e8c82615b7f5beaab261551008e983cd8156bf090c15b93c0f"
+      "bytes": 3544,
+      "sha256": "de90ee251901a8796251f93da1c15f04a41224b4bfe30f5d6d47d599b105bc93"
     },
     {
       "file": "docs/language-spike.md",
@@ -308,13 +313,13 @@
     },
     {
       "file": "evidence/2026-11-15-compute/summary.json",
-      "bytes": 15357,
-      "sha256": "6a728725adb65cc6fb6bc3be3c1dfa271b0aa794390947d6bb625991f92ab649"
+      "bytes": 15756,
+      "sha256": "eb0335324c7aed09a792938419de791195bf7d831fd3e96c897862d9967b0646"
     },
     {
       "file": "evidence/2026-11-15-key-delivery/README.md",
-      "bytes": 1006,
-      "sha256": "658da5dd2942abb4de4ec5acc8c18d05905af55e1a59d204f1823d842db8f131"
+      "bytes": 1211,
+      "sha256": "41cf33ffb6c9460e4ed2eefb099e128a9b1aa2aa0f03ac3ce7a0835204aeae85"
     },
     {
       "file": "evidence/2026-11-15-key-delivery/checked-immediate-fail.json",
@@ -335,6 +340,16 @@
       "file": "evidence/2026-11-15-key-delivery/latest-fail.json",
       "bytes": 1090,
       "sha256": "6323ba43528545ef4ad5461dcdf774f3060f3442636d42cd2a10827d85d24ff1"
+    },
+    {
+      "file": "evidence/2026-11-15-key-delivery/latest-reserved-comparison.json",
+      "bytes": 965,
+      "sha256": "38238b9c40263013ffb9b90c1ecf89e59b3e795c7f463136e640d56f5d839f52"
+    },
+    {
+      "file": "evidence/2026-11-15-key-delivery/latest-reserved-fail.json",
+      "bytes": 1294,
+      "sha256": "463403013db4331143a8ccef57639871ed23fb9e96d044e4294542172ac33c4c"
     },
     {
       "file": "evidence/2026-11-15-key-delivery/receipt-replacement-refused.json",
@@ -418,13 +433,18 @@
     },
     {
       "file": "evidence/2026-11-15-reproduction/README.md",
-      "bytes": 1614,
-      "sha256": "4ab62c5245bb3aac947222ff1840634bdc2ceffbffdfcded3b478c484c5341a9"
+      "bytes": 1962,
+      "sha256": "df3be45ecb3532ee62550f9637028c5451e6ed44e16c70ac2d56ffa889789fe1"
     },
     {
       "file": "evidence/2026-11-15-reproduction/browser.json",
       "bytes": 3094,
       "sha256": "36b053cc76bc286f28262be5de95ce0b5f2965f57d4c433f1591d70e4340c0cf"
+    },
+    {
+      "file": "evidence/2026-11-15-reproduction/final-build.json",
+      "bytes": 598,
+      "sha256": "713ba08c5e7182503b7c73c6c47b785daab7744c3efa098749d6a77a90ed717c"
     },
     {
       "file": "evidence/2026-11-15-reproduction/language.json",
@@ -435,6 +455,11 @@
       "file": "evidence/2026-11-15-reproduction/launcher.json",
       "bytes": 1492,
       "sha256": "6df1799a79126bbd0bd1aa45d476f8d7b1a092ba3876c5f42f8d853d6c6408f4"
+    },
+    {
+      "file": "evidence/2026-11-15-reproduction/morning-zenbook.json",
+      "bytes": 17333,
+      "sha256": "5076d73f4843c8a265a97a38a895a629bf433182555e6fa42c60280ff7a4de18"
     },
     {
       "file": "evidence/2026-11-15-reproduction/native-editor.json",
@@ -450,6 +475,11 @@
       "file": "evidence/2026-11-15-state-query/README.md",
       "bytes": 1691,
       "sha256": "50c30158404372be340533c8f02e3eae75499f167f41bf9292a0214d74da5a9b"
+    },
+    {
+      "file": "evidence/2026-11-15-state-query/fresh-github-query.json",
+      "bytes": 10127,
+      "sha256": "ec0783077328d66dbba91721fd07eb2141a48bf42b06ea56a2d376cffe90a92f"
     },
     {
       "file": "evidence/2026-11-15-state-query/initial-empty-query.json",

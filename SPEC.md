@@ -22,6 +22,8 @@ Domicile Code makes real VS Code workbench Parts available as desktop layout pri
 - The initial GPU route is Domicile nested in an isolated headless Sway session. The actual Zenbook client qualifies the browser viewer over an SSH tunnel, including takeover and reconnection. This does not qualify a direct accelerated headless Domicile output, a login desktop or Sunshine/Moonlight. (2026-11-14, measured integration result)
 - Native screenshot capture and browser debugging capture have different outcomes on the tested GPU route. The demonstration uses the verified shared-viewer frame path and records that choice explicitly. (2026-11-14, measured capture result)
 
+- Observation freshness in this prototype means the selected target/scene, viewport and a 60-second age bound. It is not a lock on every pixel or control position within a scene; callers observe immediately before bounded actions and verify readback. (2026-11-15, implementation boundary)
+
 ## Claims
 
 ### Stage A: real Parts and native composition

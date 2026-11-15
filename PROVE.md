@@ -43,13 +43,6 @@
 | P5.2 | C5.2 | capability audit | local | inspect dependencies, entry and backend registration | 0 | pass | docs/backend-scope.md; unqualified backend features explicit | ab4daa1 | 2026-11-14T21:53Z |
 | P3.2 | C3.2 | demonstration | live | tools/record-viewer.mjs; finalize and decode MP4; tools/check-video.mjs | 0 | pass | evidence/2026-11-14-core/core-demo-cfr.mp4; video-probe-cfr.json; playback.json | ab4daa1 + recording driver | 2026-11-14T22:04Z |
 | P3.3 | C3.3 | demonstration | live | repeat the Zenbook viewer scenario with visible dwell periods | 0 | pass | viewer-02-pass.json and recorded viewer-demo-01 both reproduced the scenario from the stated fixture condition | ab4daa1 + demo driver | 2026-11-14T21:58Z |
-
-## Legend
-
-- Forms: local, wrangler-dev, live, human.
-- Results: pass, fail, pending, blocked(H1).
-- Missing proof remains pending. A failed run is retained when a later run passes.
-- Public receipts exclude raw worker/account inventories. Sanitized summaries can reference the reviewed result.
 | P1.6 | C1.6 | floating Part | live | scripts/check-floating.mjs; initial bridge | 1 | fail | floating-01/02 retained privately; pointer capture was lost on move; shell focus change did not fix it | a0668da + floating | 2026-11-14T22:30Z |
 | P1.6 | C1.6 | floating Part | live | scripts/check-floating.mjs; held-button adapter | 0 | pass | evidence/2026-11-14-floating/receipt.json; detach, hide/reveal, drag over native, file open and dock | a0668da + floating bridge | 2026-11-14T22:43Z |
 | P3.2 | C3.2 | floating demo | live | record-viewer; ffmpeg full decode; check-video | 0 | pass | evidence/2026-11-14-floating/floating-demo.mp4 and playback.json; 18 seconds, 1436×872, 25 fps | a0668da + floating bridge | 2026-11-14T22:51Z |
@@ -71,15 +64,12 @@
 | P1.5 | C1.5 | initialization fault | live | scripts/check-startup-failure.mjs | 0 | pass | evidence/2026-11-14-runtime/startup-failure.json; isolated browser root-allocation fault shows a visible alert and no success proof or editor substitute | 96a8c86 | 2026-11-14T23:54Z |
 | P2.3 | C2.3 | input refusals | live | scripts/check-refusals.mjs | 0 | pass | evidence/2026-11-14-runtime/refusals.json; target/image/geometry refusals and actual 61-second image expiry with the same valid lease, scene and native process | 96a8c86 | 2026-11-14T23:39Z |
 | P5.1 | C5.1 | official stable cross-check | live | minimal capture and worker/isolation probes | expected differences | pass | stable-gpu-capture.json and stable-platform.json; both platform findings reproduce on official engine series ab4a3658ca13 | stable 8115d93 + fixture | 2026-11-14T23:52Z |
-
 | P1.7 | C1.7 | native editor | live | scripts/check-native-editor.mjs; native-editor-02/03 and demo-06 | 0 | pass | evidence/2026-11-15-native-editor/receipt.json; original native element/PID/surface, registered editor Pane and independent stdout | 60b293e + native-editor | 2026-11-15T00:38Z |
 | P1.8 | C1.8 | native editor lifecycle | live | text switch, actual tab close, then native client exit | 0 | pass | same receipt; zero-sized parked view, focus release, return to pane, no dead tab or element | 60b293e + native-editor | 2026-11-15T00:38Z |
 | P1.5 | C1.5 | native initialization fault | live | scripts/check-startup-native.mjs with repros/startup-failure wrapper | 0 | pass | evidence/2026-11-15-native-editor/startup-failure.json; injected root allocation fault visible, no substitute/proof, ordinary reload recovers native identity | 60b293e + native-editor | 2026-11-15T00:23Z |
 | P3.2 | C3.2 | native editor demonstration | live | record-viewer; finalize-recording; browser playback | 0 | pass | native-editor-checked.mp4 and finalization.json; verified completed capture, 18 s, 1436×872, 25 fps, full decode and browser playback | 60b293e + source sync | 2026-11-15T00:52Z |
 | P3.3 | C3.3 | native editor repeat | live | native-editor-03 and native-editor-demo-04/05 | 0 | pass | full scenario repeated with fresh native fixtures; initial close-icon selector failure and stale-scene recording retained privately | 60b293e + native-editor | 2026-11-15T00:38Z |
-
 | P4.4 | C4.4 | final completeness fleet | local | three free API workers: native lifetime, claim falsity and documentation consistency | 0 | pass | docs/spec-review.md; framework lease ownership verified, duplicate checks identified, pending audits retained | 60b293e + native-editor | 2026-11-15T00:52Z |
-
 | P1.7 | C1.7 | fresh checkout reproduction | live | public GitHub clone, npm ci/check/build, foreground GPU launcher, check-native-editor | 0 | pass | evidence/2026-11-15-reproduction/native-editor.json and launcher.json; no staged local source copied | e50f241 | 2026-11-15T00:56Z |
 | P2.1 | C2.1 | fresh artifact on actual Zenbook | live | describe-session and check-viewer-client on client host | 0 | pass | evidence/2026-11-15-reproduction/zenbook.json; input, takeover and reconnection repeated | e50f241 | 2026-11-15T00:58Z |
 | P5.3 | C5.3 | fresh default browser | live | check-browser against freshly built reference | 0 | pass | evidence/2026-11-15-reproduction/browser.json; no console errors | e50f241 | 2026-11-15T00:56Z |
@@ -88,11 +78,23 @@
 | P4.1 | C4.1 | worker dispatch audit | local | review controller routes, task ledger and returned cost fields | 0 | pass | docs/free-compute.md and evidence/2026-11-15-compute/summary.json; zero extra subscription workers, paid fallback disabled, 35 reported OpenRouter costs zero | e50f241 + reports | 2026-11-15T01:00Z |
 | P4.2 | C4.2 | refusal audit | local | inspect timeouts, 429, region refusal and stale selector receipts | 0 | pass | same summary; refusals retained, no purchase, region bypass or paid fallback; absent selector removed | e50f241 + reports | 2026-11-15T01:00Z |
 | P4.3 | C4.3 | compute usefulness audit | local | normalized per-task private ledger and sanitized pair summary | 0 | pass | exact provider/model, priors, elapsed, returned counters and reviewed usefulness recorded separately; account allowances remain private | e50f241 + reports | 2026-11-15T01:00Z |
-
 | P5.5 | C5.5 | live read-only shell query | live | run-prototype --check-shell-query; check-state-query-live | 0 | pass | evidence/2026-11-15-state-query/receipt.json; discovery, no grabs, exact state, refusal and independent layout readback | 68508f3 + state-query | 2026-11-15T01:33Z |
 | P5.1 | C5.1 | nested Wayland keyboard packet | live | isolated run.py against stable and two checked series | measured difference | pass | repros/key-delivery/README.md; repeated stable logical controls pass, checked builds abort on plain A; physical-code assumption failure retained | 68508f3 + key probe | 2026-11-15T01:28Z |
-
 | P5.5 | C5.5 | query native-fixture admission | live | repeat query check after requiring a connected native PID | 0 | pass | state-query/receipt.json; initial-empty-query.json retained as partial coverage; actual CLI/observation PID and layout now compared | 68508f3 + fixture admission | 2026-11-15T01:55Z |
 | P5.5 | C5.5 | earlier engine and lifetime failures | local/live | actual unsupported runtime observation and focused stream checks | 0 | pass | older-runtime.json and lifetime-checks.json; no old API call, one release, unlocked reader, visible registration/answer errors | 68508f3 + state-query | 2026-11-15T01:47Z |
 | P1.7 | C1.7 | newer engine regression | live | complete check-native-editor against c029ccf | 0 | pass | state-query/newer-native-editor.json; real native Pane/input, parking, tab/client closure all pass | c029ccf runtime + query build | 2026-11-15T01:38Z |
 | P4.4 | C4.4 | final revised-source review | local | three free review roles plus bounded trace retries and supervisor disposition | completed with rejected findings | pass | docs/spec-review.md; unusable/incorrect model outputs retained; lifetime/runtime proof supplied independently | 68508f3 + final sources | 2026-11-15T01:47Z |
+| P5.5 | C5.5 | fresh public query build | live | GitHub cb023b0 install/check/build, lifetime checks, then live query on c029ccf | 0 | pass | reproduction/final-build.json and state-query/fresh-github-query.json; actual native fixture admitted | cb023b0 | 2026-11-15T02:05Z |
+| P2.1 | C2.1 | morning source on actual Zenbook | live | check-viewer-client via the new source tunnel | 0 | pass | reproduction/morning-zenbook.json; shared identity, input, takeover and reconnect repeated | cb023b0 | 2026-11-15T02:08Z |
+| P4.1 | C4.1 | final worker policy audit | local | 77 task receipts, dispatch policy and completed subscription-agent metadata | 0 | pass | compute/summary.json; 76 generation-request attempts, one admission refusal; 39 OpenRouter cost fields zero; no extra subscription workers | cb023b0 + reports | 2026-11-15T02:05Z |
+| P4.3 | C4.3 | final compute report | local | normalize all task attempts and join the private catalogue | 0 | pass | 77 attempts / 53 returned final answers, accepted work and rejected reviews distinct; 1,596 catalogue rows preserved privately | cb023b0 + reports | 2026-11-15T02:05Z |
+
+| P3.4 | C3.4 | final sharing-set review | local | rerun credential/marker/type scan and fixture image/video review | 0 | pass | compute/public-artifact-audit.json; final named files and hashes, private capacity excluded | final reports | 2026-11-15T02:18Z |
+
+
+## Legend
+
+- Forms: local, wrangler-dev, live, human.
+- Results: pass, fail, pending, blocked(H1).
+- Missing proof remains pending. A failed run is retained when a later run passes.
+- Public receipts exclude raw worker/account inventories. Sanitized summaries can reference the reviewed result.

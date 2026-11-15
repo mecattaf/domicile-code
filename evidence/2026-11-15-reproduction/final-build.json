@@ -1,0 +1,38 @@
+{
+  "at": "2026-11-15T02:02:09.641519+00:00",
+  "revision": "cb023b02243ad34f8702153656dc134fbcec003b",
+  "result": "pass",
+  "steps": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts"
+      ],
+      "returnCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "returnCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "returnCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "scripts/check-state-query.mjs"
+      ],
+      "returnCode": 0
+    }
+  ]
+}
