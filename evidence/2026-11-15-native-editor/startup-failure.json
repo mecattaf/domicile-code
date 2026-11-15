@@ -1,0 +1,147 @@
+{
+  "at": "2026-11-15T00:23:11.629Z",
+  "revision": "60b293e+native-editor",
+  "result": "pass",
+  "injectedFault": "a copied bundle is wrapped in its own module realm to fail root allocation; the normal shell is restored afterward",
+  "before": {
+    "sceneId": "5fa3285c-0c9d-4659-95c7-1e78e39765e8",
+    "mode": "shell",
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 872,
+        "modeHeight": 872,
+        "modeWidth": 1436,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1436,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 34,
+        "width": 260,
+        "height": 816,
+        "top": 34,
+        "right": 308,
+        "bottom": 850,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 34,
+        "width": 808,
+        "height": 816,
+        "top": 34,
+        "right": 1116,
+        "bottom": 850,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 2,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 2
+      }
+    },
+    "native": null
+  },
+  "visibleError": "Shell startup failed: DC_INTENTIONAL_NATIVE_STARTUP_FAILURE",
+  "faultProbe": {
+    "installed": true,
+    "hit": true
+  },
+  "successProofPresent": false,
+  "recovered": {
+    "sceneId": "ff471a70-1bf5-44ae-a104-a1f192c02ec2",
+    "mode": "shell",
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 872,
+        "modeHeight": 872,
+        "modeWidth": 1436,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1436,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 34,
+        "width": 260,
+        "height": 816,
+        "top": 34,
+        "right": 308,
+        "bottom": 850,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 34,
+        "width": 808,
+        "height": 816,
+        "top": 34,
+        "right": 1116,
+        "bottom": 850,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 2,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 2
+      }
+    },
+    "native": null
+  },
+  "recovery": "pass"
+}

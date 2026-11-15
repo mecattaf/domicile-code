@@ -36,7 +36,7 @@ async function updateSource() {
   assert.equal(output.name, values.output, 'The selected output is not the SDK desktop output');
   assert(output.x === 0 && output.y === 0 && output.width === viewport.width && output.height === viewport.height, 'The selected output does not cover the observed viewport');
   const changed = source && (state.sceneId !== source.sceneId || JSON.stringify(viewport) !== JSON.stringify(source.viewport));
-  if (changed) observations.clear();
+  if (changed) { observations.clear(); latestFrame = null; }
   source = { sceneId: state.sceneId, viewport, targetId: values.target, output: values.output, serverId };
   if (changed) broadcastState();
   return state;
@@ -154,6 +154,7 @@ sockets.on('connection', ws => {
       assert(message && typeof message.type === 'string', 'Malformed message');
       if (message.type === 'hello') {
         assert(!client.role && ['human', 'agent'].includes(message.role), 'Choose a client role once');
+        await updateSource();
         client.role = message.role;
         broadcastState();
         if (latestFrame) send(ws, latestFrame);
@@ -191,7 +192,7 @@ cdp.on('Page.screencastFrame', async frame => {
   try {
     await cdp.send('Page.screencastFrameAck', { sessionId: frame.sessionId });
     source.viewport = { ...source.viewport, width: frame.metadata.deviceWidth, height: frame.metadata.deviceHeight };
-    latestFrame = { type: 'frame', data: frame.data, viewport: source.viewport, capturedAt: new Date().toISOString(), targetId: values.target, serverId };
+    latestFrame = { type: 'frame', data: frame.data, viewport: source.viewport, capturedAt: new Date().toISOString(), targetId: values.target, sceneId: source.sceneId, serverId };
     for (const [ws, client] of clients) if (client.role && ws.bufferedAmount < 2000000) send(ws, latestFrame);
   } catch (error) {
     if (!stopping) { console.error(error); void stop('capture-source-lost', true); }

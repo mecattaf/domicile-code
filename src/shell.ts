@@ -10,14 +10,99 @@ let windowsChangeUnsubscriber: (() => void) | null = null;
 let resizeObserver: ResizeObserver | null = null;
 let workbenchController: Awaited<ReturnType<typeof mountWorkbench>> | null = null;
 const hiddenApps = new Set<string>();
+const sentBounds = new Map<string, string>();
+let nativeEditorAppId: string | undefined;
+let nativePlacement: 'pane' | 'editor' | 'parked' = 'pane';
+let nativeMountGeneration = 0;
 
 function showVisibleError(message: string, error: unknown): void {
   console.error(message, error);
   const errorDiv = document.createElement("div");
-  errorDiv.style.cssText = "position:fixed;top:1rem;right:1rem;background:#fee;padding:1rem;border:1px solid #fcc;border-radius:4px;z-index:10000;max-width:400px;";
+  errorDiv.className = 'shell-startup-error';
+  errorDiv.setAttribute('role', 'alert');
+  errorDiv.style.cssText = "position:fixed;top:1rem;right:1rem;background:#fee;color:#231717;padding:1rem;border:1px solid #fcc;border-radius:4px;z-index:10000;max-width:400px;";
   errorDiv.textContent = `${message}: ${error instanceof Error ? error.message : String(error)}`;
   document.body.appendChild(errorDiv);
 
+}
+
+function sendBounds(domicile: Domicile, appId: string, box: { x: number; y: number; width: number; height: number }): void {
+  const key = JSON.stringify(box);
+  if (sentBounds.get(appId) === key) return;
+  domicile.windows.setBounds(appId, box);
+  sentBounds.set(appId, key);
+}
+
+function syncNativeLayout(domicile: Domicile): void {
+  if (!currentAppId || !currentAppElement) return;
+  const data = domicile.windows.list.find(window => window.appId === currentAppId);
+  const parent = currentAppElement.parentElement;
+  if (!data || !parent) return;
+  if (nativePlacement === 'parked') {
+    sendBounds(domicile, currentAppId, { x: 0, y: 0, width: 0, height: 0 });
+    return;
+  }
+  fitNativeApp(currentAppElement, data, parent);
+  const { x, y, width, height } = currentAppElement.getBoundingClientRect();
+  sendBounds(domicile, currentAppId, { x, y, width, height });
+}
+
+function updateNativeControls(): void {
+  const select = document.querySelector<HTMLSelectElement>('.shell-native-header select');
+  const button = document.querySelector<HTMLButtonElement>('[data-action=native-editor]');
+  const empty = document.querySelector<HTMLElement>('.shell-empty-state');
+  if (select) select.disabled = !!nativeEditorAppId;
+  if (button) {
+    button.disabled = !currentAppElement;
+    button.textContent = nativeEditorAppId ? 'Return to pane' : 'Open as editor';
+  }
+  if (empty) {
+    empty.style.display = !currentAppElement || nativeEditorAppId ? 'flex' : 'none';
+    empty.textContent = !currentAppElement ? 'No window selected' : nativePlacement === 'parked' ? 'Select the native editor tab to show this window.' : 'Shown in an editor tab.';
+  }
+}
+
+async function toggleNativeEditor(domicile: Domicile): Promise<void> {
+  if (nativeEditorAppId) { workbenchController?.closeNativeEditor(nativeEditorAppId); return; }
+  const appId = currentAppId, element = currentAppElement;
+  const data = domicile.windows.list.find(window => window.appId === appId);
+  if (!appId || !element || !data || !workbenchController) return;
+  nativeEditorAppId = appId;
+  const closed = () => {
+    if (nativeEditorAppId !== appId) return;
+    nativeEditorAppId = undefined;
+    nativeMountGeneration++;
+    nativePlacement = 'pane';
+    if (currentAppId === appId && domicile.windows.list.some(window => window.appId === appId)) {
+      document.querySelector('.shell-native-content')!.appendChild(element);
+      syncNativeLayout(domicile);
+    }
+    updateNativeControls();
+  };
+  try {
+    await workbenchController.openNativeEditor({
+      appId, title: data.title || appId, closed,
+      mount(parent) {
+        if (currentAppId !== appId || currentAppElement !== element) throw new Error('The native editor window is no longer selected');
+        const generation = ++nativeMountGeneration;
+        nativePlacement = 'editor';
+        parent.appendChild(element);
+        syncNativeLayout(domicile);
+        requestAnimationFrame(() => syncNativeLayout(domicile));
+        updateNativeControls();
+        return { dispose() {
+          if (generation !== nativeMountGeneration || nativeEditorAppId !== appId) return;
+          nativePlacement = 'parked';
+          document.querySelector('.shell-native-parking')!.appendChild(element);
+          syncNativeLayout(domicile);
+          if (domicile.windows.focused === appId) domicile.windows.focusShell();
+          updateNativeControls();
+        } };
+      },
+      focus() { if (currentAppId === appId && nativePlacement === 'editor') domicile.windows.focus(appId); },
+      layout() { requestAnimationFrame(() => syncNativeLayout(domicile)); },
+    });
+  } catch (error) { closed(); throw error; }
 }
 
 function fitNativeApp(app: HTMLElement, window: ClientWindow, content: HTMLElement): void {
@@ -38,6 +123,10 @@ function updateNativePane(appId: string | undefined, domicile: Domicile): void {
   if (!nativeContent || !nativeHeader || !emptyState || !select) return;
 
   const windows = domicile.windows.list.filter(w => w.parent == null) as readonly ClientWindow[];
+  if (nativeEditorAppId && !windows.some(window => window.appId === nativeEditorAppId)) {
+    workbenchController?.closeNativeEditor(nativeEditorAppId);
+  }
+  for (const id of sentBounds.keys()) if (!windows.some(window => window.appId === id)) sentBounds.delete(id);
   
   const options = windows.map(w => {
     const opt = document.createElement("option");
@@ -65,29 +154,36 @@ function updateNativePane(appId: string | undefined, domicile: Domicile): void {
   for (const window of windows) {
     if (window.appId === windowData?.appId) hiddenApps.delete(window.appId);
     else if (!hiddenApps.has(window.appId)) {
-      domicile.windows.setBounds(window.appId, { x: 0, y: 0, width: 0, height: 0 });
+      sendBounds(domicile, window.appId, { x: 0, y: 0, width: 0, height: 0 });
       hiddenApps.add(window.appId);
     }
   }
   
   if (appId === currentAppId && currentAppElement && windows.some(w => w.appId === appId)) {
     select.value = appId ?? "";
-    fitNativeApp(currentAppElement, windows.find(w => w.appId === appId)!, nativeContent);
+    syncNativeLayout(domicile);
+    updateNativeControls();
     return;
   }
 
   if (!windowData) {
+    if (currentAppElement) {
+      resizeObserver?.unobserve(currentAppElement);
+      currentAppElement.remove();
+    }
     nativeContent.replaceChildren();
     emptyState.style.display = "block";
     currentAppId = undefined;
     currentAppElement = null;
     select.value = "";
+    updateNativeControls();
     return;
   }
 
   emptyState.style.display = "none";
   
   if (currentAppElement) {
+    resizeObserver?.unobserve(currentAppElement);
     currentAppElement.remove();
   }
 
@@ -99,37 +195,18 @@ function updateNativePane(appId: string | undefined, domicile: Domicile): void {
   nativeContent.replaceChildren(appElement);
   currentAppElement = appElement;
   currentAppId = windowData.appId;
+  nativePlacement = 'pane';
+  resizeObserver?.observe(appElement);
   select.value = windowData.appId;
-
-  requestAnimationFrame(() => {
-    const rect = appElement.getBoundingClientRect();
-    domicile.windows.setBounds(windowData.appId, {
-      x: rect.x,
-      y: rect.y,
-      width: rect.width,
-      height: rect.height
-    });
-  });
+  updateNativeControls();
+  requestAnimationFrame(() => syncNativeLayout(domicile));
 }
 
 function setupResizeObserver(domicile: Domicile): void {
   const nativeContent = document.querySelector(".shell-native-content") as HTMLElement;
   if (!nativeContent) return;
 
-  resizeObserver = new ResizeObserver(() => {
-    if (currentAppId && currentAppElement) {
-      const selected = domicile.windows.list.find(w => w.appId === currentAppId);
-      if (!selected) return;
-      fitNativeApp(currentAppElement, selected, nativeContent);
-      const rect = currentAppElement.getBoundingClientRect();
-      domicile.windows.setBounds(currentAppId, {
-        x: rect.x,
-        y: rect.y,
-        width: rect.width,
-        height: rect.height
-      });
-    }
-  });
+  resizeObserver = new ResizeObserver(() => syncNativeLayout(domicile));
   resizeObserver.observe(nativeContent);
 }
 
@@ -137,15 +214,13 @@ function setupFocusHandlers(domicile: Domicile): void {
   const workbenchPane = document.querySelector(".shell-workbench-pane") as HTMLElement;
   const nativePane = document.querySelector(".shell-native-pane") as HTMLElement;
 
-  workbenchPane?.addEventListener("pointerdown", () => {
-    if (domicile.windows.focused !== undefined) domicile.windows.focusShell();
-  });
-
-  nativePane?.addEventListener("pointerdown", () => {
-    if (currentAppId) {
-      domicile.windows.focus(currentAppId);
-    }
-  });
+  const focusTarget = (event: PointerEvent) => {
+    const app = event.target instanceof Element ? event.target.closest('app') : null;
+    if (currentAppId && app?.getAttribute('app-id') === currentAppId) domicile.windows.focus(currentAppId);
+    else if (domicile.windows.focused !== undefined) domicile.windows.focusShell();
+  };
+  workbenchPane?.addEventListener('pointerdown', focusTarget);
+  nativePane?.addEventListener('pointerdown', focusTarget);
 }
 
 function setupWindowSelect(domicile: Domicile): void {
@@ -156,9 +231,14 @@ function setupWindowSelect(domicile: Domicile): void {
     const appId = select.value || undefined;
     updateNativePane(appId, domicile);
   });
+  document.querySelector('[data-action=native-editor]')?.addEventListener('click', () => {
+    void toggleNativeEditor(domicile).catch(error => showVisibleError('Native editor failed', error));
+  });
 }
 
 async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
+  delete (window as any).domicileCodeProof;
+  document.querySelectorAll('.shell-startup-error').forEach(element => element.remove());
   const sceneId = crypto.randomUUID();
   root.replaceChildren();
 
@@ -169,10 +249,12 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
     <div class="shell-native-pane">
       <div class="shell-native-header">
         <select></select>
+        <button type="button" data-action="native-editor" disabled>Open as editor</button>
       </div>
       <div class="shell-native-content"></div>
       <div class="shell-empty-state" style="display:flex;align-items:center;justify-content:center;height:100%;color:#666;">No window selected</div>
     </div>
+    <div class="shell-native-parking" hidden></div>
   `;
   root.appendChild(container);
 
@@ -205,6 +287,7 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
         appId: currentAppId,
         focused: domicile.windows.focused === currentAppId,
         isConnected: currentAppElement?.isConnected ?? false,
+        placement: nativePlacement,
         boundingRect: currentAppElement ? currentAppElement.getBoundingClientRect() : null,
         pid: (domicile.windows.list as readonly ClientWindow[]).find(w => w.appId === currentAppId)?.pid ?? null,
         toplevelId: (domicile.windows.list as readonly ClientWindow[]).find(w => w.appId === currentAppId)?.toplevelId ?? null

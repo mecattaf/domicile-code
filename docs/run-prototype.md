@@ -38,6 +38,21 @@ Use the endpoint and target from that run's `run.json`, rather than another desk
 
 To reproduce the small native capture comparison, use `--shell-dir "$PWD/repros/capture" --capture-repro --seconds 1` with a new run directory. The measurement writes both capture results, even when the built-in path fails. The expected and measured differences are in the [upstream packet](../repros/capture/README.md).
 
+## Native editor tabs
+
+Click **Open as editor** in the native pane header. The actual VS Code editor tab hosts the same native element. Switch to `hello.ts` to park it, return to the native tab, or close that tab to return the running application to the pane. The header's **Return to pane** does the same. Native client exit closes the associated editor. Only one native editor and a single editor group are qualified by this spike.
+
+`scripts/check-native-editor.mjs --url … --endpoint … --target … --out new-directory --revision … --native-result /absolute/path/to/fresh-fixture-stdout` reproduces the scenario through the shared viewer. It requires exactly the named public entry fixture, the original `hello.ts` tab and an existing empty stdout file from that fresh fixture. `--native-result` names that file; `--out` names a separate new evidence directory. It submits `tabnative` and closes the fixture. Add `--demo` to retain visible dwell periods. The independent stdout, source identities and snapshots establish the result.
+
 ## Record the behavior
 
-`tools/record-viewer.mjs --url … --target … --out new-recording-directory --seconds 35 --revision …` retains actual frame receive intervals and source identity. Finalize those JPEG frames with FFmpeg as documented in the evidence bundles, fully decode the output, and exercise browser playback with `tools/check-video.mjs`. A recording directory or a media probe alone does not establish a playable demonstration. Share only the reviewed fixture artifacts; raw profiles, minidumps and provider ledgers stay private.
+`tools/record-viewer.mjs --url … --target … --out new-recording-directory --seconds 35 --revision …` retains actual frame receive intervals and source identity. Finalize a completed capture with:
+
+```sh
+runtime-test -- node tools/finalize-recording.mjs \
+  --recording /absolute/path/to/recording \
+  --out /absolute/path/to/new-demo.mp4 --start 0 --seconds 13 \
+  --chromium /absolute/path/to/chromium
+```
+
+The finalizer requires the excerpt to fit the captured timeline, verifies every frame hash, encodes H.264, checks dimensions and duration, fully decodes the file and plays it in a browser. `ffmpeg` and `ffprobe` must be on PATH or selected explicitly. Inspect the clip and confirm the scenario timestamps lie inside the excerpt before sharing. Failed capture manifests are refused, and existing output files are never overwritten. A recording directory or a media probe alone does not establish a playable demonstration. Share only the reviewed fixture artifacts; raw profiles, minidumps and provider ledgers stay private.

@@ -33,6 +33,9 @@ C1.4 A selected native window closes or the native list becomes empty → the sh
 C1.5 Workbench initialization fails → the shell exposes the error and does not substitute a mock editor or a success receipt. [prove: P1.5]
 C1.6 The Explorer floats outside the workbench grid and is dragged over a native application → its actual Part, model and selection remain associated, and docking returns the original Part to the grid. [prove: P1.6]
 
+C1.7 The selected native fixture opens as a VS Code editor → the same live native element, process and surface appear inside an actual editor Pane and receive independently verified keyboard input. [prove: P1.7]
+C1.8 A native editor switches to a text tab, closes, or loses its native client → the view parks without native focus, returns to its pane when the tab closes, or removes the dead tab and element when the client exits. [prove: P1.8]
+
 ### Stage B: shared desktop and interaction
 
 C2.1 The viewer and builder attach to the selected desktop → their observations identify the same instance, output, geometry and scene. [prove: P2.1]

@@ -21,6 +21,7 @@ import TextmateWorker from '@codingame/monaco-vscode-textmate-service-override/w
 import '@codingame/monaco-vscode-theme-defaults-default-extension';
 import '@codingame/monaco-vscode-typescript-basics-default-extension';
 import { createFloatingSidebar } from './floating-sidebar';
+import { NativeEditorInput, registerNativeEditorPane, type NativeEditorHost } from './native-editor';
 
 export type SidebarSide = 'left' | 'right';
 declare const __DC_LANGUAGE_EXTENSION__: boolean;
@@ -146,6 +147,11 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
   const layout = await getService(IWorkbenchLayoutService);
   const editors = await getService(IEditorService);
   const extensions = await getService(IExtensionService);
+  registerNativeEditorPane();
+  const nativeInputs = new Map<string, NativeEditorInput>();
+  editors.onDidCloseEditor(event => {
+    if (event.editor instanceof NativeEditorInput) event.editor.dispose();
+  });
   await editors.openEditor({ resource: fixture, options: { pinned: true } });
   layout.setPartHidden(false, Parts.SIDEBAR_PART);
   layout.setPartHidden(true, Parts.PANEL_PART);
@@ -169,6 +175,17 @@ export async function mountWorkbench(root: HTMLElement, options: { onFocus?: () 
     setSidebarSide,
     setSidebarVisible,
     setSidebarFloating: floating.setFloating,
+    async openNativeEditor(host: NativeEditorHost) {
+      let input = nativeInputs.get(host.appId);
+      if (!input) {
+        input = new NativeEditorInput(host);
+        nativeInputs.set(host.appId, input);
+        input.onWillDispose(() => { nativeInputs.delete(host.appId); host.closed(); });
+      }
+      const pane = await editors.openEditor(input, { pinned: true });
+      if (!pane) throw new Error('The native editor Pane did not open');
+    },
+    closeNativeEditor: (appId: string) => nativeInputs.get(appId)?.dispose(),
     inspectExtensions: () => ({
       extensions: extensions.extensions.map(extension => ({
         id: extension.identifier.value, browser: extension.browser, main: extension.main,

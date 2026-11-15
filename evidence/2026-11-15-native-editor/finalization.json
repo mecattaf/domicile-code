@@ -1,0 +1,45 @@
+{
+  "at": "2026-11-15T00:52:08.527Z",
+  "result": "pass",
+  "output": "native-editor-final.mp4",
+  "excerpt": {
+    "startSeconds": 9,
+    "durationSeconds": 18
+  },
+  "baselineNormalization": {
+    "original": "frame-000000.png",
+    "originalSha256": "96f2684ba8c972483d339acf471883d4a076c99dc57b5b615ffeaf7e26d77fb4",
+    "file": "finalize-native-editor-final.mp4-baseline.jpg",
+    "sha256": "1a37e7b9f2f51a2b0b8b119042f1a35a30ab7c0e7a87dab7a84be3ad17eee4a3"
+  },
+  "source": {
+    "targetId": "4FE23A68145190A85EB1C34127B79A18",
+    "sceneId": "ff471a70-1bf5-44ae-a104-a1f192c02ec2",
+    "serverId": "1fb28e61-6819-4762-92b5-0fa9c088348b",
+    "output": "domicile-0",
+    "viewport": {
+      "width": 1436,
+      "height": 872,
+      "devicePixelRatio": 1
+    }
+  },
+  "revision": "60b293e+native-editor-baseline-frame",
+  "captureReceiptSha256": "316e5617b671322cd3420932facf182feae10c9064644f013d070decd42a5df0",
+  "sha256": "40ece458cac4d0e001dcd3d8a03899dd29d73a7237e10952f72519f5e3b82f22",
+  "media": {
+    "codec": "h264",
+    "pixelFormat": "yuv420p",
+    "width": 1436,
+    "height": 872,
+    "duration": 18,
+    "frameRate": "25/1"
+  },
+  "checks": [
+    "capture completed",
+    "frame hashes match",
+    "excerpt is within the captured timeline",
+    "dimensions and duration match",
+    "full decode",
+    "actual browser playback"
+  ]
+}

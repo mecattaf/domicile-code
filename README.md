@@ -4,7 +4,7 @@ A bounded experiment in making a real VS Code workbench into a [Domicile](https:
 
 The architectural ambition is a maximalist workbench shell: the sidebar, editor, panels and native applications occupy independently arranged desktop regions. The first spike establishes that composition and a repeatable agent build loop through one coherent demonstration. It does not attempt to complete a general-purpose IDE or desktop.
 
-**Current state: the real Parts-hosting shell runs in an isolated GPU-rendered Domicile session.** The Explorer floats over a real native application, opens files there and docks while retaining its actual Part. The actual Zenbook client passes shared-input, takeover and reconnect checks. [Watch the checked clip](evidence/2026-11-14-floating/floating-demo.mp4), [run the prototype](docs/run-prototype.md), or read [build status](docs/build-status.md) and the append-only [proof receipts](PROVE.md).
+**Current state: real native Wayland apps can occupy actual VS Code editor tabs.** Switching tabs preserves the running client; closing the editor returns it to its desktop pane. The real Explorer also floats over native surfaces, opens files and docks with its Part intact. The isolated GPU session runs on Strix Halo, with shared input, takeover and reconnection checked from the actual Zenbook client. [Watch the native-tab clip](evidence/2026-11-15-native-editor/native-editor-checked.mp4), [run the prototype](docs/run-prototype.md), or read [build status](docs/build-status.md) and [proof receipts](PROVE.md).
 
 ## The experiment
 
