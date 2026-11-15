@@ -1,6 +1,6 @@
 # Domicile integration and upstream questions
 
-This is the maintainer-facing rationale for investigation. The [minimal native-capture packet](../repros/capture/README.md) reproduces a capture-path difference without VS Code dependencies. The [worker and isolation packet](../repros/isolation/README.md) compares actual script delivery and shared memory against a working browser control. The [prebuilt classification packet](../repros/import-classification/README.md) measures a documented scanner limitation and proposes an explicit loading contract. The [nested keyboard comparison](../repros/key-delivery/README.md) retains a working stable logical-chord control and a checked-build focus abort. Other entries below remain integration questions. No upstream issue or message has been sent. The source baseline is [pinned here](sources.md).
+This is the maintainer-facing rationale for investigation. The [minimal native-capture packet](../repros/capture/README.md) reproduces a capture-path difference without VS Code dependencies. The [worker and isolation packet](../repros/isolation/README.md) compares actual script delivery and shared memory against a working browser control. The [prebuilt classification packet](../repros/import-classification/README.md) measures a documented scanner limitation and proposes an explicit loading contract. The [nested keyboard comparison](../repros/key-delivery/README.md) retains a working stable logical-chord control and a checked-build focus abort. Other entries below remain integration questions. The latest follow-up and submitted issue index are recorded below. The source baseline is [pinned here](sources.md).
 
 ## What belongs upstream
 
@@ -67,3 +67,12 @@ State the behavior and its reusable value, followed by the pinned environment, m
 Main advanced from `d2a68f5` to `c029ccfc91460147b5457b566bcc66187ebfd8bc` while stable remained `8115d93`. The newer source adds command discovery/replies, input listing, subscriptions and direct window commands, alongside Electron work. These are existing upstream mechanisms to use rather than request again. The Code shell now exercises the read-only `get-workbench` reply through that new contract. Native mutations still use the shared viewer lease.
 
 The newer main binary and published engine were built on the compute host. The native-tab demonstration remains pinned to its earlier measured runtime; the query and repeated keyboard comparison identify the newer runtime separately. No claim that every earlier platform finding was remeasured on the newer engine is implied.
+
+
+## 15 November follow-up: direct deployment and complete upstream coverage
+
+[The latest measured comparison](../evidence/2026-11-15-direct/README.md) updates both main and stable to `1557378783d6bf7c94a5c093f3fe42804652a540` and uses official engine `sa6e192f40495`. The direct software-headless Code shell passes real Part floating/state retention, read-only CLI queries and native screenshot capture. The target is Domicile without an underlying Sway session.
+
+CDP is an explicitly acceptable capture implementation for this experiment. The report distinguishes engine debugging screenshots from native screenshot and ScreenCast/PipeWire interfaces. “Use CDP” is a satisfactory maintainer answer; the nested GPU native-capture discrepancy remains useful upstream coverage.
+
+The contribution policy is broad: report reusable defects, edge cases and documentation/contract gaps, with exact pins and working controls. Workbench-specific policy stays here. Worker delivery, isolated/shared-memory opt-in, explicit prebuilt loading, nested GPU capture, checked-engine keyboard hotplug and the direct accelerated remote configuration are tracked independently so that each can be answered or fixed on its own.

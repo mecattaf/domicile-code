@@ -1,0 +1,25 @@
+{
+  "startedAt": "2026-11-15T09:33:35.622660+00:00",
+  "backend": "OZONE=headless",
+  "hostCompositor": null,
+  "composition": "software by upstream headless design",
+  "mode": "capture",
+  "status": "measured",
+  "browserWebSocket": "ws://127.0.0.1:9249/devtools/browser/606100f4-bd4c-49a5-9934-cde6c9f15cd5",
+  "endpoint": "http://127.0.0.1:9249",
+  "targetId": "B9E173218F2ED20E1D549BE0A8A11C1D",
+  "capture": {
+    "returncode": 0
+  },
+  "displays": {
+    "returncode": 0
+  },
+  "childrenExitCodes": [
+    1,
+    -15
+  ],
+  "endedAt": "2026-11-15T09:33:41.843275+00:00",
+  "retainedDumps": [
+    "config/chromium/Crash Reports/pending/cf6c981b-2252-4dcc-94c1-0ea525c707af.dmp"
+  ]
+}

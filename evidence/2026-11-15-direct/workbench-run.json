@@ -1,0 +1,43 @@
+{
+  "startedAt": "2026-11-15T09:36:02.250215+00:00",
+  "backend": "OZONE=headless",
+  "hostCompositor": null,
+  "composition": "software by upstream headless design",
+  "mode": "workbench",
+  "status": "measured",
+  "browserWebSocket": "ws://127.0.0.1:9251/devtools/browser/fb7a0e63-2cfb-49e7-ba47-6bf5a2b318e1",
+  "endpoint": "http://127.0.0.1:9251",
+  "targetId": "7294A486666490BF5C13DEEA817C13B9",
+  "targetReacquiredAfterMonitor": true,
+  "displays": {
+    "returncode": 0
+  },
+  "query": {
+    "returncode": 0
+  },
+  "floating": {
+    "returncode": 0
+  },
+  "observe": {
+    "returncode": 0
+  },
+  "shell-screenshot": {
+    "returncode": 0
+  },
+  "classification-shell.js": {
+    "returncode": 1
+  },
+  "classification-control.js": {
+    "returncode": 0
+  },
+  "childrenExitCodes": [
+    1,
+    -15,
+    -15,
+    0
+  ],
+  "endedAt": "2026-11-15T09:36:12.951889+00:00",
+  "retainedDumps": [
+    "config/chromium/Crash Reports/pending/fe8cd9c6-0490-4303-8f9a-e605b29a60ce.dmp"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "startedAt": "2026-11-15T09:33:35.622616+00:00",
+  "backend": "OZONE=headless",
+  "hostCompositor": null,
+  "composition": "software by upstream headless design",
+  "mode": "isolation",
+  "status": "measured",
+  "browserWebSocket": "ws://127.0.0.1:9250/devtools/browser/6c61494b-ecfd-4a56-bae1-62e0b2fddf93",
+  "endpoint": "http://127.0.0.1:9250",
+  "targetId": "1DA6886E5208177DC59934071DB742A3",
+  "isolation": {
+    "returncode": 0
+  },
+  "displays": {
+    "returncode": 0
+  },
+  "childrenExitCodes": [
+    1
+  ],
+  "endedAt": "2026-11-15T09:33:38.593326+00:00",
+  "retainedDumps": []
+}

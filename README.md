@@ -4,7 +4,23 @@ A bounded experiment in making a real VS Code workbench into a [Domicile](https:
 
 The architectural ambition is a maximalist workbench shell: the sidebar, editor, panels and native applications occupy independently arranged desktop regions. The first spike establishes that composition and a repeatable agent build loop through one coherent demonstration. It does not attempt to complete a general-purpose IDE or desktop.
 
-**Current state: real native Wayland apps can occupy actual VS Code editor tabs.** Switching tabs preserves the running client; closing the editor returns it to its desktop pane. The real Explorer also floats over native surfaces, opens files and docks with its Part intact. The isolated GPU session runs on Strix Halo, with shared input, takeover and reconnection checked from the actual Zenbook client. [Watch the native-tab clip](evidence/2026-11-15-native-editor/native-editor-checked.mp4), [run the prototype](docs/run-prototype.md), or read [build status](docs/build-status.md) and [proof receipts](PROVE.md).
+**Current state: real native Wayland apps can occupy actual VS Code editor tabs.** Switching tabs preserves the running client; closing the editor returns it to its desktop pane. The real Explorer also floats over native surfaces, opens files and docks with its Part intact. [Run the prototype](docs/run-prototype.md), or read [build status](docs/build-status.md) and [proof receipts](PROVE.md).
+
+## What Domicile can do when VS Code is its shell
+
+**Detach the real Explorer.** The shell moves VS Code's actual sidebar Part out of the workbench grid, floats it over a live native application, opens another file, then docks the same Part. The editor model, selection and native process survive the layout changes. One workbench service graph owns the parts.
+
+[![The real VS Code Explorer floating over a native Wayland dialog](evidence/2026-11-14-floating/dragged-over-native.png)](evidence/2026-11-14-floating/floating-demo.mp4)
+
+[▶ Watch: detach, drag, open a file and dock — 18 seconds](evidence/2026-11-14-floating/floating-demo.mp4) · [Reproduction and identity checks](evidence/2026-11-14-floating/README.md)
+
+**Put a running native application in an editor tab.** A real Wayland dialog becomes a VS Code editor Pane. It accepts keyboard input, parks while a text tab is active, reappears with its state, and returns to its desktop pane when the editor closes. The same `<app>` element and native client remain alive throughout.
+
+[![Animated preview: a live native Wayland application moving into a VS Code editor tab and back](evidence/2026-11-15-native-editor/preview.gif)](evidence/2026-11-15-native-editor/native-editor-checked.mp4)
+
+[▶ Watch full-resolution video: native app → editor tab → text tab → desktop pane — 18 seconds](evidence/2026-11-15-native-editor/native-editor-checked.mp4) · [Full-resolution screenshot](evidence/2026-11-15-native-editor/native-input.png) · [Reproduction, native stdout and media checks](evidence/2026-11-15-native-editor/README.md)
+
+These are recordings of the implemented shell on Strix Halo. The clips were captured through CDP from an isolated Domicile GPU session nested in Sway; they qualify the demonstrated composition, rather than a direct login desktop or performance benchmark. The intended deployment is **Domicile directly, without Sway**. The [latest direct-headless retest](evidence/2026-11-15-direct/README.md) separately checks that path, including Domicile's native screenshot capture. No Domicile engine change was needed to decompose the workbench Parts or embed the native editor.
 
 ## The experiment
 
@@ -33,7 +49,7 @@ Running an intact editor page in a desktop window is a useful reference, but the
 
 This repository is intended for discussion and collaboration with Domicile's maintainers. A native capability request should explain the concrete behavior, the existing interface used, the observed failure and why the improvement would help other shells or desktop applications. Workbench-specific integration stays here.
 
-The current [upstream notes](docs/upstream.md) are research questions and candidate improvements. They are not confirmed defects, filed issues or commitments from the maintainers.
+The [upstream notes](docs/upstream.md) distinguish measured failures, working controls and contract questions, and link the submitted reports. They imply no maintainer commitment.
 
 ## Build
 

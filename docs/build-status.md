@@ -37,3 +37,7 @@ The reduced capture and worker/isolation packets were also checked against offic
 The prototype profiles, configuration and native fixture are separate from the host's existing sessions. No login desktop installation, user-manager restart or host display reconfiguration was performed.
 
 Model catalogue availability, a returned answer, code that compiles and behavior observed in the running desktop are separate checkpoints. Runtime and model-capacity findings will be recorded with their actual evidence.
+
+## Direct Domicile follow-up
+
+The [15 November direct retest](../evidence/2026-11-15-direct/README.md) uses latest main/stable `1557378783d6bf7c94a5c093f3fe42804652a540` with official engine `sa6e192f40495`. Real Parts, native surface composition, CLI query agreement and native screenshots pass directly through software headless. The latest official logical-key control also passes. Worker loading, isolated shared memory and prebuilt classification remain open integration findings. A reduced nested GPU control still distinguishes working CDP capture from a native screenshot request that receives no answer. No direct GPU/login-desktop qualification is claimed.

@@ -1,0 +1,22 @@
+{
+  "revision": "1557378783d6bf7c94a5c093f3fe42804652a540-official-sa6e192f40495",
+  "result": "pass",
+  "method": "fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype",
+  "source": {
+    "sceneId": "a9290203-37a1-468d-a807-4b1272acc3a7",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "7A6862F67A4DB8C277A3843EF7098FD3",
+    "output": "domicile-0",
+    "serverId": "4479ff40-19a8-460e-bfe6-7d44d0203ae6",
+    "owner": null
+  },
+  "probeShellSha256": "ce8376dae03c48900413e1680b0a8bfa1f20b5b593616d33258dbd02c166f17b",
+  "senderScriptSha256": "e10a893e7f157f6663d686e228b276049e9753024d28abaf72599826d0c6dfa8",
+  "senderReturnCode": 0,
+  "launcherReturnCode": 0,
+  "fatalLines": []
+}

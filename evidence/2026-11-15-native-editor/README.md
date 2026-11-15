@@ -11,3 +11,5 @@ Reproduce using [the runbook](../../docs/run-prototype.md) and `scripts/check-na
 `startup-failure.json` and `visible-error.png` exercise a separate actual-shell failure: the small wrapper in `repros/startup-failure` deliberately throws during root creation. A visible alert appears without an editor substitute or success proof. Reloading the ordinary shell recovers the retained native client. Earlier CDP new-document injection did not enter the shell's actual JS realm; that failed probe is retained privately.
 
 Limits: one native editor, one editor group, a fixed-size dialog and an explicit US-layout input subset. Arbitrary applications, multiple native editor groups, child popups, IME, physical keyboard latency and login-desktop operation remain unqualified. No Domicile engine change was needed for this feature.
+
+The README's [animated preview](preview.gif) is derived from the same checked MP4, at 8 fps and 800 pixels wide with a 96-color palette. It is a smaller presentation of those recorded frames; the full-resolution MP4 and its original finalization receipt remain the evidence source.
