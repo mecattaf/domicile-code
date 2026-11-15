@@ -1,7 +1,7 @@
 {
-  "at": "2026-11-15T10:04:46.742913+00:00",
+  "at": "2026-11-15T10:07:17.018012+00:00",
   "result": "pass",
-  "sourceRevision": "df7d7ac9224ac0c902b90cd9b7a95e7a7758bbb7",
+  "sourceRevision": "6f4f15f1431ea3349b247d8e4e09535ddcd25550",
   "filesReviewed": 205,
   "checks": [
     "exact comparison with the four worker credentials actually used; no values emitted",
@@ -68,8 +68,8 @@
     },
     {
       "file": "docs/free-compute.md",
-      "bytes": 5028,
-      "sha256": "d61fa527d822361ee281a52aca41d342a2ebd43e0c843dab2b22de718a9382df"
+      "bytes": 5042,
+      "sha256": "61883a35179281c804da07341433e897dadf5c9a4fdea5450c366e756552516b"
     },
     {
       "file": "docs/language-spike.md",
@@ -313,8 +313,8 @@
     },
     {
       "file": "evidence/2026-11-15-audit/README.md",
-      "bytes": 4963,
-      "sha256": "e0a6010690fe3cbd4818be0fa43af851f9e2ea5efa20612e5b1e6027c5589b2f"
+      "bytes": 4967,
+      "sha256": "0d307279102547ecc898b3149d6d47fbe983ee5ad216e06d67e4eb6eda126978"
     },
     {
       "file": "evidence/2026-11-15-audit/checked-empty-seat.json",
