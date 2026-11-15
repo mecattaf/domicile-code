@@ -40,3 +40,15 @@ Domicile's shell document embeds native application and browser surfaces. VS Cod
 - [Sources](https://github.com/mecattaf/domicile-code/blob/10354c0/docs/sources.md) and [the domicile-handoff precedent](https://github.com/mecattaf/domicile-handoff).
 
 The useful result is a small implementation with honest evidence: what works, what fails, which existing mechanisms are sufficient, and which Domicile improvements would help other shells too. Host filesystem access, Node extensions, PTYs, Git/debugging, arbitrary native applications and broad desktop reliability are further work. A complete general-purpose IDE is outside this first spike.
+
+## Build this branch
+
+Use Node 24 and the committed lockfile:
+
+```sh
+npm ci --ignore-scripts
+npm run check
+npm run build
+```
+
+`dist/browser/` is a browser reference that explicitly marks native composition unavailable. `dist/shell/shell.js` exports Domicile's named `Shell` entry and includes its stylesheet and worker assets. See [the runbook](docs/run-prototype.md), [build status](docs/build-status.md) and [upstream index](docs/upstream.md#submitted-upstream-reports) for the tested loading contract and remaining limits.

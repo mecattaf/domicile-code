@@ -1,0 +1,39 @@
+{
+  "at": "2026-11-14T23:46:07.600Z",
+  "result": "measured",
+  "source": {
+    "targetId": "5BDD6AD282B36F54FBC9D96083EF89E6",
+    "sceneId": "8fd19f9f-a833-4ab8-85d8-99b59717d5da",
+    "native": {
+      "appId": "app-1",
+      "pid": 285,
+      "toplevelId": "sOhIb4RuSvrIHpLbOofTGII6OceJav8x",
+      "isConnected": true,
+      "boundingRect": {
+        "x": 135,
+        "y": 215.5,
+        "width": 310,
+        "height": 249,
+        "top": 215.5,
+        "right": 445,
+        "bottom": 464.5,
+        "left": 135
+      }
+    }
+  },
+  "cdp": {
+    "result": "pass",
+    "file": "cdp.png",
+    "width": 1440,
+    "height": 900,
+    "bytes": 32388,
+    "sha256": "c071c1e303e5af1d219c2cce66ad2de947b0b79c760213c32340be4c946d8f7f"
+  },
+  "builtin": {
+    "result": "fail",
+    "code": 1,
+    "signal": null,
+    "killed": false,
+    "error": "Command failed: <stable-runtime>/bin/domicile screenshot <stable-capture-run>/capture/builtin.png\ndomicile: the compositor took the request and did not answer at /run/user/1000/domicile-31/chrome.sock, so whether it carried it out is not something this can say.\n"
+  }
+}

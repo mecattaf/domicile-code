@@ -1,0 +1,25 @@
+{
+  "revision": "1557378-checked-sa6e192f40495-explicit-empty-seat-negative",
+  "result": "fail",
+  "method": "fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype",
+  "keyboardSetup": "initially empty host seat (historical negative control)",
+  "source": {
+    "sceneId": "b52ce372-7d71-40f3-a2c8-3681b89c77b5",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "A8CB345C27644882FE426286CD3AC05E",
+    "output": "domicile-0",
+    "serverId": "75577729-6305-4787-94e5-bf71c243964f",
+    "owner": null
+  },
+  "probeShellSha256": "ce8376dae03c48900413e1680b0a8bfa1f20b5b593616d33258dbd02c166f17b",
+  "senderScriptSha256": "e10a893e7f157f6663d686e228b276049e9753024d28abaf72599826d0c6dfa8",
+  "senderReturnCode": 1,
+  "launcherReturnCode": 0,
+  "fatalLines": [
+    "[34:34:1115/105614.173858:FATAL:ui/ozone/platform/wayland/host/wayland_event_source.cc:236] Check failed: window == window_manager_->GetCurrentKeyboardFocusedWindow() (0x2144006e4b00 vs. (nil)). "
+  ]
+}

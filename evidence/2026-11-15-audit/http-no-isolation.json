@@ -1,0 +1,115 @@
+{
+  "at": "2026-11-15T09:52:14.492Z",
+  "result": "pass",
+  "source": "same checked fixture bytes, HTTP without COOP/COEP",
+  "port": 5187,
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "0cb974705b771aca352031823d3fc60926880462f879766df4cef9de969e00b9"
+    },
+    {
+      "file": "shell/probe.js",
+      "sha256": "434d6ad91e26277f61803169f536ae043b0c63e61273896adb833bd9195709ef"
+    },
+    {
+      "file": "shell/worker.js",
+      "sha256": "abd3509e37b4cbe7c9d61ac8966e5334af375e6f200bf88b8485ecfd1b486da6"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/",
+      "headers": {
+        "Content-Type": "text/html",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
+      "path": "/shell/probe.js",
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
+      "path": "/shell/worker.js",
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
+      "path": "/shell/worker.js",
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
+      "path": "/shell/worker.js",
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff"
+      }
+    }
+  ],
+  "command": {
+    "executable": "/nix/store/fisi9algzl2pcxb2xfhgp2yw5mzjfdwg-nodejs-slim-24.21.0/bin/node",
+    "args": [
+      "scripts/check-isolation.mjs",
+      "--url",
+      "http://127.0.0.1:5187/",
+      "--chromium",
+      "/nix/store/kcyyd65nz8kqyxbmh5yql6frd7mh0v18-chromium-151.0.7922.71/bin/chromium",
+      "--expect",
+      "unavailable",
+      "--worker-expect",
+      "message",
+      "--out",
+      "/tmp/domicile-code-worker-http-no-isolation-20261115/check",
+      "--revision",
+      "Code cb023b02243ad34f8702153656dc134fbcec003b; non-isolated HTTP control"
+    ]
+  },
+  "child": {
+    "code": 0,
+    "signal": null
+  },
+  "capability": {
+    "status": "complete",
+    "secureContext": true,
+    "crossOriginIsolated": false,
+    "sharedArrayBufferType": "undefined",
+    "scriptFetch": {
+      "status": 200,
+      "mimeType": "text/javascript",
+      "url": "http://127.0.0.1:5187/shell/worker.js"
+    },
+    "workers": [
+      {
+        "type": "classic",
+        "result": "message",
+        "worker": {
+          "crossOriginIsolated": false,
+          "sharedArrayBufferType": "undefined",
+          "receivedSharedBuffer": false
+        }
+      },
+      {
+        "type": "module",
+        "result": "message",
+        "worker": {
+          "crossOriginIsolated": false,
+          "sharedArrayBufferType": "undefined",
+          "receivedSharedBuffer": false
+        }
+      }
+    ]
+  }
+}

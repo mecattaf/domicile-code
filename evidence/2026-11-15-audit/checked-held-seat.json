@@ -1,0 +1,22 @@
+{
+  "revision": "1557378-same-series-checked-sa6e192f40495-upstream-held-keyboard",
+  "result": "pass",
+  "method": "fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype",
+  "source": {
+    "sceneId": "8009fc2e-cdb7-429b-a613-c9b1c56c5c8b",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "4BF9730B1731F88B06A24E2BC4B9E6BB",
+    "output": "domicile-0",
+    "serverId": "ba210734-165b-4304-af34-45ebf2398407",
+    "owner": null
+  },
+  "probeShellSha256": "ce8376dae03c48900413e1680b0a8bfa1f20b5b593616d33258dbd02c166f17b",
+  "senderScriptSha256": "e10a893e7f157f6663d686e228b276049e9753024d28abaf72599826d0c6dfa8",
+  "senderReturnCode": 0,
+  "launcherReturnCode": 0,
+  "fatalLines": []
+}

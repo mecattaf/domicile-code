@@ -1,0 +1,1 @@
+domicile: cannot start the shell builder /nonexistent/domicile-code-builder: No such file or directory (os error 2)

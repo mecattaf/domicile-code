@@ -1,0 +1,108 @@
+{
+  "revision": "e50f241",
+  "at": "2026-11-15T00:55:43.901Z",
+  "result": "pass",
+  "assertions": [
+    "ordinary browser reference identifies native composition as unavailable",
+    "real editor input and floating Part retain the model in the browser reference"
+  ],
+  "errors": [],
+  "before": {
+    "sceneId": "53bbf0c6-336c-45c4-a9b4-ed7eab755c95",
+    "mode": "browser-reference",
+    "native": null,
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 58,
+        "width": 260,
+        "height": 720,
+        "top": 58,
+        "right": 308,
+        "bottom": 778,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 58,
+        "width": 972,
+        "height": 720,
+        "top": 58,
+        "right": 1280,
+        "bottom": 778,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 1,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 1
+      }
+    }
+  },
+  "after": {
+    "sceneId": "53bbf0c6-336c-45c4-a9b4-ed7eab755c95",
+    "mode": "browser-reference",
+    "native": null,
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 58,
+        "width": 260,
+        "height": 720,
+        "top": 58,
+        "right": 308,
+        "bottom": 778,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 58,
+        "width": 972,
+        "height": 570,
+        "top": 58,
+        "right": 1280,
+        "bottom": 628,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 2,
+        "value": "x// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 2,
+        "endLineNumber": 1,
+        "endColumn": 2,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 2,
+        "positionLineNumber": 1,
+        "positionColumn": 2
+      }
+    }
+  }
+}

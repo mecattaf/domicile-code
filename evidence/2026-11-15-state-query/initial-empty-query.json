@@ -1,0 +1,322 @@
+{
+  "at": "2026-11-15T01:31:57.257Z",
+  "revision": "selected-built-shell:b6dba4bc86c002139865a4dc19041e39508ad926a15a8242fafb8570e76181e1",
+  "result": "pass",
+  "assertions": [
+    "discovery lists one read-only query with no key grabs; unknown/extra arguments fail without mutation",
+    "after a leased viewer action, CLI JSON agrees with independently observed layout, model and native process"
+  ],
+  "before": {
+    "sceneId": "f8d42832-54a4-47d5-b872-86ef243aeac3",
+    "mode": "shell",
+    "commandQuery": {
+      "state": "ready"
+    },
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 900,
+        "modeHeight": 900,
+        "modeWidth": 1440,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1440,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 34,
+        "width": 260,
+        "height": 844,
+        "top": 34,
+        "right": 308,
+        "bottom": 878,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 34,
+        "width": 812,
+        "height": 694,
+        "top": 34,
+        "right": 1120,
+        "bottom": 728,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 1,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 1
+      }
+    },
+    "native": null
+  },
+  "help": [
+    {
+      "usage": "get-workbench",
+      "description": "Read the current Domicile Code fixture and layout state as JSON."
+    }
+  ],
+  "bindings": [],
+  "queryBefore": {
+    "sceneId": "f8d42832-54a4-47d5-b872-86ef243aeac3",
+    "mode": "shell",
+    "commandQuery": {
+      "state": "ready"
+    },
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 900,
+        "modeHeight": 900,
+        "modeWidth": 1440,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1440,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 34,
+        "width": 260,
+        "height": 844,
+        "top": 34,
+        "right": 308,
+        "bottom": 878,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 34,
+        "width": 812,
+        "height": 694,
+        "top": 34,
+        "right": 1120,
+        "bottom": 728,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 1,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 1
+      }
+    },
+    "native": null
+  },
+  "refusals": [
+    {
+      "words": [
+        "get-workbench",
+        "mutate"
+      ],
+      "code": 1,
+      "stderr": "domicile: the compositor did not do it: Use get-workbench without arguments; this query is read-only.\n"
+    },
+    {
+      "words": [
+        "not-a-command"
+      ],
+      "code": 1,
+      "stderr": "domicile: the compositor did not do it: Use get-workbench without arguments; this query is read-only.\n"
+    }
+  ],
+  "queryAfter": {
+    "sceneId": "f8d42832-54a4-47d5-b872-86ef243aeac3",
+    "mode": "shell",
+    "commandQuery": {
+      "state": "ready"
+    },
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 900,
+        "modeHeight": 900,
+        "modeWidth": 1440,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1440,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "floating",
+      "floatingRect": {
+        "x": 80,
+        "y": 100,
+        "width": 300,
+        "height": 420,
+        "top": 100,
+        "right": 380,
+        "bottom": 520,
+        "left": 80
+      },
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 81,
+        "y": 129,
+        "width": 298,
+        "height": 390,
+        "top": 129,
+        "right": 379,
+        "bottom": 519,
+        "left": 81
+      },
+      "editorRect": {
+        "x": 48,
+        "y": 34,
+        "width": 1072,
+        "height": 694,
+        "top": 34,
+        "right": 1120,
+        "bottom": 728,
+        "left": 48
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 1,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 1
+      }
+    },
+    "native": null
+  },
+  "after": {
+    "sceneId": "f8d42832-54a4-47d5-b872-86ef243aeac3",
+    "mode": "shell",
+    "commandQuery": {
+      "state": "ready"
+    },
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 900,
+        "modeHeight": 900,
+        "modeWidth": 1440,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1440,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 34,
+        "width": 260,
+        "height": 844,
+        "top": 34,
+        "right": 308,
+        "bottom": 878,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 34,
+        "width": 812,
+        "height": 694,
+        "top": 34,
+        "right": 1120,
+        "bottom": 728,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 1,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 1
+      }
+    },
+    "native": null
+  }
+}

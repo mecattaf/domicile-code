@@ -1,0 +1,23 @@
+{
+  "revision": "1557378-checked-sa6e192f40495-corrected-public-harness",
+  "result": "pass",
+  "method": "fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype",
+  "keyboardSetup": "persistent wtype keyboard before engine startup (upstream PR #1544)",
+  "source": {
+    "sceneId": "c5f4abd0-c976-41c3-a751-c87b10adafc5",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "67295542CB7DF89422FF306B18D86599",
+    "output": "domicile-0",
+    "serverId": "f8b56c4b-eddb-426a-b914-bd00c78c28b6",
+    "owner": null
+  },
+  "probeShellSha256": "ce8376dae03c48900413e1680b0a8bfa1f20b5b593616d33258dbd02c166f17b",
+  "senderScriptSha256": "e10a893e7f157f6663d686e228b276049e9753024d28abaf72599826d0c6dfa8",
+  "senderReturnCode": 0,
+  "launcherReturnCode": 0,
+  "fatalLines": []
+}

@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-14T23:54:53.096Z",
+  "revision": "96a8c86",
+  "result": "pass",
+  "injectedFault": "the workbench root allocation throws in this isolated browser only",
+  "visibleError": "Error: DC_INTENTIONAL_ROOT_ALLOCATION_FAILURE",
+  "successProofPresent": false
+}

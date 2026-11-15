@@ -1,0 +1,194 @@
+{
+  "at": "2026-11-14T23:37:37.622Z",
+  "revision": "96a8c86",
+  "result": "pass",
+  "assertions": [
+    "missing target, wrong viewer target, absent observation and invalid geometry all refuse input",
+    "an image older than 60 seconds is refused while the same input lease, scene, model and native process remain"
+  ],
+  "refusals": [
+    {
+      "label": "missing designated shell target",
+      "error": "The designated shell target is unavailable"
+    },
+    {
+      "label": "viewer names another target",
+      "error": "The viewer is attached to another target\n+ actual - expected\n\n+ '4FE23A68145190A85EB1C34127B79A18'\n- 'MISSING-DOMICILE-CODE-TEST-TARGET'\n"
+    },
+    {
+      "label": "missing observation image",
+      "error": "Agent input requires a fresh observation of this scene"
+    },
+    {
+      "label": "point beyond the observed viewport",
+      "error": "Pointer is outside the current viewport"
+    },
+    {
+      "label": "expired observed image",
+      "error": "Agent input requires a fresh observation of this scene"
+    }
+  ],
+  "before": {
+    "type": "observation",
+    "id": 3,
+    "observationId": "186ae09d-74f5-4bdc-9280-b4aff9386495",
+    "sceneId": "b789cd28-39bf-4b3f-b143-130177508b79",
+    "viewport": {
+      "width": 1436,
+      "height": 872,
+      "devicePixelRatio": 1
+    },
+    "targetId": "4FE23A68145190A85EB1C34127B79A18",
+    "output": "domicile-0",
+    "serverId": "5c720d04-7d95-4868-8d11-4efea2ab35f5",
+    "state": {
+      "sceneId": "b789cd28-39bf-4b3f-b143-130177508b79",
+      "mode": "shell",
+      "workbench": {
+        "sidebarSide": "left",
+        "sidebarMode": "docked",
+        "floatingRect": null,
+        "sidebarVisible": true,
+        "sidebarPartRetained": true,
+        "sidebarRect": {
+          "x": 48,
+          "y": 34,
+          "width": 260,
+          "height": 816,
+          "top": 34,
+          "right": 308,
+          "bottom": 850,
+          "left": 48
+        },
+        "editorRect": {
+          "x": 308,
+          "y": 34,
+          "width": 808,
+          "height": 816,
+          "top": 34,
+          "right": 1116,
+          "bottom": 850,
+          "left": 308
+        },
+        "activeResource": "file:///workspace/hello.ts",
+        "model": {
+          "uri": "file:///workspace/hello.ts",
+          "version": 1,
+          "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+        },
+        "diagnostics": [],
+        "selection": {
+          "startLineNumber": 1,
+          "startColumn": 1,
+          "endLineNumber": 1,
+          "endColumn": 2,
+          "selectionStartLineNumber": 1,
+          "selectionStartColumn": 1,
+          "positionLineNumber": 1,
+          "positionColumn": 2
+        }
+      },
+      "native": {
+        "appId": "app-5",
+        "focused": false,
+        "isConnected": true,
+        "boundingRect": {
+          "x": 1121.5,
+          "y": 327.5,
+          "width": 310,
+          "height": 249,
+          "top": 327.5,
+          "right": 1431.5,
+          "bottom": 576.5,
+          "left": 1121.5
+        },
+        "pid": 944,
+        "toplevelId": "b1HWMGRTMeb3dCfarUIt4Xu4uHq9RhR3"
+      }
+    },
+    "capturedAt": "2026-11-14T23:37:37.875Z",
+    "sha256": "9a340f006044630db0a9af32d4592fe1c277bdbbe115b9bfd72f8ddb6316118c"
+  },
+  "observationAgeSeconds": 61.015,
+  "after": {
+    "type": "observation",
+    "id": 9,
+    "observationId": "b3cadf09-5c89-42b9-bebc-0a56877fe28d",
+    "sceneId": "b789cd28-39bf-4b3f-b143-130177508b79",
+    "viewport": {
+      "width": 1436,
+      "height": 872,
+      "devicePixelRatio": 1
+    },
+    "targetId": "4FE23A68145190A85EB1C34127B79A18",
+    "output": "domicile-0",
+    "serverId": "5c720d04-7d95-4868-8d11-4efea2ab35f5",
+    "state": {
+      "sceneId": "b789cd28-39bf-4b3f-b143-130177508b79",
+      "mode": "shell",
+      "workbench": {
+        "sidebarSide": "left",
+        "sidebarMode": "docked",
+        "floatingRect": null,
+        "sidebarVisible": true,
+        "sidebarPartRetained": true,
+        "sidebarRect": {
+          "x": 48,
+          "y": 34,
+          "width": 260,
+          "height": 816,
+          "top": 34,
+          "right": 308,
+          "bottom": 850,
+          "left": 48
+        },
+        "editorRect": {
+          "x": 308,
+          "y": 34,
+          "width": 808,
+          "height": 816,
+          "top": 34,
+          "right": 1116,
+          "bottom": 850,
+          "left": 308
+        },
+        "activeResource": "file:///workspace/hello.ts",
+        "model": {
+          "uri": "file:///workspace/hello.ts",
+          "version": 1,
+          "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+        },
+        "diagnostics": [],
+        "selection": {
+          "startLineNumber": 1,
+          "startColumn": 1,
+          "endLineNumber": 1,
+          "endColumn": 2,
+          "selectionStartLineNumber": 1,
+          "selectionStartColumn": 1,
+          "positionLineNumber": 1,
+          "positionColumn": 2
+        }
+      },
+      "native": {
+        "appId": "app-5",
+        "focused": false,
+        "isConnected": true,
+        "boundingRect": {
+          "x": 1121.5,
+          "y": 327.5,
+          "width": 310,
+          "height": 249,
+          "top": 327.5,
+          "right": 1431.5,
+          "bottom": 576.5,
+          "left": 1121.5
+        },
+        "pid": 944,
+        "toplevelId": "b1HWMGRTMeb3dCfarUIt4Xu4uHq9RhR3"
+      }
+    },
+    "capturedAt": "2026-11-14T23:38:39.125Z",
+    "sha256": "9a340f006044630db0a9af32d4592fe1c277bdbbe115b9bfd72f8ddb6316118c"
+  }
+}

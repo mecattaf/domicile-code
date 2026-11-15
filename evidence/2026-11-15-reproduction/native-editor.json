@@ -1,0 +1,746 @@
+{
+  "at": "2026-11-15T00:55:55.480Z",
+  "revision": "e50f241",
+  "result": "pass",
+  "assertions": [
+    "the same live native element, process and surface open in an actual VS Code editor Pane",
+    "switching to text parks the native view, releases its focus and retains the text model",
+    "reactivating preserves the native element, and closing the actual editor tab returns the running client to its pane",
+    "independent native stdout confirms the physical keyboard input sent while the window was an editor",
+    "client-initiated closure removes its editor tab and native element without a dead selection"
+  ],
+  "snapshots": {
+    "before": {
+      "type": "observation",
+      "id": 3,
+      "observationId": "458ff8d9-0002-4ac2-ba3a-c81a91004820",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "diagnostics": [],
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 1,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 1
+          }
+        },
+        "native": {
+          "appId": "app-1",
+          "focused": false,
+          "isConnected": true,
+          "placement": "pane",
+          "boundingRect": {
+            "x": 1125.5,
+            "y": 341.5,
+            "width": 310,
+            "height": 249,
+            "top": 341.5,
+            "right": 1435.5,
+            "bottom": 590.5,
+            "left": 1125.5
+          },
+          "pid": 301,
+          "toplevelId": "lf29jzNLgqCcXBp2iSZ6HmP3lZpa9arl"
+        }
+      },
+      "capturedAt": "2026-11-15T00:55:55.702Z",
+      "sha256": "1356e41daecf1995e552c62ae3458b7b054865796540c6ba9ad967aa37225aa5"
+    },
+    "native-tab": {
+      "type": "observation",
+      "id": 6,
+      "observationId": "34849db5-e66f-4646-9622-dd84ce6ba8d6",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "domicile-native://app-1/",
+          "model": null,
+          "diagnostics": [],
+          "selection": null
+        },
+        "native": {
+          "appId": "app-1",
+          "focused": true,
+          "isConnected": true,
+          "placement": "editor",
+          "boundingRect": {
+            "x": 559,
+            "y": 272,
+            "width": 310,
+            "height": 249,
+            "top": 272,
+            "right": 869,
+            "bottom": 521,
+            "left": 559
+          },
+          "pid": 301,
+          "toplevelId": "lf29jzNLgqCcXBp2iSZ6HmP3lZpa9arl"
+        }
+      },
+      "capturedAt": "2026-11-15T00:55:56.072Z",
+      "sha256": "5b67b13015b0b2e4b98091b846af52c695e55d8b5cb7d7870df576fa0795d241"
+    },
+    "native-input": {
+      "type": "observation",
+      "id": 31,
+      "observationId": "f3ef5e4f-7508-4c8b-bd61-218f554bead5",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "domicile-native://app-1/",
+          "model": null,
+          "diagnostics": [],
+          "selection": null
+        },
+        "native": {
+          "appId": "app-1",
+          "focused": true,
+          "isConnected": true,
+          "placement": "editor",
+          "boundingRect": {
+            "x": 559,
+            "y": 272,
+            "width": 310,
+            "height": 249,
+            "top": 272,
+            "right": 869,
+            "bottom": 521,
+            "left": 559
+          },
+          "pid": 301,
+          "toplevelId": "lf29jzNLgqCcXBp2iSZ6HmP3lZpa9arl"
+        }
+      },
+      "capturedAt": "2026-11-15T00:55:56.353Z",
+      "sha256": "b14dd68a0f503e8c18228e43719486203bcea3dc106f443c6f31c7a77dee58d0"
+    },
+    "text-tab": {
+      "type": "observation",
+      "id": 34,
+      "observationId": "41bb3553-0b0d-4d55-88c2-bff27ea5a671",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "diagnostics": [],
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 1,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 1
+          }
+        },
+        "native": {
+          "appId": "app-1",
+          "focused": false,
+          "isConnected": true,
+          "placement": "parked",
+          "boundingRect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "pid": 301,
+          "toplevelId": "lf29jzNLgqCcXBp2iSZ6HmP3lZpa9arl"
+        }
+      },
+      "capturedAt": "2026-11-15T00:55:56.640Z",
+      "sha256": "842d8dfaffc732febe84192f21bc24b23255727d5dd48da6371ad7c35b21bfe9"
+    },
+    "native-restored": {
+      "type": "observation",
+      "id": 37,
+      "observationId": "a3acfcf8-32ea-4ca5-bd65-54e2f8681805",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "domicile-native://app-1/",
+          "model": null,
+          "diagnostics": [],
+          "selection": null
+        },
+        "native": {
+          "appId": "app-1",
+          "focused": true,
+          "isConnected": true,
+          "placement": "editor",
+          "boundingRect": {
+            "x": 559,
+            "y": 272,
+            "width": 310,
+            "height": 249,
+            "top": 272,
+            "right": 869,
+            "bottom": 521,
+            "left": 559
+          },
+          "pid": 301,
+          "toplevelId": "lf29jzNLgqCcXBp2iSZ6HmP3lZpa9arl"
+        }
+      },
+      "capturedAt": "2026-11-15T00:55:56.796Z",
+      "sha256": "84818990b9628fb34d9e8c52d2420bc271a748598eadd3f41241845438b46a2d"
+    },
+    "returned": {
+      "type": "observation",
+      "id": 40,
+      "observationId": "363db85e-c752-4fca-ae0d-ca57814c1a66",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "diagnostics": [],
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 1,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 1
+          }
+        },
+        "native": {
+          "appId": "app-1",
+          "focused": false,
+          "isConnected": true,
+          "placement": "pane",
+          "boundingRect": {
+            "x": 1125.5,
+            "y": 341.5,
+            "width": 310,
+            "height": 249,
+            "top": 341.5,
+            "right": 1435.5,
+            "bottom": 590.5,
+            "left": 1125.5
+          },
+          "pid": 301,
+          "toplevelId": "lf29jzNLgqCcXBp2iSZ6HmP3lZpa9arl"
+        }
+      },
+      "capturedAt": "2026-11-15T00:55:56.999Z",
+      "sha256": "742726709977d58de87546b238ba9f0c8e7865c33f44c9531d4e7014618e4c40"
+    },
+    "reopened-to-close-client": {
+      "type": "observation",
+      "id": 43,
+      "observationId": "8f107efc-2b90-4fa0-a1db-d1965cd703fb",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "domicile-native://app-1/",
+          "model": null,
+          "diagnostics": [],
+          "selection": null
+        },
+        "native": {
+          "appId": "app-1",
+          "focused": true,
+          "isConnected": true,
+          "placement": "editor",
+          "boundingRect": {
+            "x": 559,
+            "y": 272,
+            "width": 310,
+            "height": 249,
+            "top": 272,
+            "right": 869,
+            "bottom": 521,
+            "left": 559
+          },
+          "pid": 301,
+          "toplevelId": "lf29jzNLgqCcXBp2iSZ6HmP3lZpa9arl"
+        }
+      },
+      "capturedAt": "2026-11-15T00:55:57.158Z",
+      "sha256": "c995ecfa3440d49f54e524f2aec87f0bb55c7c8d3e10a1d37fd74f525496a23f"
+    },
+    "empty": {
+      "type": "observation",
+      "id": 48,
+      "observationId": "e70a8efd-cb57-414f-955b-d76041b0c18b",
+      "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+      "output": "domicile-0",
+      "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+      "state": {
+        "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+        "mode": "shell",
+        "outputs": [
+          {
+            "adaptiveSync": "unsupported",
+            "hdr": "unsupported",
+            "height": 900,
+            "modeHeight": 900,
+            "modeWidth": 1440,
+            "name": "domicile-0",
+            "peakLuminance": 0,
+            "refreshMhz": 0,
+            "scale": 1,
+            "sdrWhite": 0,
+            "transform": "normal",
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "workbench": {
+          "sidebarSide": "left",
+          "sidebarMode": "docked",
+          "floatingRect": null,
+          "sidebarVisible": true,
+          "sidebarPartRetained": true,
+          "sidebarRect": {
+            "x": 48,
+            "y": 34,
+            "width": 260,
+            "height": 844,
+            "top": 34,
+            "right": 308,
+            "bottom": 878,
+            "left": 48
+          },
+          "editorRect": {
+            "x": 308,
+            "y": 34,
+            "width": 812,
+            "height": 694,
+            "top": 34,
+            "right": 1120,
+            "bottom": 728,
+            "left": 308
+          },
+          "activeResource": "file:///workspace/hello.ts",
+          "model": {
+            "uri": "file:///workspace/hello.ts",
+            "version": 1,
+            "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+          },
+          "diagnostics": [],
+          "selection": {
+            "startLineNumber": 1,
+            "startColumn": 1,
+            "endLineNumber": 1,
+            "endColumn": 1,
+            "selectionStartLineNumber": 1,
+            "selectionStartColumn": 1,
+            "positionLineNumber": 1,
+            "positionColumn": 1
+          }
+        },
+        "native": null
+      },
+      "capturedAt": "2026-11-15T00:55:57.644Z",
+      "sha256": "fc53a47522eb5ebd8de33e6bbba086a53518552071ab129ef36e6dcc3d963d02"
+    }
+  },
+  "nativeStdout": "tabnative\n"
+}

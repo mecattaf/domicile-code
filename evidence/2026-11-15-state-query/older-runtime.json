@@ -1,0 +1,100 @@
+{
+  "revision": "68508f3+query",
+  "endpoint": "http://127.0.0.1:9238",
+  "targetId": "1A5E197EA00CD4C9C09721444589194C",
+  "capturedAt": "2026-11-15T01:38:50.873Z",
+  "image": "scene.png",
+  "sha256": "9672766f67e2e7e097a91660091de1a39a61c8d989e2c50c1c1c53d34e1a7391",
+  "viewport": {
+    "width": 1436,
+    "height": 872,
+    "devicePixelRatio": 1
+  },
+  "state": {
+    "sceneId": "c923979b-361a-42e1-885c-6536bc3c500c",
+    "mode": "shell",
+    "commandQuery": {
+      "state": "unsupported"
+    },
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 872,
+        "modeHeight": 872,
+        "modeWidth": 1436,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1436,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "workbench": {
+      "sidebarSide": "left",
+      "sidebarMode": "docked",
+      "floatingRect": null,
+      "sidebarVisible": true,
+      "sidebarPartRetained": true,
+      "sidebarRect": {
+        "x": 48,
+        "y": 34,
+        "width": 260,
+        "height": 816,
+        "top": 34,
+        "right": 308,
+        "bottom": 850,
+        "left": 48
+      },
+      "editorRect": {
+        "x": 308,
+        "y": 34,
+        "width": 808,
+        "height": 816,
+        "top": 34,
+        "right": 1116,
+        "bottom": 850,
+        "left": 308
+      },
+      "activeResource": "file:///workspace/hello.ts",
+      "model": {
+        "uri": "file:///workspace/hello.ts",
+        "version": 1,
+        "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+      },
+      "diagnostics": [],
+      "selection": {
+        "startLineNumber": 1,
+        "startColumn": 1,
+        "endLineNumber": 1,
+        "endColumn": 1,
+        "selectionStartLineNumber": 1,
+        "selectionStartColumn": 1,
+        "positionLineNumber": 1,
+        "positionColumn": 1
+      }
+    },
+    "native": {
+      "appId": "app-10",
+      "focused": false,
+      "isConnected": true,
+      "placement": "pane",
+      "boundingRect": {
+        "x": 1121.5,
+        "y": 327.5,
+        "width": 310,
+        "height": 249,
+        "top": 327.5,
+        "right": 1431.5,
+        "bottom": 576.5,
+        "left": 1121.5
+      },
+      "pid": 1016,
+      "toplevelId": "AQCIPeRJAFmu1qx4ulS1a4UaPG2HTIrP"
+    }
+  }
+}

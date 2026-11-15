@@ -53,3 +53,5 @@ Test compositors and runtime-sensitive experiments run through runtime-test on t
 ## Compute roles
 
 Strong models can scope uncertain changes and reconcile findings; medium models can implement bounded changes and independently review them; small models can extract evidence and perform focused checks. These are working roles to evaluate. Record the actual provider/model, harness, image/tool support and observed outcome for comparisons. Capability and available allowance are separate facts.
+
+The current freshness guard checks source/scene identity, viewport and a 60-second observation age. It does not detect every change to pixels or controls inside the same scene. Observe immediately before each bounded action and verify its effect; do not blindly repeat a timed-out toggle or assume an acknowledgement proves the application changed.

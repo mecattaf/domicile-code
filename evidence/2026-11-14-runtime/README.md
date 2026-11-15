@@ -1,0 +1,10 @@
+# Runtime and reduced integration evidence
+
+- [Native lifecycle](native-lifecycle.json): with exactly the two public native fixtures, closing the selected client selects the other process; closing the remaining client clears the surface and displays the empty state. The workbench snapshot is retained through both transitions.
+- [Fresh launcher](launcher.json): the second independent timed run reached its own checked browser, exact target, 1440×900 output and matching viewer. Its viewer exited 0 after sequential teardown. Domicile reported an interrupted exit; simulated-exception minidumps were retained privately, so this is not a clean-teardown qualification.
+- [Minimal GPU capture](gpu-capture.json): plain shell text and a real native entry dialog, without workbench dependencies. CDP produced [the native pixels](minimal-gpu-cdp.png); the built-in screenshot request failed to return a frame. [The software baseline](cpu-capture.json) succeeded through both paths. The topology/rendering difference does not establish a root cause.
+- [Import-like UI text](import-classification.json): with the builder deliberately unavailable, the import-free text fixture was routed to the builder and refused; the control file loaded directly. With the normal builder available, the small fixture succeeds through a built cache path. The [packet](../../repros/import-classification/README.md) keeps this distinction explicit.
+
+The launcher also refused a deliberately occupied debug port before starting children, and retained a failed startup after an intentionally failing compositor executable while stopping its private Sway child. These are bounded launcher checks, not a general proof of all failure schedules. The original long-lived test desktop remained available throughout them.
+
+All tests used the declared runtime wrapper. These exported JSON files contain public fixture state and technical identities; checkout paths in errors were shortened. Profiles, raw minidumps, environments, raw account inventories and worker request ledgers are excluded.

@@ -1,0 +1,669 @@
+{
+  "at": "2026-11-15T02:04:52.976895+00:00",
+  "sourceRevision": "cb023b0",
+  "scope": "this overnight experiment; account allowances, credentials and raw requests excluded",
+  "taskSummary": {
+    "observed_at": "2026-11-15T01:50:58.887870+00:00",
+    "tasks": 77,
+    "provider_families": 5,
+    "exact_provider_model_pairs_including_unlisted": 24,
+    "outcomes": {
+      "answer": 53,
+      "no_final_answer": 9,
+      "deadline_or_transport": 4,
+      "api_refused": 4,
+      "unlisted_selector": 1,
+      "admission_refused": 1,
+      "throttled": 4,
+      "region_refused": 1
+    },
+    "reviews": {
+      "reviewed_disposition": 18,
+      "not_integrated": 16,
+      "no_adoptable_final_answer": 23,
+      "bounded_result_checked": 13,
+      "integrated_with_supervisor_corrections": 7
+    },
+    "admission_only_tasks": 1,
+    "counter_semantics": "Provider-reported counters are retained, not made comparable; reasoning may overlap completion. Elapsed includes request/queue/tool rounds, not pure decode. Multi-round response counters are summed exactly once."
+  },
+  "policy": {
+    "additionalSubscriptionWorkers": 0,
+    "providerFamilies": [
+      "openrouter",
+      "google",
+      "groq",
+      "cohere",
+      "local Gufo"
+    ],
+    "paidFallbackEnabled": false,
+    "billingChanges": false,
+    "openrouterReportedCostFields": 40,
+    "openrouterAllReportedCostsZero": true,
+    "unlistedSelector": "Groq llama-3.3-70b-versatile was absent; stale selector removed and live catalogue check added"
+  },
+  "pairs": [
+    {
+      "provider": "cohere",
+      "model": "command-a-plus-05-2026",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 3,
+      "finalAnswers": 2,
+      "outcomes": {
+        "answer": 2,
+        "no_final_answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 15.25,
+        "maximum": 29.483
+      },
+      "reviews": {
+        "not_integrated": 2,
+        "no_adoptable_final_answer": 1
+      },
+      "reportedUsage": {
+        "cached_tokens": 384,
+        "cohere_billed_input_tokens": 1085,
+        "cohere_billed_output_tokens": 11253,
+        "cohere_input_tokens": 1175,
+        "cohere_output_tokens": 11261,
+        "cohere_reasoning_tokens": 8752
+      }
+    },
+    {
+      "provider": "cohere",
+      "model": "command-r-plus-08-2024",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 2,
+      "outcomes": {
+        "answer": 2
+      },
+      "elapsedSeconds": {
+        "minimum": 3.589,
+        "maximum": 8.52
+      },
+      "reviews": {
+        "reviewed_disposition": 1,
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "cached_tokens": 336,
+        "cohere_billed_input_tokens": 2557,
+        "cohere_billed_output_tokens": 306,
+        "cohere_input_tokens": 2875,
+        "cohere_output_tokens": 308
+      }
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.1-flash-lite",
+      "caliberPrior": "small",
+      "catalogListed": true,
+      "tasks": 1,
+      "finalAnswers": 1,
+      "outcomes": {
+        "answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 13.11,
+        "maximum": 13.11
+      },
+      "reviews": {
+        "not_integrated": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 880,
+        "prompt_tokens": 4152,
+        "total_tokens": 5152
+      }
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.5-flash-lite",
+      "caliberPrior": "small",
+      "catalogListed": true,
+      "tasks": 16,
+      "finalAnswers": 16,
+      "outcomes": {
+        "answer": 16
+      },
+      "elapsedSeconds": {
+        "minimum": 1.212,
+        "maximum": 14.655
+      },
+      "reviews": {
+        "reviewed_disposition": 5,
+        "not_integrated": 7,
+        "integrated_with_supervisor_corrections": 3,
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 19216,
+        "prompt_tokens": 123132,
+        "total_tokens": 142348
+      }
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "caliberPrior": "strong",
+      "catalogListed": true,
+      "tasks": 4,
+      "finalAnswers": 0,
+      "outcomes": {
+        "deadline_or_transport": 4
+      },
+      "elapsedSeconds": {
+        "minimum": 180.001,
+        "maximum": 180.14
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 4
+      },
+      "reportedUsage": {}
+    },
+    {
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "caliberPrior": "unclassified",
+      "catalogListed": false,
+      "tasks": 1,
+      "finalAnswers": 0,
+      "outcomes": {
+        "unlisted_selector": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 0.057,
+        "maximum": 0.057
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 1
+      },
+      "reportedUsage": {}
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 3,
+      "finalAnswers": 2,
+      "outcomes": {
+        "api_refused": 1,
+        "answer": 2
+      },
+      "elapsedSeconds": {
+        "minimum": 0.042,
+        "maximum": 2.515
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 1,
+        "not_integrated": 2
+      },
+      "reportedUsage": {
+        "completion_tokens": 1981,
+        "prompt_tokens": 691,
+        "reported_reasoning_tokens": 20,
+        "total_tokens": 2672
+      }
+    },
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "caliberPrior": "small",
+      "catalogListed": true,
+      "tasks": 1,
+      "finalAnswers": 1,
+      "outcomes": {
+        "answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 0.383,
+        "maximum": 0.383
+      },
+      "reviews": {
+        "reviewed_disposition": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 173,
+        "prompt_tokens": 291,
+        "reported_reasoning_tokens": 155,
+        "total_tokens": 464
+      }
+    },
+    {
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "caliberPrior": "strong",
+      "catalogListed": true,
+      "tasks": 9,
+      "finalAnswers": 8,
+      "outcomes": {
+        "answer": 8,
+        "admission_refused": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 0.078,
+        "maximum": 2.901
+      },
+      "reviews": {
+        "reviewed_disposition": 5,
+        "integrated_with_supervisor_corrections": 2,
+        "not_integrated": 2
+      },
+      "reportedUsage": {
+        "completion_tokens": 5307,
+        "prompt_tokens": 12959,
+        "total_tokens": 18266
+      }
+    },
+    {
+      "provider": "gufo",
+      "model": "qwen3.8-flash-next",
+      "caliberPrior": "strong",
+      "catalogListed": true,
+      "tasks": 4,
+      "finalAnswers": 4,
+      "outcomes": {
+        "answer": 4
+      },
+      "elapsedSeconds": {
+        "minimum": 3.388,
+        "maximum": 23.007
+      },
+      "reviews": {
+        "reviewed_disposition": 2,
+        "integrated_with_supervisor_corrections": 1,
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "cached_tokens": 0,
+        "completion_tokens": 804,
+        "prompt_tokens": 3328,
+        "total_tokens": 4132
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 3,
+      "finalAnswers": 1,
+      "outcomes": {
+        "api_refused": 1,
+        "answer": 1,
+        "no_final_answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 0.152,
+        "maximum": 19.608
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 2,
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 5174,
+        "cost": 0,
+        "prompt_tokens": 3437,
+        "reported_reasoning_tokens": 5145,
+        "total_tokens": 8611
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "cohere/north-mini-code:free",
+      "caliberPrior": "small",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 1,
+      "outcomes": {
+        "no_final_answer": 1,
+        "answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 8.748,
+        "maximum": 31.397
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 1,
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 6812,
+        "cost": 0,
+        "prompt_tokens": 347,
+        "reported_reasoning_tokens": 0,
+        "total_tokens": 7159
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 1,
+      "outcomes": {
+        "answer": 1,
+        "no_final_answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 1.46,
+        "maximum": 48.374
+      },
+      "reviews": {
+        "bounded_result_checked": 1,
+        "no_adoptable_final_answer": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 5046,
+        "cost": 0,
+        "prompt_tokens": 4549,
+        "reported_reasoning_tokens": 5399,
+        "total_tokens": 9595
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "google/gemma-4-26b-a4b-it:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 0,
+      "outcomes": {
+        "throttled": 2
+      },
+      "elapsedSeconds": {
+        "minimum": 0.23,
+        "maximum": 0.247
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 2
+      },
+      "reportedUsage": {}
+    },
+    {
+      "provider": "openrouter",
+      "model": "google/gemma-4-31b-it:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 0,
+      "outcomes": {
+        "throttled": 2
+      },
+      "elapsedSeconds": {
+        "minimum": 0.181,
+        "maximum": 0.25
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 2
+      },
+      "reportedUsage": {}
+    },
+    {
+      "provider": "openrouter",
+      "model": "inclusionai/ling-3.2-flash:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 1,
+      "outcomes": {
+        "answer": 1,
+        "no_final_answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 41.856,
+        "maximum": 591.996
+      },
+      "reviews": {
+        "bounded_result_checked": 1,
+        "no_adoptable_final_answer": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 6800,
+        "cost": 0,
+        "prompt_tokens": 620,
+        "reported_reasoning_tokens": 6746,
+        "total_tokens": 7420
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "liquid/lfm-3-1.7b:free",
+      "caliberPrior": "small",
+      "catalogListed": true,
+      "tasks": 4,
+      "finalAnswers": 1,
+      "outcomes": {
+        "api_refused": 2,
+        "no_final_answer": 1,
+        "answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 0.17,
+        "maximum": 24.39
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 3,
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 4623,
+        "cost": 0,
+        "prompt_tokens": 492,
+        "reported_reasoning_tokens": 4601,
+        "total_tokens": 5115
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "caliberPrior": "small",
+      "catalogListed": true,
+      "tasks": 1,
+      "finalAnswers": 1,
+      "outcomes": {
+        "answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 4.029,
+        "maximum": 4.029
+      },
+      "reviews": {
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 431,
+        "cost": 0,
+        "prompt_tokens": 1425,
+        "reported_reasoning_tokens": 419,
+        "total_tokens": 1856
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 4,
+      "finalAnswers": 4,
+      "outcomes": {
+        "answer": 4
+      },
+      "elapsedSeconds": {
+        "minimum": 30.241,
+        "maximum": 94.703
+      },
+      "reviews": {
+        "reviewed_disposition": 3,
+        "integrated_with_supervisor_corrections": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 10703,
+        "cost": 0,
+        "prompt_tokens": 70614,
+        "reported_reasoning_tokens": 4269,
+        "total_tokens": 81317
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 4,
+      "finalAnswers": 3,
+      "outcomes": {
+        "answer": 3,
+        "no_final_answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 14.533,
+        "maximum": 69.0
+      },
+      "reviews": {
+        "reviewed_disposition": 1,
+        "not_integrated": 2,
+        "no_adoptable_final_answer": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 18327,
+        "cost": 0,
+        "prompt_tokens": 29058,
+        "reported_reasoning_tokens": 9219,
+        "total_tokens": 47385
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 2,
+      "outcomes": {
+        "answer": 2
+      },
+      "elapsedSeconds": {
+        "minimum": 2.597,
+        "maximum": 10.425
+      },
+      "reviews": {
+        "bounded_result_checked": 2
+      },
+      "reportedUsage": {
+        "completion_tokens": 615,
+        "cost": 0,
+        "prompt_tokens": 2918,
+        "reported_reasoning_tokens": 539,
+        "total_tokens": 3533
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "particle-ai/particle-1:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 1,
+      "outcomes": {
+        "answer": 1,
+        "no_final_answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 1.823,
+        "maximum": 34.944
+      },
+      "reviews": {
+        "bounded_result_checked": 1,
+        "no_adoptable_final_answer": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 5144,
+        "cost": 0,
+        "prompt_tokens": 4018,
+        "reported_reasoning_tokens": 5107,
+        "total_tokens": 9162
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "recursive/flint-v1.0:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 2,
+      "finalAnswers": 1,
+      "outcomes": {
+        "no_final_answer": 1,
+        "answer": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 7.243,
+        "maximum": 38.546
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 1,
+        "bounded_result_checked": 1
+      },
+      "reportedUsage": {
+        "completion_tokens": 6085,
+        "cost": 0,
+        "prompt_tokens": 1592,
+        "reported_reasoning_tokens": 6505,
+        "total_tokens": 7677
+      }
+    },
+    {
+      "provider": "openrouter",
+      "model": "thinkingmachines/inkling-2-small:free",
+      "caliberPrior": "medium",
+      "catalogListed": true,
+      "tasks": 1,
+      "finalAnswers": 0,
+      "outcomes": {
+        "region_refused": 1
+      },
+      "elapsedSeconds": {
+        "minimum": 0.157,
+        "maximum": 0.157
+      },
+      "reviews": {
+        "no_adoptable_final_answer": 1
+      },
+      "reportedUsage": {}
+    }
+  ],
+  "invocationReconciliation": {
+    "logicalTaskIds": 77,
+    "actualInvocations": 78,
+    "generationInvocations": 77,
+    "admissionOnly": 1,
+    "successfulResponseRoundsWithCounters": 90,
+    "reportedTokenUnits": 389313,
+    "noCounterInvocations": 15,
+    "outcomes": {
+      "answer": 53,
+      "no_final_answer": 10,
+      "deadline_or_transport": 4,
+      "api_refused": 4,
+      "unlisted_selector": 1,
+      "admission_refused": 1,
+      "throttled": 4,
+      "region_refused": 1
+    },
+    "reason": "one earlier no-final Ling invocation was overwritten by another invocation with the same logical task ID; recovered from append-only ledger",
+    "recoveredUsage": {
+      "prompt_tokens": 5330,
+      "completion_tokens": 6500,
+      "total_tokens": 11830,
+      "cost": 0
+    },
+    "scope": "historical normalized taskSummary and pairs retain their logical-ID basis; this correction counts invocations; reasoning is not added twice"
+  }
+}

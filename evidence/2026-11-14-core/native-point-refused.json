@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-14T21:25:41.713Z",
+  "result": "fail",
+  "assertions": [],
+  "observation": {
+    "capturedAt": "2026-11-14T21:25:41.471Z",
+    "sha256": "a0fe0fd8178cda63404b438be4a6998c5e37e7b4c657dc313d8b4f5a4be7d853",
+    "targetId": "4FE23A68145190A85EB1C34127B79A18",
+    "revision": "5416a2f+observation-checks"
+  },
+  "action": {
+    "x": 888,
+    "y": 525,
+    "text": "Native verified"
+  },
+  "error": "AssertionError [ERR_ASSERTION]: Click is outside the observed native fixture\n    at file://<checkout>/scripts/check-native.mjs:33:3"
+}

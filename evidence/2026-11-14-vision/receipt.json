@@ -1,0 +1,117 @@
+{
+  "result": "reviewed-observation",
+  "provider": "openrouter",
+  "model": "nvidia/nemotron-3.5-super-vl:free",
+  "startedAt": "2026-11-14T23:11:37.697468+00:00",
+  "elapsedSeconds": 10.425,
+  "image": {
+    "file": "vision-fresh-01.png",
+    "sha256": "58ae51554b5be1f99a004c57e9549311b9e4566561da1a411b146697c4acd590",
+    "bytes": 60564
+  },
+  "sourceObservation": {
+    "revision": "13d8248",
+    "endpoint": "http://127.0.0.1:9238",
+    "targetId": "4FE23A68145190A85EB1C34127B79A18",
+    "capturedAt": "2026-11-14T23:11:09.482Z",
+    "image": "scene.png",
+    "sha256": "58ae51554b5be1f99a004c57e9549311b9e4566561da1a411b146697c4acd590",
+    "viewport": {
+      "width": 1436,
+      "height": 872,
+      "devicePixelRatio": 1
+    },
+    "state": {
+      "sceneId": "92035596-da1a-4dca-bd78-6f7022725efb",
+      "mode": "shell",
+      "workbench": {
+        "sidebarSide": "left",
+        "sidebarMode": "docked",
+        "floatingRect": null,
+        "sidebarVisible": true,
+        "sidebarPartRetained": true,
+        "sidebarRect": {
+          "x": 48,
+          "y": 34,
+          "width": 260,
+          "height": 816,
+          "top": 34,
+          "right": 308,
+          "bottom": 850,
+          "left": 48
+        },
+        "editorRect": {
+          "x": 308,
+          "y": 34,
+          "width": 808,
+          "height": 816,
+          "top": 34,
+          "right": 1116,
+          "bottom": 850,
+          "left": 308
+        },
+        "activeResource": "file:///workspace/hello.ts",
+        "model": {
+          "uri": "file:///workspace/hello.ts",
+          "version": 1,
+          "value": "// This is a real VS Code editor inside a Domicile shell.\n// Move the Explorer. The model, cursor and undo history stay here.\n\nexport function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Domicile\"));\n"
+        },
+        "selection": {
+          "startLineNumber": 1,
+          "startColumn": 1,
+          "endLineNumber": 1,
+          "endColumn": 1,
+          "selectionStartLineNumber": 1,
+          "selectionStartColumn": 1,
+          "positionLineNumber": 1,
+          "positionColumn": 1
+        }
+      },
+      "native": {
+        "appId": "app-5",
+        "focused": false,
+        "isConnected": true,
+        "boundingRect": {
+          "x": 1121.5,
+          "y": 327.5,
+          "width": 310,
+          "height": 249,
+          "top": 327.5,
+          "right": 1431.5,
+          "bottom": 576.5,
+          "left": 1121.5
+        },
+        "pid": 944,
+        "toplevelId": "b1HWMGRTMeb3dCfarUIt4Xu4uHq9RhR3"
+      }
+    }
+  },
+  "response": "Dialog title: Domicile Code native fixture\nEntry-field text: Native pixels\nEditor, Explorer, and native dialog simultaneously visible: yes",
+  "usage": {
+    "prompt_tokens": 1471,
+    "completion_tokens": 291,
+    "total_tokens": 1762,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 261,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "review": {
+    "verdict": "the three reported observations match the fixture pixels and source state",
+    "scope": "OCR and simultaneous visibility only; no coordinates or actions requested"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "at": "2026-11-14T23:32:38.056Z",
+  "revision": "13d8248+isolation-worker",
+  "result": "pass",
+  "failedRequests": [
+    {
+      "url": "domicile://shell/worker.js",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "domicile://shell/worker.js",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    }
+  ],
+  "source": {
+    "type": "Domicile-shell",
+    "targetId": "CAD113AA532182897AE46DBE1FEFE7B6",
+    "sceneId": "dadd85cf-c960-4137-b82a-f8fed3949186"
+  },
+  "capability": {
+    "status": "complete",
+    "secureContext": true,
+    "crossOriginIsolated": false,
+    "sharedArrayBufferType": "undefined",
+    "scriptFetch": {
+      "status": 200,
+      "mimeType": "text/javascript",
+      "url": "domicile://shell/worker.js"
+    },
+    "workers": [
+      {
+        "type": "classic",
+        "result": "error",
+        "error": {
+          "message": "Worker startup failed",
+          "filename": null,
+          "line": null
+        }
+      },
+      {
+        "type": "module",
+        "result": "error",
+        "error": {
+          "message": "Worker startup failed",
+          "filename": null,
+          "line": null
+        }
+      }
+    ]
+  }
+}

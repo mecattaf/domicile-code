@@ -1,0 +1,49 @@
+{
+  "status": "stopped-after-duration",
+  "startedAt": "2026-11-15T00:54:47.338075+00:00",
+  "shellSha256": "0d2dae12df76c2c127282ea5e3bc5d60eccad37eb3116088e11f7edd70ff9945",
+  "children": {
+    "sway": {
+      "pidInPrivateNamespace": 3,
+      "critical": true,
+      "finalRc": 0
+    },
+    "domicile": {
+      "pidInPrivateNamespace": 31,
+      "critical": true,
+      "finalRc": 1
+    },
+    "native-fixture": {
+      "pidInPrivateNamespace": 301,
+      "critical": false,
+      "finalRc": 0
+    },
+    "viewer": {
+      "pidInPrivateNamespace": 302,
+      "critical": true,
+      "finalRc": 0
+    }
+  },
+  "outputValidationSource": "cli",
+  "readyAt": "2026-11-15T00:54:54.183294+00:00",
+  "endpoint": "http://127.0.0.1:9245",
+  "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+  "viewer": "http://127.0.0.1:8795",
+  "source": {
+    "sceneId": "57bcf12a-04fb-488f-8211-07f759e56c73",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "BFB3A62A4D5A2DB628493AE78B9B069D",
+    "output": "domicile-0",
+    "serverId": "4e6b75bf-e3b3-409a-8066-2b349e3712ae",
+    "owner": null
+  },
+  "endedAt": "2026-11-15T00:59:54.584419+00:00",
+  "teardownWarning": "Minidumps were retained. Inspect them before claiming clean teardown; do not publish raw dumps.",
+  "retainedDumpCount": 1,
+  "sourceRevision": "e50f241",
+  "freshCheckout": "public GitHub branch; npm ci --ignore-scripts, check, default build and experimental language build"
+}

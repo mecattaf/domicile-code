@@ -1,0 +1,35 @@
+{
+  "at": "2026-11-15T01:09:25.517Z",
+  "revision": "e50f241+key-probe",
+  "result": "fail",
+  "method": "wtype virtual keyboard on the explicitly selected private Sway host; real Wayland delivery into Domicile; no CDP keyboard injection",
+  "keys": [],
+  "before": {
+    "sceneId": "0eda701f-54f6-400f-ad95-dda03d82b2ab",
+    "mode": "key-delivery-repro",
+    "workbench": null,
+    "native": null,
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 900,
+        "modeHeight": 900,
+        "modeWidth": 1440,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1440,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "events": []
+  },
+  "error": "page.waitForFunction: Target page, context or browser has been closed\n    at /tmp/domicile-code-build-20261114/scripts/check-wayland-keys.mjs:45:24",
+  "failedCaptureError": "Error: page.evaluate: Target page, context or browser has been closed",
+  "recovery": "not requested: disposable probe"
+}

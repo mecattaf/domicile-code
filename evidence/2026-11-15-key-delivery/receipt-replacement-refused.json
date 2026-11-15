@@ -1,0 +1,8 @@
+{
+  "result": "pass",
+  "returnCode": 1,
+  "beforeSha256": "e8c6fe41f8a91a5714dbd8f67b49c6498d6962c6a9fc8274d001c2d1c98bf54e",
+  "afterSha256": "e8c6fe41f8a91a5714dbd8f67b49c6498d6962c6a9fc8274d001c2d1c98bf54e",
+  "stderr": "Traceback (most recent call last):\n  File \"/tmp/domicile-code-build-20261114/repros/key-delivery/run.py\", line 36, in <module>\n    comparison_output = Path(str(run) + '.comparison.json').open('x')\n  File \"/nix/store/lj4j7680q9chs3gj5a6jcas451nivpd4-python3-3.14.6-env/lib/python3.14/pathlib/__init__.py\", line 771, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileExistsError: [Errno 17] File exists: '/tmp/domicile-code-key-refusal-01.comparison.json'\n",
+  "purpose": "an earlier comparison cannot be replaced even if no run directory exists"
+}

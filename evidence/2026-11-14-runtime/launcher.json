@@ -1,0 +1,48 @@
+{
+  "status": "stopped-after-duration",
+  "runDir": "/tmp/domicile-code-launcher-02",
+  "startedAt": "2026-11-14T22:55:33.644124+00:00",
+  "shellSha256": "2de903bfc17c66255db971ef9ce527bff75fc41c7720dac1c22d6ac19b464b93",
+  "children": {
+    "sway": {
+      "pidInPrivateNamespace": 3,
+      "critical": true,
+      "finalRc": 0
+    },
+    "domicile": {
+      "pidInPrivateNamespace": 31,
+      "critical": true,
+      "finalRc": 1
+    },
+    "native-fixture": {
+      "pidInPrivateNamespace": 305,
+      "critical": false,
+      "finalRc": -15
+    },
+    "viewer": {
+      "pidInPrivateNamespace": 306,
+      "critical": true,
+      "finalRc": 0
+    }
+  },
+  "browserWebSocket": "ws://127.0.0.1:9239/devtools/browser/f86a3f53-570e-4074-b973-b41757693062",
+  "readyAt": "2026-11-14T22:55:40.175039+00:00",
+  "endpoint": "http://127.0.0.1:9239",
+  "targetId": "51DED96668B57E2CDF10A5DF4FFF0C3D",
+  "viewer": "http://127.0.0.1:8789",
+  "source": {
+    "sceneId": "a327399d-f24d-4b31-8690-882ca0595b80",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "51DED96668B57E2CDF10A5DF4FFF0C3D",
+    "output": "domicile-0",
+    "serverId": "0decc333-8abd-443c-b8ba-8317ae1a1901",
+    "owner": null
+  },
+  "privateWaylandDisplay": "wayland-2",
+  "privateCompositorSocket": "/run/user/1000/domicile-ipc.31.sock",
+  "endedAt": "2026-11-14T22:56:00.456117+00:00"
+}

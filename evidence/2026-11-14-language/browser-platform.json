@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-14T23:26:54.912Z",
+  "revision": "13d8248+isolation-worker",
+  "result": "pass",
+  "source": {
+    "type": "browser-reference",
+    "url": "http://127.0.0.1:5180/"
+  },
+  "capability": {
+    "status": "complete",
+    "secureContext": true,
+    "crossOriginIsolated": true,
+    "sharedArrayBufferType": "function",
+    "scriptFetch": {
+      "status": 200,
+      "mimeType": "text/javascript",
+      "url": "http://127.0.0.1:5180/shell/worker.js"
+    },
+    "workers": [
+      {
+        "type": "classic",
+        "result": "message",
+        "worker": {
+          "crossOriginIsolated": true,
+          "sharedArrayBufferType": "function",
+          "receivedSharedBuffer": true,
+          "value": 42
+        },
+        "sharedValueAfterWorker": 42
+      },
+      {
+        "type": "module",
+        "result": "message",
+        "worker": {
+          "crossOriginIsolated": true,
+          "sharedArrayBufferType": "function",
+          "receivedSharedBuffer": true,
+          "value": 42
+        },
+        "sharedValueAfterWorker": 42
+      }
+    ]
+  }
+}

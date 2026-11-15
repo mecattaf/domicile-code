@@ -1,0 +1,20 @@
+{
+  "revision": "stable-8115d93+final-driver",
+  "result": "pass",
+  "method": "fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype",
+  "source": {
+    "sceneId": "d1331454-cda9-4cd8-a14f-7c40d7900ee8",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "15D05A95EA5C214EB0D9D9402C8DEE70",
+    "output": "domicile-0",
+    "serverId": "78788bd5-37a8-4a31-99e2-a00f6cb490ea",
+    "owner": null
+  },
+  "senderReturnCode": 0,
+  "launcherReturnCode": 0,
+  "fatalLines": []
+}

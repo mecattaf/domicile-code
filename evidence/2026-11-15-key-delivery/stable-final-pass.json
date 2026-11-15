@@ -1,0 +1,416 @@
+{
+  "at": "2026-11-15T01:21:49.319Z",
+  "revision": "stable-8115d93+final-driver",
+  "result": "pass",
+  "method": "wtype virtual keyboard on the explicitly selected private Sway host; real Wayland delivery into Domicile; no CDP keyboard injection",
+  "keys": [
+    {
+      "label": "Plain A",
+      "args": [
+        "-s",
+        "500",
+        "-P",
+        "a",
+        "-p",
+        "a",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "a",
+      "referencePhysicalCode": "KeyA",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "a",
+          "code": "Escape",
+          "ctrl": false,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "a",
+          "code": "Escape",
+          "ctrl": false,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "Ctrl+W",
+      "args": [
+        "-s",
+        "500",
+        "-M",
+        "ctrl",
+        "-P",
+        "w",
+        "-p",
+        "w",
+        "-m",
+        "ctrl",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "w",
+      "referencePhysicalCode": "KeyW",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "w",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "w",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "Ctrl+N",
+      "args": [
+        "-s",
+        "500",
+        "-M",
+        "ctrl",
+        "-P",
+        "n",
+        "-p",
+        "n",
+        "-m",
+        "ctrl",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "n",
+      "referencePhysicalCode": "KeyN",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "n",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "n",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "Ctrl+T",
+      "args": [
+        "-s",
+        "500",
+        "-M",
+        "ctrl",
+        "-P",
+        "t",
+        "-p",
+        "t",
+        "-m",
+        "ctrl",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "t",
+      "referencePhysicalCode": "KeyT",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "t",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "t",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "Ctrl+Tab",
+      "args": [
+        "-s",
+        "500",
+        "-M",
+        "ctrl",
+        "-P",
+        "Tab",
+        "-p",
+        "Tab",
+        "-m",
+        "ctrl",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "Tab",
+      "referencePhysicalCode": "Tab",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "Tab",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "Tab",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "Ctrl+Shift+Tab",
+      "args": [
+        "-s",
+        "500",
+        "-M",
+        "ctrl",
+        "-M",
+        "shift",
+        "-P",
+        "Tab",
+        "-p",
+        "Tab",
+        "-m",
+        "shift",
+        "-m",
+        "ctrl",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "Tab",
+      "referencePhysicalCode": "Tab",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "Tab",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": true,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "Tab",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": true,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "F11",
+      "args": [
+        "-s",
+        "500",
+        "-P",
+        "F11",
+        "-p",
+        "F11",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "F11",
+      "referencePhysicalCode": "F11",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "F11",
+          "code": "Escape",
+          "ctrl": false,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "F11",
+          "code": "Escape",
+          "ctrl": false,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "Ctrl+R",
+      "args": [
+        "-s",
+        "500",
+        "-M",
+        "ctrl",
+        "-P",
+        "r",
+        "-p",
+        "r",
+        "-m",
+        "ctrl",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "r",
+      "referencePhysicalCode": "KeyR",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "r",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "r",
+          "code": "Escape",
+          "ctrl": true,
+          "shift": false,
+          "alt": false,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    },
+    {
+      "label": "Alt+Left",
+      "args": [
+        "-s",
+        "500",
+        "-M",
+        "alt",
+        "-P",
+        "Left",
+        "-p",
+        "Left",
+        "-m",
+        "alt",
+        "-s",
+        "500"
+      ],
+      "expectedLogicalKey": "ArrowLeft",
+      "referencePhysicalCode": "ArrowLeft",
+      "result": "delivered",
+      "events": [
+        {
+          "type": "keydown",
+          "key": "ArrowLeft",
+          "code": "Escape",
+          "ctrl": false,
+          "shift": false,
+          "alt": true,
+          "meta": false,
+          "trusted": true
+        },
+        {
+          "type": "keyup",
+          "key": "ArrowLeft",
+          "code": "Escape",
+          "ctrl": false,
+          "shift": false,
+          "alt": true,
+          "meta": false,
+          "trusted": true
+        }
+      ]
+    }
+  ],
+  "before": {
+    "sceneId": "d1331454-cda9-4cd8-a14f-7c40d7900ee8",
+    "mode": "key-delivery-repro",
+    "workbench": null,
+    "native": null,
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 900,
+        "modeHeight": 900,
+        "modeWidth": 1440,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1440,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "events": []
+  },
+  "source": {
+    "targetId": "15D05A95EA5C214EB0D9D9402C8DEE70",
+    "sceneId": "d1331454-cda9-4cd8-a14f-7c40d7900ee8",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    }
+  }
+}

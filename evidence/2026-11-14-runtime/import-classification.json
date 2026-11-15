@@ -1,0 +1,14 @@
+[
+  {
+    "file": "shell.js",
+    "rc": 1,
+    "stdout": "",
+    "stderr": "domicile: cannot start the shell builder /nonexistent/domicile-code-builder: No such file or directory (os error 2)\n"
+  },
+  {
+    "file": "control.js",
+    "rc": 0,
+    "stdout": "<checkout>/repros/import-classification/control.js\n",
+    "stderr": ""
+  }
+]
