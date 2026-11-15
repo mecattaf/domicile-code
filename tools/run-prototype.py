@@ -33,13 +33,17 @@ def arguments():
     p.add_argument('--capture-repro', action='store_true', help='Measure both capture paths on the minimal repro shell')
     p.add_argument('--no-fixture', action='store_true', help='Start without the optional native entry fixture')
     p.add_argument('--display-source', choices=['cli', 'sdk'], default='cli', help='Use sdk explicitly for older runtimes without list-displays')
+    p.add_argument('--virtual-keyboard', help='Absolute wtype executable; keep a keyboard on the private host seat before starting the engine')
     p.add_argument('--inside', action='store_true', help=argparse.SUPPRESS)
     return p.parse_args()
 
 
 def main():
     args = arguments()
-    for name in ('domicile', 'sway', 'node', 'zenity', 'runtime_test'):
+    executables = ['domicile', 'sway', 'node', 'zenity', 'runtime_test']
+    if args.virtual_keyboard:
+        executables.append('virtual_keyboard')
+    for name in executables:
         path = Path(getattr(args, name))
         if not path.is_absolute() or not path.is_file() or not os.access(path, os.X_OK):
             raise RuntimeError(f'{name} must name an existing absolute executable')
@@ -160,6 +164,14 @@ def main():
             return candidates[0].name if candidates else None
 
         env['WAYLAND_DISPLAY'] = wait_for('private Sway socket', sway_socket)
+        if args.virtual_keyboard:
+            # Upstream PR #1544: transient wtype devices on an initially empty
+            # seat can deliver leave without enter. Keep a device present
+            # before the engine binds the seat, and stop it after the engine.
+            # -k presses and releases Shift; the sleep keeps the device alive.
+            spawn('virtual-keyboard', [args.virtual_keyboard, '-k', 'Shift_L', '-s', '86400000'], env)
+            time.sleep(1)
+            check_children()
         empty = run / 'config/empty.json'
         empty.write_text('{}\n')
         env.update(OZONE='wayland', DOMICILE_SHELLS=str(shell_dir),

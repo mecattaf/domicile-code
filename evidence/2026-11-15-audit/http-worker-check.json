@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-15T09:52:14.670Z",
+  "revision": "Code cb023b02243ad34f8702153656dc134fbcec003b; non-isolated HTTP control",
+  "result": "pass",
+  "failedRequests": [],
+  "source": {
+    "type": "browser-reference",
+    "url": "http://127.0.0.1:5187/"
+  },
+  "capability": {
+    "status": "complete",
+    "secureContext": true,
+    "crossOriginIsolated": false,
+    "sharedArrayBufferType": "undefined",
+    "scriptFetch": {
+      "status": 200,
+      "mimeType": "text/javascript",
+      "url": "http://127.0.0.1:5187/shell/worker.js"
+    },
+    "workers": [
+      {
+        "type": "classic",
+        "result": "message",
+        "worker": {
+          "crossOriginIsolated": false,
+          "sharedArrayBufferType": "undefined",
+          "receivedSharedBuffer": false
+        }
+      },
+      {
+        "type": "module",
+        "result": "message",
+        "worker": {
+          "crossOriginIsolated": false,
+          "sharedArrayBufferType": "undefined",
+          "receivedSharedBuffer": false
+        }
+      }
+    ]
+  }
+}

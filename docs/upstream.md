@@ -12,9 +12,9 @@ Before asking for a native change, establish what the existing interface can alr
 
 ### 1. Programmatic recording of a selected source
 
-**Existing capability:** Domicile documents screenshots saved to an explicit path, a screen-record picker, and a recorder consuming PipeWire sources with lifecycle controls.
+**Existing capability:** Explicit-file PNG capture bypasses the picker. The built-in shell recorder has source selection, capturing state and pause/resume/stop/discard through existing SDK interfaces; it uses PipeWire but is not itself an xdg ScreenCast portal client. External xdg ScreenCast streams are another interface. [Source contract](https://github.com/cprussin/domicile/blob/1557378783d6bf7c94a5c093f3fe42804652a540/docs/PORTALS.md#screen-recording).
 
-**Integration question:** Can a trusted shell or automation client select an exact admitted source, start recording it, observe recording state and finalize the file entirely through existing supported interfaces?
+**Qualification still needed:** Exercise the existing source-answer/state/control loop end to end. Start the screenRecord promise without awaiting finalization, answer the listed source through portal requests, observe capturing state, stop through the existing control, then await the finalized path. This is a source-audited recipe, not a measured recording result.
 
 **Why it matters:** The builder needs reproducible demonstrations and concise bug reports without a person repeating picker interactions. Other shells, tutorials and automated desktop tests could use the same contract.
 
@@ -22,9 +22,9 @@ Before asking for a native change, establish what the existing interface can alr
 
 ### 2. A supported accelerated remote-only desktop
 
-**Existing capability:** Virtual monitors, capture and RemoteDesktop/EIS input are documented. Domicile's OZONE=headless backend currently composites in software.
+**Existing capability:** DRM virtual monitors already support GPU presentation without scanout, paced by synthetic begin frames, and normal display capture. Capture and RemoteDesktop/EIS are documented. OZONE=headless separately composites in software.
 
-**Integration question:** Which supported configuration supplies GPU composition, usable remote input and reliable capture when the machine has no physical monitor? Can the existing DRM/virtual-output path satisfy it?
+**Integration question:** What validated command order and seat/VT prerequisites start the existing DRM path with only virtual outputs, and which reference capture/EIS client is recommended? The renderer/output mechanisms exist; our isolated render-node-only tests did not qualify direct KMS startup.
 
 **Why it matters:** A remotely operated workbench should exercise the intended accelerated rendering path. This is also useful for remote development desktops and accurate graphics tests.
 
@@ -85,6 +85,10 @@ Filed as `mecattaf` after current-source retests and open/closed issue searches:
 - [Nested GPU screenshot gets no answer while CDP captures native pixels; direct headless works](https://github.com/cprussin/domicile/issues/2168).
 - [Offer an explicit prebuilt-shell loading contract when import-like UI text triggers the builder](https://github.com/cprussin/domicile/issues/2169).
 - [Document the supported Domicile-only accelerated remote desktop and capture/input path](https://github.com/cprussin/domicile/issues/2170).
-- [Checked nested engine aborts when a virtual keyboard appears; official controls pass](https://github.com/cprussin/domicile/issues/2171).
+- [Known empty-seat keyboard harness failure, corrected and closed](https://github.com/cprussin/domicile/issues/2171); upstream #1544 already documented the persistent-keyboard setup. Current same-series checked positive/negative controls confirm it.
 
 The worker, capture and classification reports include current reduced failures. The isolation and remote-GPU reports are capability/configuration questions. The keyboard report preserves the failing checked pins alongside the newest working official control; it does not claim the latest stable has the checked abort.
+
+## Scrutiny and corrections
+
+The [review audit](../evidence/2026-11-15-audit/README.md) strengthens worker loading with a non-isolated control, narrows prebuilt loading to local bundles, distinguishes four capture interfaces, acknowledges existing DRM virtual-display and recorder APIs, and corrects the keyboard report as our known host-seat setup omission. Five reports remain actionable bugs or bounded contract/documentation questions; #2171 is preserved as a corrected closed report. No new recorder or renderer is presumed necessary.

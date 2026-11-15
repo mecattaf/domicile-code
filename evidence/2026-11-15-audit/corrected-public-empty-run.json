@@ -1,0 +1,48 @@
+{
+  "status": "stopped-by-signal",
+  "runDir": "/tmp/domicile-code-key-audit-public-empty-20261115",
+  "startedAt": "2026-11-15T09:56:08.314894+00:00",
+  "shellSha256": "ce8376dae03c48900413e1680b0a8bfa1f20b5b593616d33258dbd02c166f17b",
+  "children": {
+    "sway": {
+      "pidInPrivateNamespace": 4,
+      "critical": true,
+      "finalRc": 0
+    },
+    "domicile": {
+      "pidInPrivateNamespace": 32,
+      "critical": true,
+      "finalRc": 1
+    },
+    "viewer": {
+      "pidInPrivateNamespace": 284,
+      "critical": true,
+      "finalRc": 1
+    }
+  },
+  "browserWebSocket": "ws://127.0.0.1:9255/devtools/browser/797532f0-b1c2-48bd-b65f-a6ecb6b28747",
+  "outputValidationSource": "cli",
+  "readyAt": "2026-11-15T09:56:12.814335+00:00",
+  "endpoint": "http://127.0.0.1:9255",
+  "targetId": "A8CB345C27644882FE426286CD3AC05E",
+  "viewer": "http://127.0.0.1:8795",
+  "source": {
+    "sceneId": "b52ce372-7d71-40f3-a2c8-3681b89c77b5",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "A8CB345C27644882FE426286CD3AC05E",
+    "output": "domicile-0",
+    "serverId": "75577729-6305-4787-94e5-bf71c243964f",
+    "owner": null
+  },
+  "privateWaylandDisplay": "wayland-2",
+  "privateCompositorSocket": "/run/user/1000/domicile-ipc.32.sock",
+  "endedAt": "2026-11-15T09:56:15.019697+00:00",
+  "retainedDumps": [
+    "config/chromium/Crash Reports/pending/70d2e612-6bd6-47fe-980b-de87b54f3248.dmp"
+  ],
+  "teardownWarning": "Minidumps were retained. Inspect them before claiming clean teardown; do not publish raw dumps."
+}

@@ -1,0 +1,48 @@
+{
+  "at": "2026-11-15T09:56:13.105Z",
+  "revision": "1557378-checked-sa6e192f40495-explicit-empty-seat-negative",
+  "result": "fail",
+  "method": "wtype virtual keyboard on the explicitly selected private Sway host; real Wayland delivery into Domicile; no CDP keyboard injection",
+  "keys": [],
+  "before": {
+    "sceneId": "b52ce372-7d71-40f3-a2c8-3681b89c77b5",
+    "mode": "key-delivery-repro",
+    "workbench": null,
+    "native": null,
+    "outputs": [
+      {
+        "adaptiveSync": "unsupported",
+        "hdr": "unsupported",
+        "height": 900,
+        "modeHeight": 900,
+        "modeWidth": 1440,
+        "name": "domicile-0",
+        "peakLuminance": 0,
+        "refreshMhz": 0,
+        "scale": 1,
+        "sdrWhite": 0,
+        "transform": "normal",
+        "width": 1440,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "events": []
+  },
+  "attempted": {
+    "label": "Plain A",
+    "args": [
+      "-s",
+      "500",
+      "-P",
+      "a",
+      "-p",
+      "a",
+      "-s",
+      "500"
+    ],
+    "at": "2026-11-15T09:56:13.168Z"
+  },
+  "error": "page.waitForFunction: Target page, context or browser has been closed\n    at /tmp/domicile-code-fresh-20261115/scripts/check-wayland-keys.mjs:46:24",
+  "failedCaptureError": "Error: page.evaluate: Target page, context or browser has been closed"
+}

@@ -17,6 +17,7 @@ p.add_argument('--wtype', required=True)
 p.add_argument('--revision', required=True)
 p.add_argument('--run-dir', required=True)
 p.add_argument('--node', required=True)
+p.add_argument('--empty-seat-repro', action='store_true', help='Reproduce the historical transient-keyboard failure instead of using upstream’s persistent keyboard setup')
 args, forwarded = p.parse_known_args()
 if Path('/proc/1/comm').read_text().strip() != 'bwrap' or not any(
         ' /run/user ' in line and ' - tmpfs ' in line
@@ -28,19 +29,21 @@ if list(runtime.glob('wayland-*')):
 run = Path(args.run_dir).absolute()
 if not run.is_relative_to('/tmp') or run == Path('/tmp') or run.exists():
     raise SystemExit('Use a new explicit /tmp run directory')
-if any(value in forwarded for value in ('--inside', '--shell-dir', '--seconds', '--no-fixture', '--capture-repro')):
+if any(value in forwarded for value in ('--inside', '--shell-dir', '--seconds', '--no-fixture', '--capture-repro', '--virtual-keyboard')):
     raise SystemExit('The driver selects the minimal shell and bounded isolated lifecycle')
 controller_log = Path(str(run) + '.controller.log')
 # Reserve the comparison atomically: an earlier preflight failure may have
 # written a receipt without creating the run directory. Never replace it.
 comparison_output = Path(str(run) + '.comparison.json').open('x')
 receipt = {'revision': args.revision, 'result': 'fail', 'method': 'fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype'}
+receipt['keyboardSetup'] = 'initially empty host seat (historical negative control)' if args.empty_seat_repro else 'persistent wtype keyboard before engine startup (upstream PR #1544)'
 launcher = None
 try:
     with controller_log.open('x') as output:
+        keyboard = [] if args.empty_seat_repro else ['--virtual-keyboard', args.wtype]
         launcher = subprocess.Popen([sys.executable, str(REPO / 'tools/run-prototype.py'),
             '--inside', '--no-fixture', '--seconds', '90', '--shell-dir', str(Path(__file__).parent),
-            '--run-dir', str(run), '--node', args.node, *forwarded], cwd=REPO, stdout=output, stderr=subprocess.STDOUT)
+            '--run-dir', str(run), '--node', args.node, *keyboard, *forwarded], cwd=REPO, stdout=output, stderr=subprocess.STDOUT)
         deadline = time.monotonic() + 85
         status = None
         while time.monotonic() < deadline and launcher.poll() is None:

@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-15T09:45:38.493019+00:00",
+  "at": "2026-11-15T09:57:48.702911+00:00",
   "result": "pass",
-  "sourceRevision": "488568e30a9bf53ddb2c028d07137e66d901d664",
-  "filesReviewed": 189,
+  "sourceRevision": "83cfb341afd42319fc712baea9e78c1b94d9923d",
+  "filesReviewed": 204,
   "checks": [
     "exact comparison with the four worker credentials actually used; no values emitted",
     "credential-pattern and private-account/strategy marker checks",
@@ -98,8 +98,8 @@
     },
     {
       "file": "docs/upstream.md",
-      "bytes": 9595,
-      "sha256": "6c912ef7db6ce8480c242ef673d2472658cc65f4c8d1c20d2c5214818d16a1f0"
+      "bytes": 10860,
+      "sha256": "9f6dc04cc103dddaecd0f2fd8464b87d9423ef3dddc8bdc7567ecc8065de03f4"
     },
     {
       "file": "evidence/2026-11-14-core/README.md",
@@ -310,6 +310,81 @@
       "file": "evidence/2026-11-14-vision/scene.png",
       "bytes": 60564,
       "sha256": "58ae51554b5be1f99a004c57e9549311b9e4566561da1a411b146697c4acd590"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/README.md",
+      "bytes": 4619,
+      "sha256": "520b461f3dd1aeb457086b414f786b411144bf95319a59930c3d826d19a63417"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/checked-empty-seat.json",
+      "bytes": 985,
+      "sha256": "6abdb246e1742bbebeef3e659ecc4f7a5c30dd7974c1b280d50d135e3d0e432b"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/checked-held-seat.json",
+      "bytes": 792,
+      "sha256": "c660b0aeb468e790abe53b91ef5e6bcf1efd38ccbfab5a47adb17102b6c0f907"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/checked-public-driver.json",
+      "bytes": 872,
+      "sha256": "3eeabf8f32fc4d45c813471f0c354f20d1c39b992c1ff143417f5670dbdc7441"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/checked-public-key-events.json",
+      "bytes": 8621,
+      "sha256": "8db892c7c194ac0ffdab29bf014fc597d252cc1dffb9704b16250d1702ced286"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/corrected-public-empty-comparison.json",
+      "bytes": 1069,
+      "sha256": "3f65e8430b8ac8cb29c0f84ca7e671e6e1f3d4a08c6564204ad341222a75514a"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/corrected-public-empty-events.json",
+      "bytes": 1320,
+      "sha256": "82e78a8c94c83f5d715f0f40dba8619948f15043c51abc6f47594973cf47c064"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/corrected-public-empty-run.json",
+      "bytes": 1581,
+      "sha256": "41faa690171ece87039c71d43ead8116054121b36c097d4c075f9ed75e626464"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/corrected-public-held-comparison.json",
+      "bytes": 872,
+      "sha256": "3eeabf8f32fc4d45c813471f0c354f20d1c39b992c1ff143417f5670dbdc7441"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/corrected-public-held-events.json",
+      "bytes": 8621,
+      "sha256": "8db892c7c194ac0ffdab29bf014fc597d252cc1dffb9704b16250d1702ced286"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/corrected-public-held-run.json",
+      "bytes": 1693,
+      "sha256": "f776b0347c37efba0db18da456e65737f36e0d02311e4784d074195f0e95c541"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/http-control.mjs",
+      "bytes": 3658,
+      "sha256": "85f5efe9ef63d8276dbdcb6f6a2428f89974bae4d75c4e29cdd62b03eeb995fa"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/http-no-isolation.json",
+      "bytes": 2951,
+      "sha256": "2096f96ef3ca565344462a34e1072214c771ae93f1fcf0e752a9c0ff7ed6c70b"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/http-worker-check.json",
+      "bytes": 1035,
+      "sha256": "b0bfa4f7b9576c59e136249c770a42bd52f2f55c7a3a4328f835be8a67effa45"
+    },
+    {
+      "file": "evidence/2026-11-15-audit/http-workers.png",
+      "bytes": 77358,
+      "sha256": "c383f1c54ca795f60667285309b0816346043deccfe3cdb342f87a05bae902e4"
     },
     {
       "file": "evidence/2026-11-15-compute/summary.json",
@@ -718,13 +793,13 @@
     },
     {
       "file": "repros/key-delivery/README.md",
-      "bytes": 4427,
-      "sha256": "f7e638d323a108578717b445f2202629599bc0756104ecdb6da2c3d212fbd773"
+      "bytes": 5778,
+      "sha256": "e3c68bf566dcb7856cad44663696fd517af127ee503faa01171c235dfbd88c38"
     },
     {
       "file": "repros/key-delivery/run.py",
-      "bytes": 5105,
-      "sha256": "8139c9d734e61b22dca7e4a701e0586705a8034153e791aa467f1e77c217a178"
+      "bytes": 5584,
+      "sha256": "8428a44c273dfff30f3e7461011af846ebb3b3fde2c01a454efb8b5359e699e3"
     },
     {
       "file": "repros/key-delivery/shell/shell.js",
@@ -908,8 +983,8 @@
     },
     {
       "file": "tools/run-prototype.py",
-      "bytes": 17266,
-      "sha256": "fe009c25397c53e18e34aa1202bbf203af012b38600cda6731f5302f7ad42abb"
+      "bytes": 18019,
+      "sha256": "5a0f8e882c9aab6bed55ce1e434d305ead982c1005ad21ba55e1fea9810522d4"
     },
     {
       "file": "tools/serve-reference.mjs",
