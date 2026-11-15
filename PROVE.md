@@ -100,6 +100,15 @@
 | P5.1 | C5.1 | latest logical keyboard control | live | standalone minimal wtype driver on official sa6e192f40495 | 0 | pass | direct/latest-keys.json and latest-key-events.json; all nine logical controls, earlier checked failures retained separately | Domicile 1557378 | 2026-11-15T09:38Z |
 | P3.4 | C3.4 | public landing page | live | GitHub rendered README plus hash-identical checked media | 0 | pass | main 8084c11; two MP4s, screenshots and derived GIF visible through README; topology and limits explicit | public showcase | 2026-11-15T09:44Z |
 
+
+## Upstream scrutiny follow-up
+
+| Proof | Claim | Scene | Form | Check | Exit | Result | Evidence | Revision | Observed |
+|---|---|---|---|---|---|---|---|---|---|
+| P5.1 | C5.1 | ordinary worker control | live | same source bytes served without COOP/COEP | 0 | pass | audit/http-no-isolation.json; both workers reply with COI false/SAB absent | Code cb023b0 | 2026-11-15T09:52Z |
+| P5.1 | C5.1 | same-series checked keyboard | live | persistent host keyboard and explicit empty-seat negative control | 0 /1 expected | pass | audit/corrected-public-held-comparison.json and corrected-public-empty-comparison.json; known upstream1544 harness issue | Domicile1557378; checked a6e192 | 2026-11-15T09:57Z |
+| P5.1 | C5.1 | public issue scrutiny | live | source audit plus six corrected bodies/comments | 0 | pass | audit/issue-edits.json;2166–2169 open,2170/2171 corrected and closed; no new renderer/recorder presumed | df7d7ac | 2026-11-15T10:02Z |
+
 ## Legend
 
 - Forms: local, wrangler-dev, live, human.

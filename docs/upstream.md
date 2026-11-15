@@ -84,11 +84,11 @@ Filed as `mecattaf` after current-source retests and open/closed issue searches:
 - [Define a trusted-shell opt-in for cross-origin isolation and shared memory](https://github.com/cprussin/domicile/issues/2167).
 - [Nested GPU screenshot gets no answer while CDP captures native pixels; direct headless works](https://github.com/cprussin/domicile/issues/2168).
 - [Offer an explicit prebuilt-shell loading contract when import-like UI text triggers the builder](https://github.com/cprussin/domicile/issues/2169).
-- [Document the supported Domicile-only accelerated remote desktop and capture/input path](https://github.com/cprussin/domicile/issues/2170).
+- [Existing direct remote capabilities; broad request withdrawn](https://github.com/cprussin/domicile/issues/2170). Domicile already runs directly on both hosts; the audit found existing GPU virtual-output and recorder mechanisms.
 - [Known empty-seat keyboard harness failure, corrected and closed](https://github.com/cprussin/domicile/issues/2171); upstream #1544 already documented the persistent-keyboard setup. Current same-series checked positive/negative controls confirm it.
 
 The worker, capture and classification reports include current reduced failures. The isolation and remote-GPU reports are capability/configuration questions. The keyboard report preserves the failing checked pins alongside the newest working official control; it does not claim the latest stable has the checked abort.
 
 ## Scrutiny and corrections
 
-The [review audit](../evidence/2026-11-15-audit/README.md) strengthens worker loading with a non-isolated control, narrows prebuilt loading to local bundles, distinguishes four capture interfaces, acknowledges existing DRM virtual-display and recorder APIs, and corrects the keyboard report as our known host-seat setup omission. Five reports remain actionable bugs or bounded contract/documentation questions; #2171 is preserved as a corrected closed report. No new recorder or renderer is presumed necessary.
+The [review audit](../evidence/2026-11-15-audit/README.md) strengthens worker loading with a non-isolated control, narrows prebuilt loading to local bundles, distinguishes four capture interfaces, acknowledges existing DRM virtual-display and recorder APIs, and corrects the keyboard report as our known host-seat setup omission. Four reports remain actionable bugs or bounded contract questions. #2170 is closed after correcting an overly broad capability/deployment premise; #2171 is closed as our known host-seat setup omission. No new recorder or renderer is presumed necessary.

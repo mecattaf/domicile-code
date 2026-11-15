@@ -1,0 +1,119 @@
+{
+  "at": "2026-11-15T10:01:23.860496+00:00",
+  "results": [
+    {
+      "number": 2166,
+      "actions": [
+        {
+          "action": "edit",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2166",
+          "stderr": ""
+        },
+        {
+          "action": "comment",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2166#issuecomment-6892689244",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "number": 2167,
+      "actions": [
+        {
+          "action": "edit",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2167",
+          "stderr": ""
+        },
+        {
+          "action": "comment",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2167#issuecomment-6892689850",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "number": 2168,
+      "actions": [
+        {
+          "action": "edit",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2168",
+          "stderr": ""
+        },
+        {
+          "action": "comment",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2168#issuecomment-6892690403",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "number": 2169,
+      "actions": [
+        {
+          "action": "edit",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2169",
+          "stderr": ""
+        },
+        {
+          "action": "comment",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2169#issuecomment-6892691368",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "number": 2170,
+      "actions": [
+        {
+          "action": "edit",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2170",
+          "stderr": ""
+        },
+        {
+          "action": "comment",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2170#issuecomment-6892691880",
+          "stderr": ""
+        },
+        {
+          "action": "close",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "\u2713 Closed issue cprussin/domicile#2170 (Direct remote desktop integration: existing GPU virtual outputs and client qualification)"
+        }
+      ]
+    },
+    {
+      "number": 2171,
+      "actions": [
+        {
+          "action": "edit",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2171",
+          "stderr": ""
+        },
+        {
+          "action": "comment",
+          "returncode": 0,
+          "stdout": "https://github.com/cprussin/domicile/issues/2171#issuecomment-6892692611",
+          "stderr": ""
+        },
+        {
+          "action": "close",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "\u2713 Closed issue cprussin/domicile#2171 (Known empty-seat keyboard harness failure; corrected using upstream persistent-keyboard setup)"
+        }
+      ]
+    }
+  ]
+}

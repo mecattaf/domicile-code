@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-15T09:57:48.702911+00:00",
+  "at": "2026-11-15T10:04:46.742913+00:00",
   "result": "pass",
-  "sourceRevision": "83cfb341afd42319fc712baea9e78c1b94d9923d",
-  "filesReviewed": 204,
+  "sourceRevision": "df7d7ac9224ac0c902b90cd9b7a95e7a7758bbb7",
+  "filesReviewed": 205,
   "checks": [
     "exact comparison with the four worker credentials actually used; no values emitted",
     "credential-pattern and private-account/strategy marker checks",
@@ -28,13 +28,13 @@
     },
     {
       "file": "PROVE.md",
-      "bytes": 21452,
-      "sha256": "6816a67c32045a38fa145b2c99abd270c9197af8ac788a524318adac080a5f3d"
+      "bytes": 22403,
+      "sha256": "9eaa88e98a1c2b0d2d945fbe4114a425e6ad64ebe6ccab7c03cf9ea0a29f15b2"
     },
     {
       "file": "README.md",
-      "bytes": 5383,
-      "sha256": "9c5cf18399e7ead8220f9b6786d9c040316679ed8cd7fdd204f51f6290986bc5"
+      "bytes": 5510,
+      "sha256": "46a3f5f9a499801513f5ea764f4bfaf5e8a3dc06bb7e84b6ff4b14bf583a36a7"
     },
     {
       "file": "SCOPE.md",
@@ -58,8 +58,8 @@
     },
     {
       "file": "docs/build-status.md",
-      "bytes": 6577,
-      "sha256": "9732bd77ef2254cabe793dcb4bc5b9c9f1dfef39ea43eef482ac2367228853ca"
+      "bytes": 7181,
+      "sha256": "d6337dd586ef58e1be02d66dd6582a824a497674ad9982ab6c37f70de879848c"
     },
     {
       "file": "docs/demo-notes.md",
@@ -68,8 +68,8 @@
     },
     {
       "file": "docs/free-compute.md",
-      "bytes": 3544,
-      "sha256": "de90ee251901a8796251f93da1c15f04a41224b4bfe30f5d6d47d599b105bc93"
+      "bytes": 5028,
+      "sha256": "d61fa527d822361ee281a52aca41d342a2ebd43e0c843dab2b22de718a9382df"
     },
     {
       "file": "docs/language-spike.md",
@@ -98,8 +98,8 @@
     },
     {
       "file": "docs/upstream.md",
-      "bytes": 10860,
-      "sha256": "9f6dc04cc103dddaecd0f2fd8464b87d9423ef3dddc8bdc7567ecc8065de03f4"
+      "bytes": 11021,
+      "sha256": "7307d9340d263f65c37dea747e2ef412b24ed68be7151ca3ab49e27bdeb9dca8"
     },
     {
       "file": "evidence/2026-11-14-core/README.md",
@@ -313,8 +313,8 @@
     },
     {
       "file": "evidence/2026-11-15-audit/README.md",
-      "bytes": 4619,
-      "sha256": "520b461f3dd1aeb457086b414f786b411144bf95319a59930c3d826d19a63417"
+      "bytes": 4963,
+      "sha256": "e0a6010690fe3cbd4818be0fa43af851f9e2ea5efa20612e5b1e6027c5589b2f"
     },
     {
       "file": "evidence/2026-11-15-audit/checked-empty-seat.json",
@@ -387,9 +387,14 @@
       "sha256": "c383f1c54ca795f60667285309b0816346043deccfe3cdb342f87a05bae902e4"
     },
     {
+      "file": "evidence/2026-11-15-audit/issue-edits.json",
+      "bytes": 3165,
+      "sha256": "9eaaee10ae626058d63412a19a1a4ffb37fad319a75051cf26cd56184a73b7e1"
+    },
+    {
       "file": "evidence/2026-11-15-compute/summary.json",
-      "bytes": 15756,
-      "sha256": "eb0335324c7aed09a792938419de791195bf7d831fd3e96c897862d9967b0646"
+      "bytes": 16709,
+      "sha256": "c188102103aba5bc8b92ea7557ef39f80a3b445a284783da24c38f7df2e4dda6"
     },
     {
       "file": "evidence/2026-11-15-direct/README.md",

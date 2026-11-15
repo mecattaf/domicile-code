@@ -41,3 +41,7 @@ Model catalogue availability, a returned answer, code that compiles and behavior
 ## Direct Domicile follow-up
 
 The [15 November direct retest](../evidence/2026-11-15-direct/README.md) uses latest main/stable `1557378783d6bf7c94a5c093f3fe42804652a540` with official engine `sa6e192f40495`. Real Parts, native surface composition, CLI query agreement and native screenshots pass directly through software headless. The latest official logical-key control also passes. Worker loading, isolated shared memory and prebuilt classification remain open integration findings. A reduced nested GPU control still distinguishes working CDP capture from a native screenshot request that receives no answer. No direct GPU/login-desktop qualification is claimed.
+
+## Scrutiny correction
+
+The [follow-up audit](../evidence/2026-11-15-audit/README.md) found upstream #1544 already documented the empty-host-seat keyboard setup. The current same-series checked artifact passes with that setup and fails in the explicitly retained negative control; the local driver is fixed. The broad direct-remote question was withdrawn after reading existing GPU virtual-output/recorder interfaces. Domicile already runs directly on both hosts; our diagnostic harness must not be mistaken for their architecture. Four upstream reports remain open after six corrected bodies/comments.

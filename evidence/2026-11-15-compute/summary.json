@@ -38,7 +38,7 @@
     ],
     "paidFallbackEnabled": false,
     "billingChanges": false,
-    "openrouterReportedCostFields": 39,
+    "openrouterReportedCostFields": 40,
     "openrouterAllReportedCostsZero": true,
     "unlistedSelector": "Groq llama-3.3-70b-versatile was absent; stale selector removed and live catalogue check added"
   },
@@ -638,5 +638,32 @@
       },
       "reportedUsage": {}
     }
-  ]
+  ],
+  "invocationReconciliation": {
+    "logicalTaskIds": 77,
+    "actualInvocations": 78,
+    "generationInvocations": 77,
+    "admissionOnly": 1,
+    "successfulResponseRoundsWithCounters": 90,
+    "reportedTokenUnits": 389313,
+    "noCounterInvocations": 15,
+    "outcomes": {
+      "answer": 53,
+      "no_final_answer": 10,
+      "deadline_or_transport": 4,
+      "api_refused": 4,
+      "unlisted_selector": 1,
+      "admission_refused": 1,
+      "throttled": 4,
+      "region_refused": 1
+    },
+    "reason": "one earlier no-final Ling invocation was overwritten by another invocation with the same logical task ID; recovered from append-only ledger",
+    "recoveredUsage": {
+      "prompt_tokens": 5330,
+      "completion_tokens": 6500,
+      "total_tokens": 11830,
+      "cost": 0
+    },
+    "scope": "historical normalized taskSummary and pairs retain their logical-ID basis; this correction counts invocations; reasoning is not added twice"
+  }
 }

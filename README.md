@@ -18,15 +18,15 @@ The shell independently arranges the real Explorer, editor and native applicatio
 
 [▶ Watch full-resolution video: native app → editor tab → text tab → desktop pane — 18 seconds](media/native-editor.mp4) · [Screenshot](media/native-editor.png) · [Reproduction and native stdout checks](https://github.com/mecattaf/domicile-code/blob/10354c0/evidence/2026-11-15-native-editor/README.md)
 
-These videos are recordings of the implemented shell on Strix Halo. They use CDP capture from an isolated Domicile GPU session nested in Sway. They demonstrate composition and retained state; they are not performance benchmarks or a direct-login-desktop qualification. No Domicile engine change was needed for these features.
+These videos record the implemented shell on Strix Halo through CDP. Their exact isolated diagnostic setup is retained in the reproduction receipts. They demonstrate composition and retained state; they are not performance benchmarks. No Domicile engine change was needed for these features.
 
-## Direct Domicile, without Sway
+## Direct Domicile validation
 
-The intended deployment runs Domicile directly. The latest main/stable retest at `1557378783d6bf7c94a5c093f3fe42804652a540`, official engine `sa6e192f40495`, passes real Explorer floating/dragging/docking, CLI query agreement and native screenshot capture through Domicile's direct software-headless backend.
+Domicile is the Wayland compositor and daily driver on both the Zenbook and Strix Coordinator. The prototype is a shell for that compositor. Our separate latest main/stable retest at `1557378783d6bf7c94a5c093f3fe42804652a540`, official engine `sa6e192f40495`, passes real Explorer floating/dragging/docking, CLI query agreement and native screenshot capture through Domicile's direct software-headless backend.
 
 ![The same Explorer decomposition on direct headless Domicile](media/direct-domicile.png)
 
-[Read the direct retest and exact limits](https://github.com/mecattaf/domicile-code/blob/10354c0/evidence/2026-11-15-direct/README.md). Direct DRM/GPU operation, EIS end-to-end, hardware encoding and a complete IDE remain unqualified. CDP is an acceptable observation/recording path for this experiment; native screenshot and ScreenCast/PipeWire interfaces are documented separately in the evidence.
+[Read the direct retest and exact limits](https://github.com/mecattaf/domicile-code/blob/10354c0/evidence/2026-11-15-direct/README.md). Those isolated tests did not measure the hosts’ normal direct DRM/GPU sessions, EIS end-to-end or hardware encoding. A complete IDE remains beyond this spike. CDP is an acceptable observation/recording path for this experiment; native screenshot and ScreenCast/PipeWire interfaces are documented separately in the evidence.
 
 ## Why this is a shell
 
