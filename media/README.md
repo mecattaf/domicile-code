@@ -1,0 +1,1 @@
+These files are byte-identical presentations of the checked evidence in commit 10354c0. The full source, reproduction and video finalization receipts are linked from the repository README. The GIF is the 8 fps, 800-pixel-wide presentation of the checked native-editor MP4.

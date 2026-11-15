@@ -2,39 +2,41 @@
 
 A bounded experiment in making a real VS Code workbench into a [Domicile](https://github.com/cprussin/domicile) desktop shell.
 
-The architectural ambition is a maximalist workbench shell: the sidebar, editor, panels and native applications occupy independently arranged desktop regions. The first spike establishes that composition and a repeatable agent build loop through one coherent demonstration. It does not attempt to complete a general-purpose IDE or desktop.
+The shell independently arranges the real Explorer, editor and native application surfaces. A working prototype and checked demonstrations are available in [draft PR #1](https://github.com/mecattaf/domicile-code/pull/1). The implementation remains on its [build branch](https://github.com/mecattaf/domicile-code/tree/build/free-compute-spike-20261114); this landing page presents the implemented behaviors and their limits.
 
-**Current state: scoped, with source research. No shell implementation or demonstration has been completed.**
+## What Domicile can do when VS Code is its shell
 
-## The experiment
+**Detach the real Explorer.** Move VS Code's actual sidebar Part out of the workbench grid, float it over a live native application, open another file, then dock the same Part. The editor model, selection and native process survive the layout changes. One workbench service graph owns the parts.
 
-The experiment will run its graphical session on an AMD Strix Halo machine. A person will view and control that session from a Zenbook. Codex or Claude Code will observe and act on the same desktop, check the visible effects of its changes, and produce reproducible video evidence.
+[![The real VS Code Explorer floating over a native Wayland application](media/explorer-floating.png)](media/explorer-floating.mp4)
 
-The first outcome is a real workbench editor and navigational part arranged separately by the shell beside a native application, with retained state and a recording that another run can reproduce. The exact integration choice remains open between a Parts-hosting library with a matching server and a controlled adaptation of the workbench.
+[▶ Watch: detach, drag, open a file and dock — 18 seconds](media/explorer-floating.mp4) · [Reproduction and identity checks](https://github.com/mecattaf/domicile-code/blob/10354c0/evidence/2026-11-14-floating/README.md)
 
-The useful result is a small implementation with clear evidence: what worked, what failed, which existing mechanisms were sufficient, and which reusable Domicile improvements the experiment actually justifies.
+**Put a running native application in an editor tab.** A real Wayland dialog becomes a VS Code editor Pane. It accepts keyboard input, parks while a text tab is active, reappears with its state, and returns to its desktop pane when the editor closes. The same `<app>` element and native client remain alive throughout.
 
-## Reading order
+[![Animated preview: a native Wayland application moving into a VS Code editor tab and back](media/native-editor.gif)](media/native-editor.mp4)
 
-- [Scope and acceptance](SCOPE.md): the bounded outcome and what would prove it.
-- [Build and demonstration loop](docs/build-loop.md): how a coding agent works against the real desktop and records evidence.
-- [Domicile integration and upstream questions](docs/upstream.md): current capabilities, unqualified seams and the evidence required before requesting changes.
-- [Sources](docs/sources.md): primary references and revision boundaries.
+[▶ Watch full-resolution video: native app → editor tab → text tab → desktop pane — 18 seconds](media/native-editor.mp4) · [Screenshot](media/native-editor.png) · [Reproduction and native stdout checks](https://github.com/mecattaf/domicile-code/blob/10354c0/evidence/2026-11-15-native-editor/README.md)
+
+These videos are recordings of the implemented shell on Strix Halo. They use CDP capture from an isolated Domicile GPU session nested in Sway. They demonstrate composition and retained state; they are not performance benchmarks or a direct-login-desktop qualification. No Domicile engine change was needed for these features.
+
+## Direct Domicile, without Sway
+
+The intended deployment runs Domicile directly. The latest main/stable retest at `1557378783d6bf7c94a5c093f3fe42804652a540`, official engine `sa6e192f40495`, passes real Explorer floating/dragging/docking, CLI query agreement and native screenshot capture through Domicile's direct software-headless backend.
+
+![The same Explorer decomposition on direct headless Domicile](media/direct-domicile.png)
+
+[Read the direct retest and exact limits](https://github.com/mecattaf/domicile-code/blob/10354c0/evidence/2026-11-15-direct/README.md). Direct DRM/GPU operation, EIS end-to-end, hardware encoding and a complete IDE remain unqualified. CDP is an acceptable observation/recording path for this experiment; native screenshot and ScreenCast/PipeWire interfaces are documented separately in the evidence.
 
 ## Why this is a shell
 
-Domicile's shell document can embed native application and browser surfaces. VS Code's workbench supplies application composition and services. The experiment joins those responsibilities: the shell arranges real Parts and native surfaces while preserving each component's state and identity.
+Domicile's shell document embeds native application and browser surfaces. VS Code supplies its workbench Parts and services. The experiment joins those responsibilities: a shell arranges actual Parts and native surfaces while preserving their state and identity. It uses monaco-vscode-api's Parts-hosting seam, one service graph and a small in-memory file fixture.
 
-Running an intact editor page in a desktop window is a useful reference, but the composition check requires the workbench's Parts to be independently arranged. Sharing Domicile's Chromium with an Electron app is a separate capability from this integration.
+## Reproduce and contribute upstream
 
-## Working with Domicile
+- [Run the prototype](https://github.com/mecattaf/domicile-code/blob/10354c0/docs/run-prototype.md), [build status](https://github.com/mecattaf/domicile-code/blob/10354c0/docs/build-status.md) and [proof receipts](https://github.com/mecattaf/domicile-code/blob/10354c0/PROVE.md).
+- [Scope and acceptance](SCOPE.md) and [current specification](https://github.com/mecattaf/domicile-code/blob/10354c0/SPEC.md).
+- [Upstream findings and contribution index](https://github.com/mecattaf/domicile-code/blob/build/free-compute-spike-20261114/docs/upstream.md): minimal reproductions, exact engine pins, working controls and reusable contract questions.
+- [Sources](https://github.com/mecattaf/domicile-code/blob/10354c0/docs/sources.md) and [the domicile-handoff precedent](https://github.com/mecattaf/domicile-handoff).
 
-This repository is intended for discussion and collaboration with Domicile's maintainers. A native capability request should explain the concrete behavior, the existing interface used, the observed failure and why the improvement would help other shells or desktop applications. Workbench-specific integration stays here.
-
-The current [upstream notes](docs/upstream.md) are research questions and candidate improvements. They are not confirmed defects, filed issues or commitments from the maintainers.
-
-## Public demonstrations
-
-Short clips should show one implemented behavior with enough setup and source identity to reproduce it. The same evidence can support an upstream issue, a social post, a Hacker News demonstration or a technical write-up. A selected clip is a demonstration of that behavior, not a general performance or reliability benchmark.
-
-The [domicile-handoff](https://github.com/mecattaf/domicile-handoff) library is the precedent for source-backed scoping. This experiment reuses its evidence discipline with a smaller scope and more attention to the build and demonstration mechanics.
+The useful result is a small implementation with honest evidence: what works, what fails, which existing mechanisms are sufficient, and which Domicile improvements would help other shells too. Host filesystem access, Node extensions, PTYs, Git/debugging, arbitrary native applications and broad desktop reliability are further work. A complete general-purpose IDE is outside this first spike.
