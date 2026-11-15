@@ -1,6 +1,6 @@
 # Domicile integration and upstream questions
 
-This is the maintainer-facing rationale for investigation. The [minimal native-capture packet](../repros/capture/README.md) reproduces a capture-path difference without VS Code dependencies. The [worker and isolation packet](../repros/isolation/README.md) compares actual script delivery and shared memory against a working browser control. The [prebuilt classification packet](../repros/import-classification/README.md) measures a documented scanner limitation and proposes an explicit loading contract. Other entries below remain integration questions. No upstream issue or message has been sent. The source baseline is [pinned here](sources.md).
+This is the maintainer-facing rationale for investigation. The [minimal native-capture packet](../repros/capture/README.md) reproduces a capture-path difference without VS Code dependencies. The [worker and isolation packet](../repros/isolation/README.md) compares actual script delivery and shared memory against a working browser control. The [prebuilt classification packet](../repros/import-classification/README.md) measures a documented scanner limitation and proposes an explicit loading contract. The [nested keyboard comparison](../repros/key-delivery/README.md) retains a working stable logical-chord control and a checked-build focus abort. Other entries below remain integration questions. No upstream issue or message has been sent. The source baseline is [pinned here](sources.md).
 
 ## What belongs upstream
 
@@ -61,3 +61,9 @@ Before asking for a native change, establish what the existing interface can alr
 ## Format for a future upstream report
 
 State the behavior and its reusable value, followed by the pinned environment, minimal steps, expected/observed result, evidence and the smallest proposed contract change. Include what existing API was tried. Keep a confirmed defect, an integration question and a design proposal visibly distinct.
+
+## Upstream refresh during the run
+
+Main advanced from `d2a68f5` to `c029ccfc91460147b5457b566bcc66187ebfd8bc` while stable remained `8115d93`. The newer source adds command discovery/replies, input listing, subscriptions and direct window commands, alongside Electron work. These are existing upstream mechanisms to use rather than request again. The Code shell now exercises the read-only `get-workbench` reply through that new contract. Native mutations still use the shared viewer lease.
+
+The newer main binary and published engine were built on the compute host. The native-tab demonstration remains pinned to its earlier measured runtime; the query and repeated keyboard comparison identify the newer runtime separately. No claim that every earlier platform finding was remeasured on the newer engine is implied.

@@ -22,6 +22,9 @@ The first supervised implementation run began 14 November 2026 at 20:30 UTC, wit
 - A fresh public GitHub clone at `e50f241` independently passes installation, checking, default builds and native-editor behavior through the foreground GPU launcher. Its browser reference and experimental language lane also pass, and the actual Zenbook viewer repeats against the fresh artifact. [Reproduction receipts](../evidence/2026-11-15-reproduction/README.md).
 - The [free-worker audit](free-compute.md) distinguishes task admission, returned answers, accepted changes and missing capacity. Account balances, keys and raw receipts remain private.
 
+- The newer upstream main `c029ccf` builds against its published engine and passes the native editor lifecycle. The optional read-only `get-workbench` CLI query agrees with observed state and registers no key grabs; the earlier runtime reports `unsupported`. [Query and lifetime receipts](../evidence/2026-11-15-state-query/README.md).
+- The [separate Wayland keyboard comparison](../repros/key-delivery/README.md) delivers logical chords on official stable, while both checked series abort on an initially inputless nested host. This does not qualify physical Zenbook shortcuts. [Input-path boundaries](shortcut-paths.md).
+
 ## Runtime revision boundary
 
 - Domicile checkout: `d2a68f5d2d789f1f559ee1c76974df3b3f562f5c`.

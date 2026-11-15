@@ -1,0 +1,22 @@
+{
+  "revision": "latest-c029ccf+final-driver",
+  "result": "fail",
+  "method": "fresh isolated launcher, no workbench or native application, logical Wayland chords from wtype",
+  "source": {
+    "sceneId": "88464dc8-07d3-4269-b3e3-f5e87547230f",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "targetId": "34737CC99B172098B515FD4C2F0C4CAA",
+    "output": "domicile-0",
+    "serverId": "0230ba4b-fb25-4c1b-af35-0a236b0f9f97",
+    "owner": null
+  },
+  "senderReturnCode": 1,
+  "launcherReturnCode": 0,
+  "fatalLines": [
+    "[34:34:1115/022838.136886:FATAL:ui/ozone/platform/wayland/host/wayland_event_source.cc:236] Check failed: window == window_manager_->GetCurrentKeyboardFocusedWindow() (0x3a5c006d8b00 vs. (nil)). "
+  ]
+}

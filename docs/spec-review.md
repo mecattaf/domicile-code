@@ -31,3 +31,13 @@ Three independent free API tasks inspected the final checkpoint on 15 November 2
 | P3.4 and P4.1–P4.3 remain pending. | Correct at review time. Public-artifact and free-compute audits must append their own receipts; source review alone cannot close them. |
 
 The falsity reader found no source-backed contradiction among the tested claims. That conclusion does not turn pending audits or broader untested schedules into passes. The specification remains proposed and the PR remains a draft.
+
+## Review after command replies and the keyboard reduction
+
+The final source pass used the same three free roles: Qwen 27B for runtime lifetime/isolation, Nemotron Ultra for numbered-claim falsity, and Flash-Lite for evidence consistency. A bounded Qwen trace retry and a Cohere R+ trace were retained when the architecture response was unusable. These were free API attempts, not additional subscription agents.
+
+The architecture worker emitted pseudo Bash calls instead of a review; no proposed command was executed. Its narrower retry gave an incorrect asynchronous trace. Cohere got the stopped state and read-only behavior but gave the wrong release count and reader-lock state. Both were rejected against the executable lifetime checks, which establish one release and an unlocked reader when stopped before registration resolves. This pass supplied no accepted source-backed lifetime defect.
+
+The falsity reader again counted preserved historical pending rows as false, then contradicted itself by listing their later passing rows. That classification was rejected. The consistency reader mostly restated limits already explicit in the docs; a new build-status summary of the actual keyboard comparison was useful, while hypothetical claims of uniform physical input, capture or mutation support were absent from the source.
+
+The supervising audit found two issues independently: a comparison receipt could be replaced when an earlier failure never created its run directory, and the first query check compared two empty native states during fixture startup. The driver now reserves receipts atomically, with a refusal check preserving the previous hash. The query check now admits the actual live native PID before comparing identity. Its first empty-state receipt remains as partial evidence; the repeated live-fixture check passes. Existing tests plus actual runtime readback, rather than model agreement, establish the checkpoint.

@@ -1,5 +1,6 @@
 import type { Shell as ShellModule, Domicile } from "@domicile-desktop/sdk/shell";
 import { mountWorkbench } from "./workbench";
+import { startStateQuery } from "./state-query";
 import "./style.css";
 
 type ClientWindow = Domicile['windows']['list'][number] & { toplevelId?: string };
@@ -14,6 +15,7 @@ const sentBounds = new Map<string, string>();
 let nativeEditorAppId: string | undefined;
 let nativePlacement: 'pane' | 'editor' | 'parked' = 'pane';
 let nativeMountGeneration = 0;
+let stateQuery: ReturnType<typeof startStateQuery> | undefined;
 
 function showVisibleError(message: string, error: unknown): void {
   console.error(message, error);
@@ -237,6 +239,8 @@ function setupWindowSelect(domicile: Domicile): void {
 }
 
 async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
+  stateQuery?.stop();
+  stateQuery = undefined;
   delete (window as any).domicileCodeProof;
   document.querySelectorAll('.shell-startup-error').forEach(element => element.remove());
   const sceneId = crypto.randomUUID();
@@ -281,6 +285,7 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
     snapshot: () => ({
       sceneId,
       mode: "shell" as const,
+      commandQuery: stateQuery?.status() ?? { state: "starting" },
       outputs: domicile.displays.list ?? null,
       workbench: workbenchController?.snapshot() ?? null,
       native: currentAppId ? {
@@ -298,6 +303,8 @@ async function start(root: HTMLElement, domicile: Domicile): Promise<void> {
     setSidebarFloating: workbenchController.setSidebarFloating,
     inspectExtensions: workbenchController.inspectExtensions
   };
+  stateQuery = startStateQuery(domicile.shell, () => (window as any).domicileCodeProof.snapshot());
+  window.addEventListener("pagehide", () => stateQuery?.stop(), { once: true });
 }
 
 export const Shell: ShellModule = (root, domicile) => {

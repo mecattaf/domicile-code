@@ -10,7 +10,7 @@
 | Shared session | The same GPU-backed source is viewed and controlled through the prototype viewer from the actual Zenbook. Reconnection and input takeover are exercised. |
 | Host filesystem | No general host-workspace provider has been qualified. The fixture filesystem is explicit. |
 | Node extensions and language servers | No matching remote extension host has been selected or exercised. |
-| Git, debugger and terminal | Unqualified. The hidden panel is not a functioning terminal and no echo widget is presented as a PTY. |
+| Git, debugger and terminal | Unqualified. Panel mounting is not a functioning terminal and no echo widget is presented as a PTY. |
 | Marketplace | No gallery is configured or compatibility claimed. |
 | IME and arbitrary native text injection | Unqualified by this spike. The fixture input check exercises an explicit US-layout subset. |
 

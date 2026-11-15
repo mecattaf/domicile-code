@@ -38,6 +38,10 @@ Use the endpoint and target from that run's `run.json`, rather than another desk
 
 To reproduce the small native capture comparison, use `--shell-dir "$PWD/repros/capture" --capture-repro --seconds 1` with a new run directory. The measurement writes both capture results, even when the built-in path fails. The expected and measured differences are in the [upstream packet](../repros/capture/README.md).
 
+## Read-only shell state on newer engines
+
+Engines with the new shell-command answer API advertise `get-workbench`. Run `domicile list-shell-commands --json`, then `domicile send-shell get-workbench` against that desktop's explicit private IPC environment. Its JSON describes the actual fixture and layout. Older engines report the capability as `unsupported`; the graphical shell still runs. The query grabs no keys and accepts no mutations. Add `--check-shell-query` to the launcher for a bounded live discovery/query/refusal check through its owned CLI and viewer.
+
 ## Native editor tabs
 
 Click **Open as editor** in the native pane header. The actual VS Code editor tab hosts the same native element. Switch to `hello.ts` to park it, return to the native tab, or close that tab to return the running application to the pane. The header's **Return to pane** does the same. Native client exit closes the associated editor. Only one native editor and a single editor group are qualified by this spike.

@@ -66,6 +66,8 @@ C5.2 A capability needs a development backend → it is described as unavailable
 C5.3 (tree) The reference entry runs in an ordinary browser → it labels native application composition unavailable and exposes no privileged desktop API. [prove: P5.3]
 C5.4 The experimental browser language lane starts with its required isolated worker context → the actual TypeScript extension reports the fixture's assignment error, and a keyboard correction clears it without implying native-shell language support. [prove: P5.4]
 
+C5.5 An engine exposes the command-answer API → the shell advertises a read-only get-workbench query whose JSON agrees with observed state; the tested earlier engine reports unsupported and the query registers no key grabs or mutation commands. [prove: P5.5]
+
 ## Open questions
 
 Q1 Which transport supplies the desired longer-term latency and full keyboard coverage? default: retain the verified browser prototype while Sunshine/Moonlight and physical keyboard behavior are qualified separately (GUESS)

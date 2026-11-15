@@ -29,6 +29,7 @@ def arguments():
     p.add_argument('--width', type=int, default=1440)
     p.add_argument('--height', type=int, default=900)
     p.add_argument('--seconds', type=int, default=0, help='Stop after this many ready seconds; 0 waits for Ctrl-C')
+    p.add_argument('--check-shell-query', action='store_true', help='Check the new read-only shell query through the owned CLI and viewer')
     p.add_argument('--capture-repro', action='store_true', help='Measure both capture paths on the minimal repro shell')
     p.add_argument('--no-fixture', action='store_true', help='Start without the optional native entry fixture')
     p.add_argument('--display-source', choices=['cli', 'sdk'], default='cli', help='Use sdk explicitly for older runtimes without list-displays')
@@ -51,6 +52,8 @@ def main():
         raise RuntimeError('Invalid ports or prototype geometry')
     if not 0 <= args.seconds <= 21600:
         raise RuntimeError('Duration must be between zero and six hours')
+    if args.no_fixture and args.check_shell_query:
+        raise RuntimeError('The live query/native-identity check requires its fixture')
     if args.no_fixture and args.capture_repro:
         raise RuntimeError('The native capture comparison requires its fixture')
     shell_dir = Path(args.shell_dir).resolve()
@@ -235,6 +238,15 @@ def main():
                       targetId=target, viewer=viewer_url, source=source, privateWaylandDisplay=display, privateCompositorSocket=ipc)
         save()
         print(json.dumps({'result': 'ready', 'run': str(run / 'run.json'), 'viewer': viewer_url, 'source': source}), flush=True)
+        if args.check_shell_query:
+            query = subprocess.run([args.node, 'scripts/check-state-query-live.mjs', '--endpoint', endpoint,
+                '--target', target, '--url', viewer_url, '--domicile', args.domicile, '--socket', ipc,
+                '--out', str(run / 'shell-query-check'), '--revision', 'selected-built-shell:' + status['shellSha256']],
+                cwd=REPO, env=app_env, capture_output=True, text=True, timeout=55)
+            (run / 'shell-query.stdout.txt').write_text(query.stdout)
+            (run / 'shell-query.stderr.txt').write_text(query.stderr)
+            if query.returncode:
+                raise RuntimeError('Shell query check failed; retain its receipt and stdout/stderr')
         if args.capture_repro:
             capture = subprocess.run([args.node, 'scripts/check-capture.mjs', '--endpoint', endpoint, '--target', target,
                                       '--domicile', args.domicile, '--out', str(run / 'capture')], cwd=REPO,

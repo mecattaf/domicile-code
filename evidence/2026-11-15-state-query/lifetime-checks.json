@@ -1,0 +1,1 @@
+{"result":"pass","checks":["older runtime capability refusal","stop before registration releases exactly once","read-only state reply and extra-argument refusal","reader lock release","registration failure is visible","answer refusal stops and releases the reader"]}

@@ -1,6 +1,6 @@
 # PROVE
 
-Receipts for SPEC.md. Append reruns; preserve failed receipts. A pending row states a requirement, not an implemented capability.
+**Read the latest executed row for each proof ID.** The initial pending rows and failed attempts are preserved history, not current status. Receipts for SPEC.md. Append reruns; preserve failed receipts. A pending row states a requirement, not an implemented capability.
 
 | id | claim | task | form | command | rc | result | evidence | commit | at |
 |---|---|---|---|---|---|---|---|---|---|
@@ -88,3 +88,11 @@ Receipts for SPEC.md. Append reruns; preserve failed receipts. A pending row sta
 | P4.1 | C4.1 | worker dispatch audit | local | review controller routes, task ledger and returned cost fields | 0 | pass | docs/free-compute.md and evidence/2026-11-15-compute/summary.json; zero extra subscription workers, paid fallback disabled, 35 reported OpenRouter costs zero | e50f241 + reports | 2026-11-15T01:00Z |
 | P4.2 | C4.2 | refusal audit | local | inspect timeouts, 429, region refusal and stale selector receipts | 0 | pass | same summary; refusals retained, no purchase, region bypass or paid fallback; absent selector removed | e50f241 + reports | 2026-11-15T01:00Z |
 | P4.3 | C4.3 | compute usefulness audit | local | normalized per-task private ledger and sanitized pair summary | 0 | pass | exact provider/model, priors, elapsed, returned counters and reviewed usefulness recorded separately; account allowances remain private | e50f241 + reports | 2026-11-15T01:00Z |
+
+| P5.5 | C5.5 | live read-only shell query | live | run-prototype --check-shell-query; check-state-query-live | 0 | pass | evidence/2026-11-15-state-query/receipt.json; discovery, no grabs, exact state, refusal and independent layout readback | 68508f3 + state-query | 2026-11-15T01:33Z |
+| P5.1 | C5.1 | nested Wayland keyboard packet | live | isolated run.py against stable and two checked series | measured difference | pass | repros/key-delivery/README.md; repeated stable logical controls pass, checked builds abort on plain A; physical-code assumption failure retained | 68508f3 + key probe | 2026-11-15T01:28Z |
+
+| P5.5 | C5.5 | query native-fixture admission | live | repeat query check after requiring a connected native PID | 0 | pass | state-query/receipt.json; initial-empty-query.json retained as partial coverage; actual CLI/observation PID and layout now compared | 68508f3 + fixture admission | 2026-11-15T01:55Z |
+| P5.5 | C5.5 | earlier engine and lifetime failures | local/live | actual unsupported runtime observation and focused stream checks | 0 | pass | older-runtime.json and lifetime-checks.json; no old API call, one release, unlocked reader, visible registration/answer errors | 68508f3 + state-query | 2026-11-15T01:47Z |
+| P1.7 | C1.7 | newer engine regression | live | complete check-native-editor against c029ccf | 0 | pass | state-query/newer-native-editor.json; real native Pane/input, parking, tab/client closure all pass | c029ccf runtime + query build | 2026-11-15T01:38Z |
+| P4.4 | C4.4 | final revised-source review | local | three free review roles plus bounded trace retries and supervisor disposition | completed with rejected findings | pass | docs/spec-review.md; unusable/incorrect model outputs retained; lifetime/runtime proof supplied independently | 68508f3 + final sources | 2026-11-15T01:47Z |
